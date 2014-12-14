@@ -31,6 +31,10 @@
     CGFloat maxBet;
     CGFloat minBet;
     CGFloat win;
+    
+    BOOL isHold;
+    
+    NSTimer *timer;
 }
 
 
@@ -106,7 +110,10 @@
     UIButton *btnBet = [UIButton buttonWithType:UIButtonTypeCustom];
     [btnBet setImage:imgBet forState:UIControlStateNormal];
     [btnBet setNewFrame:CGRectMake(233, 289, imgBet.size.width, imgBet.size.height)];
-    [btnBet addTarget:self action:@selector(increaseBet) forControlEvents:UIControlEventTouchUpInside];
+    [btnBet addTarget:self action:@selector(touchUpInSide) forControlEvents:UIControlEventTouchUpInside];
+    [btnBet addTarget:self action:@selector(touchDown) forControlEvents:UIControlEventTouchDown];
+    [btnBet addTarget:self action:@selector(touchUpOutSide) forControlEvents:UIControlEventTouchUpOutside];
+    
     [self.view addSubview:btnBet];
     
     UIImage *imgMaxBet = [UIImage imageNamed:@"btnMaxBet"];
@@ -187,6 +194,7 @@
     [lblWin sizeToFit];
     [self.view addSubview:lblWin];
     
+    timer = [NSTimer scheduledTimerWithTimeInterval:1   target:self selector:@selector(increaseBet) userInfo:nil repeats:YES];
 }
 
 - (void)viewWillLayoutSubviews {
@@ -248,6 +256,25 @@
 
 - (void)increaseBet {
     
+    if (isHold) {
+        bet = bet + minBet;
+        
+        if (bet > maxBet) {
+            bet = minBet;
+        }
+        
+        lblBet.text = [NSString stringWithFormat:@"%0.2f", bet];
+        lblMaxBet.text = [NSString stringWithFormat:@"%0.2f", bet];
+        [lblBet sizeToFit];
+    }
+}
+
+- (void)touchDown {
+    isHold = TRUE;
+}
+
+- (void)touchUpInSide {
+    isHold = FALSE;
     bet = bet + minBet;
     
     if (bet > maxBet) {
@@ -257,6 +284,11 @@
     lblBet.text = [NSString stringWithFormat:@"%0.2f", bet];
     lblMaxBet.text = [NSString stringWithFormat:@"%0.2f", bet];
     [lblBet sizeToFit];
+    
+}
+
+- (void)touchUpOutSide {
+    isHold = FALSE;
 }
 
 - (void)setMaxBet {

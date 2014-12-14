@@ -50,6 +50,13 @@
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    
+    for (LCVeticalCell *cell in arrVerticalCell) {
+        if (cell.currentState != State_Idle) {
+            return;
+        }
+    }
+    
     for (UITouch *touch in touches) {
         locationBegin  = [touch locationInNode:self];
         _lastTouch = [event timestamp];
@@ -58,6 +65,12 @@
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
     
+    for (LCVeticalCell *cell in arrVerticalCell) {
+        if (cell.currentState != State_Idle) {
+            return;
+        }
+    }
+
     if (_isAuto) {
         return;
     }
@@ -83,6 +96,13 @@
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+    
+    for (LCVeticalCell *cell in arrVerticalCell) {
+        if (cell.currentState != State_Idle) {
+            return;
+        }
+    }
+    
     CGPoint locationEnd;
     LCVeticalCell *cell = arrVerticalCell[index];
     
@@ -103,7 +123,6 @@
     CGFloat distance = locationEnd.y - locationBegin.y;
     
     CGFloat vRote = distance/touchBeginEndInterval/2;
-    NSLog(@"%f", vRote);
     
     if (vRote < -900) {
         vRote = - 900;
