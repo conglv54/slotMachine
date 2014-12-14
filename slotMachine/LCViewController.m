@@ -29,6 +29,7 @@
     
     CGFloat bet;
     CGFloat maxBet;
+    CGFloat minBet;
     CGFloat win;
 }
 
@@ -37,8 +38,10 @@
 {
     [super viewDidLoad];
 
-    bet = 10;
     maxBet = 90;
+    minBet = 10;
+    
+    bet = 0;
     win = 0;
     
     UIImage *imgBg = [UIImage imageNamed:@"bg"];
@@ -110,6 +113,7 @@
     UIButton *btnMaxBet = [UIButton buttonWithType:UIButtonTypeCustom];
     [btnMaxBet setImage:imgMaxBet forState:UIControlStateNormal];
     [btnMaxBet setNewFrame:CGRectMake(290, 289, imgMaxBet.size.width, imgMaxBet.size.height)];
+    [btnMaxBet addTarget:self action:@selector(setMaxBet) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btnMaxBet];
     
     UIImage *imgSpin = [UIImage imageNamed:@"btnSpin"];
@@ -154,7 +158,7 @@
     
     lblBet = [[UILabel alloc] init];
     [lblBet setNewFrame:CGRectMake(242, 268, 0, 0)];
-    lblBet.text = [NSString stringWithFormat:@"%0.2f", bet];
+    lblBet.text = [NSString stringWithFormat:@"%0.2f", minBet];
     lblBet.textColor = [UIColor whiteColor];
     lblBet.font = [UIFont fontWithName:@"ArialRoundedMTBold" size:10];
     [lblBet sizeToFit];
@@ -169,7 +173,7 @@
     
     lblMaxBet = [[UILabel alloc] init];
     [lblMaxBet setNewFrame:CGRectMake(350, 268, 0, 0)];
-    lblMaxBet.text = [NSString stringWithFormat:@"%0.2f", maxBet];
+    lblMaxBet.text = [NSString stringWithFormat:@"%0.2f", minBet];
     lblMaxBet.textColor = [UIColor redColor];
     lblMaxBet.font = [UIFont fontWithName:@"ArialRoundedMTBold" size:10];
     [lblMaxBet sizeToFit];
@@ -243,14 +247,22 @@
 }
 
 - (void)increaseBet {
-    if (bet >= maxBet) {
-        return;
+    
+    bet = bet + minBet;
+    
+    if (bet > maxBet) {
+        bet = minBet;
     }
     
-    bet = bet + 10;
-    
     lblBet.text = [NSString stringWithFormat:@"%0.2f", bet];
+    lblMaxBet.text = [NSString stringWithFormat:@"%0.2f", bet];
     [lblBet sizeToFit];
+}
+
+- (void)setMaxBet {
+    bet = 0;
+    lblBet.text = [NSString stringWithFormat:@"%0.2f", maxBet];
+    lblMaxBet.text = [NSString stringWithFormat:@"%0.2f", maxBet];
 }
 
 - (BOOL)shouldAutorotate
