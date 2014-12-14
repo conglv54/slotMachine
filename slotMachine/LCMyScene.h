@@ -10,4 +10,10 @@
 
 @interface LCMyScene : SKScene
 
+@property (nonatomic) BOOL isAuto;
+@property (nonatomic) BOOL isRote;
+
+@property (nonatomic) int timerCount;
+- (void)start;
+
 @end
