@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		05267D99D1C383FD5F80E314 /* libPods-slotMachine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A4A3BB5C60432F0DD3C6DCE /* libPods-slotMachine.a */; };
+		587A71AA1A432B09008283CD /* LCBaseTaskNetWork.m in Sources */ = {isa = PBXBuildFile; fileRef = 587A71A91A432B09008283CD /* LCBaseTaskNetWork.m */; };
+		587A71AD1A4334BD008283CD /* LCCheckVersionTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 587A71AC1A4334BD008283CD /* LCCheckVersionTask.m */; };
+		587A71B01A433547008283CD /* LCSplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 587A71AF1A433547008283CD /* LCSplashViewController.m */; };
+		587A71B31A4338D9008283CD /* LCNetworkConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 587A71B21A4338D9008283CD /* LCNetworkConfig.m */; };
+		587A71B61A433BD4008283CD /* LCRegisterTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 587A71B51A433BD4008283CD /* LCRegisterTask.m */; };
+		587A71B91A433C37008283CD /* LCGetFreeCoin.m in Sources */ = {isa = PBXBuildFile; fileRef = 587A71B81A433C37008283CD /* LCGetFreeCoin.m */; };
+		587A71BC1A433CCC008283CD /* LCPurChaseTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 587A71BB1A433CCC008283CD /* LCPurChaseTask.m */; };
+		587A71BF1A433DB8008283CD /* LCGetHistoryTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 587A71BE1A433DB8008283CD /* LCGetHistoryTask.m */; };
+		587A71C21A433E01008283CD /* LCGetUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 587A71C11A433E01008283CD /* LCGetUserInfo.m */; };
+		587A71C51A433E1D008283CD /* LCDoSpin.m in Sources */ = {isa = PBXBuildFile; fileRef = 587A71C41A433E1D008283CD /* LCDoSpin.m */; };
+		587A71C81A4349C8008283CD /* LCDownloadTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 587A71C71A4349C8008283CD /* LCDownloadTask.m */; };
 		58BA6DD61A3D3A0B005E9F3B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58BA6DD51A3D3A0B005E9F3B /* Foundation.framework */; };
 		58BA6DD81A3D3A0B005E9F3B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58BA6DD71A3D3A0B005E9F3B /* CoreGraphics.framework */; };
 		58BA6DDA1A3D3A0B005E9F3B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58BA6DD91A3D3A0B005E9F3B /* UIKit.framework */; };
@@ -79,6 +91,30 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		07477775B03E16551E79F41B /* Pods-slotMachine.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-slotMachine.debug.xcconfig"; path = "Pods/Target Support Files/Pods-slotMachine/Pods-slotMachine.debug.xcconfig"; sourceTree = "<group>"; };
+		4A4A3BB5C60432F0DD3C6DCE /* libPods-slotMachine.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-slotMachine.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		587A71A81A432B09008283CD /* LCBaseTaskNetWork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCBaseTaskNetWork.h; sourceTree = "<group>"; };
+		587A71A91A432B09008283CD /* LCBaseTaskNetWork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCBaseTaskNetWork.m; sourceTree = "<group>"; };
+		587A71AB1A4334BD008283CD /* LCCheckVersionTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCCheckVersionTask.h; sourceTree = "<group>"; };
+		587A71AC1A4334BD008283CD /* LCCheckVersionTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCCheckVersionTask.m; sourceTree = "<group>"; };
+		587A71AE1A433547008283CD /* LCSplashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCSplashViewController.h; sourceTree = "<group>"; };
+		587A71AF1A433547008283CD /* LCSplashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCSplashViewController.m; sourceTree = "<group>"; };
+		587A71B11A4338D9008283CD /* LCNetworkConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCNetworkConfig.h; sourceTree = "<group>"; };
+		587A71B21A4338D9008283CD /* LCNetworkConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCNetworkConfig.m; sourceTree = "<group>"; };
+		587A71B41A433BD4008283CD /* LCRegisterTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCRegisterTask.h; sourceTree = "<group>"; };
+		587A71B51A433BD4008283CD /* LCRegisterTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCRegisterTask.m; sourceTree = "<group>"; };
+		587A71B71A433C37008283CD /* LCGetFreeCoin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCGetFreeCoin.h; sourceTree = "<group>"; };
+		587A71B81A433C37008283CD /* LCGetFreeCoin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCGetFreeCoin.m; sourceTree = "<group>"; };
+		587A71BA1A433CCC008283CD /* LCPurChaseTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCPurChaseTask.h; sourceTree = "<group>"; };
+		587A71BB1A433CCC008283CD /* LCPurChaseTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCPurChaseTask.m; sourceTree = "<group>"; };
+		587A71BD1A433DB8008283CD /* LCGetHistoryTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCGetHistoryTask.h; sourceTree = "<group>"; };
+		587A71BE1A433DB8008283CD /* LCGetHistoryTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCGetHistoryTask.m; sourceTree = "<group>"; };
+		587A71C01A433E01008283CD /* LCGetUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCGetUserInfo.h; sourceTree = "<group>"; };
+		587A71C11A433E01008283CD /* LCGetUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCGetUserInfo.m; sourceTree = "<group>"; };
+		587A71C31A433E1D008283CD /* LCDoSpin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCDoSpin.h; sourceTree = "<group>"; };
+		587A71C41A433E1D008283CD /* LCDoSpin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCDoSpin.m; sourceTree = "<group>"; };
+		587A71C61A4349C8008283CD /* LCDownloadTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCDownloadTask.h; sourceTree = "<group>"; };
+		587A71C71A4349C8008283CD /* LCDownloadTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCDownloadTask.m; sourceTree = "<group>"; };
 		58BA6DD21A3D3A0B005E9F3B /* slotMachine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = slotMachine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58BA6DD51A3D3A0B005E9F3B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		58BA6DD71A3D3A0B005E9F3B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -155,6 +191,7 @@
 		58BA6E4F1A3D3D83005E9F3B /* bgBuyGoldCell@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bgBuyGoldCell@2x.png"; sourceTree = "<group>"; };
 		58BA6E501A3D3D83005E9F3B /* btnBuyGold@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btnBuyGold@2x.png"; sourceTree = "<group>"; };
 		58BA6E511A3D3D83005E9F3B /* icGold@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icGold@2x.png"; sourceTree = "<group>"; };
+		F3D59F15945238A415CB4840 /* Pods-slotMachine.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-slotMachine.release.xcconfig"; path = "Pods/Target Support Files/Pods-slotMachine/Pods-slotMachine.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +203,7 @@
 				58BA6DDA1A3D3A0B005E9F3B /* UIKit.framework in Frameworks */,
 				58BA6DDC1A3D3A0B005E9F3B /* SpriteKit.framework in Frameworks */,
 				58BA6DD61A3D3A0B005E9F3B /* Foundation.framework in Frameworks */,
+				05267D99D1C383FD5F80E314 /* libPods-slotMachine.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -182,6 +220,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		587A71A71A432AEA008283CD /* NetWork */ = {
+			isa = PBXGroup;
+			children = (
+				587A71B11A4338D9008283CD /* LCNetworkConfig.h */,
+				587A71B21A4338D9008283CD /* LCNetworkConfig.m */,
+				587A71A81A432B09008283CD /* LCBaseTaskNetWork.h */,
+				587A71A91A432B09008283CD /* LCBaseTaskNetWork.m */,
+				587A71AB1A4334BD008283CD /* LCCheckVersionTask.h */,
+				587A71AC1A4334BD008283CD /* LCCheckVersionTask.m */,
+				587A71B41A433BD4008283CD /* LCRegisterTask.h */,
+				587A71B51A433BD4008283CD /* LCRegisterTask.m */,
+				587A71B71A433C37008283CD /* LCGetFreeCoin.h */,
+				587A71B81A433C37008283CD /* LCGetFreeCoin.m */,
+				587A71BA1A433CCC008283CD /* LCPurChaseTask.h */,
+				587A71BB1A433CCC008283CD /* LCPurChaseTask.m */,
+				587A71BD1A433DB8008283CD /* LCGetHistoryTask.h */,
+				587A71BE1A433DB8008283CD /* LCGetHistoryTask.m */,
+				587A71C01A433E01008283CD /* LCGetUserInfo.h */,
+				587A71C11A433E01008283CD /* LCGetUserInfo.m */,
+				587A71C31A433E1D008283CD /* LCDoSpin.h */,
+				587A71C41A433E1D008283CD /* LCDoSpin.m */,
+				587A71C61A4349C8008283CD /* LCDownloadTask.h */,
+				587A71C71A4349C8008283CD /* LCDownloadTask.m */,
+			);
+			name = NetWork;
+			sourceTree = "<group>";
+		};
 		58BA6DC91A3D3A0B005E9F3B = {
 			isa = PBXGroup;
 			children = (
@@ -189,6 +254,7 @@
 				58BA6E011A3D3A0C005E9F3B /* slotMachineTests */,
 				58BA6DD41A3D3A0B005E9F3B /* Frameworks */,
 				58BA6DD31A3D3A0B005E9F3B /* Products */,
+				A8EA5BF6F34BAAAA368C51B7 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -209,6 +275,7 @@
 				58BA6DD91A3D3A0B005E9F3B /* UIKit.framework */,
 				58BA6DDB1A3D3A0B005E9F3B /* SpriteKit.framework */,
 				58BA6DFB1A3D3A0C005E9F3B /* XCTest.framework */,
+				4A4A3BB5C60432F0DD3C6DCE /* libPods-slotMachine.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -216,8 +283,11 @@
 		58BA6DDD1A3D3A0B005E9F3B /* slotMachine */ = {
 			isa = PBXGroup;
 			children = (
+				587A71A71A432AEA008283CD /* NetWork */,
 				58BA6DE61A3D3A0B005E9F3B /* LCAppDelegate.h */,
 				58BA6DE71A3D3A0B005E9F3B /* LCAppDelegate.m */,
+				587A71AE1A433547008283CD /* LCSplashViewController.h */,
+				587A71AF1A433547008283CD /* LCSplashViewController.m */,
 				58BA6DE91A3D3A0B005E9F3B /* Main.storyboard */,
 				58BA6DEC1A3D3A0B005E9F3B /* LCViewController.h */,
 				58BA6DED1A3D3A0B005E9F3B /* LCViewController.m */,
@@ -312,6 +382,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		A8EA5BF6F34BAAAA368C51B7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				07477775B03E16551E79F41B /* Pods-slotMachine.debug.xcconfig */,
+				F3D59F15945238A415CB4840 /* Pods-slotMachine.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -319,9 +398,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 58BA6E0B1A3D3A0C005E9F3B /* Build configuration list for PBXNativeTarget "slotMachine" */;
 			buildPhases = (
+				B327329CEBAD4847AB23FCA3 /* Check Pods Manifest.lock */,
 				58BA6DCE1A3D3A0B005E9F3B /* Sources */,
 				58BA6DCF1A3D3A0B005E9F3B /* Frameworks */,
 				58BA6DD01A3D3A0B005E9F3B /* Resources */,
+				7935E616FD8C21475417579A /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -437,6 +518,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		7935E616FD8C21475417579A /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-slotMachine/Pods-slotMachine-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B327329CEBAD4847AB23FCA3 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		58BA6DCE1A3D3A0B005E9F3B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -444,18 +558,29 @@
 			files = (
 				58BA6DE41A3D3A0B005E9F3B /* main.m in Sources */,
 				58BA6DF11A3D3A0B005E9F3B /* LCMyScene.m in Sources */,
+				587A71BF1A433DB8008283CD /* LCGetHistoryTask.m in Sources */,
 				58BA6E2C1A3D3C6D005E9F3B /* BuyGoldTableViewCell.m in Sources */,
+				587A71C21A433E01008283CD /* LCGetUserInfo.m in Sources */,
+				587A71C81A4349C8008283CD /* LCDownloadTask.m in Sources */,
 				58BA6DE81A3D3A0B005E9F3B /* LCAppDelegate.m in Sources */,
 				58BA6E2A1A3D3C6D005E9F3B /* UIBuyGoldVIew.m in Sources */,
+				587A71AA1A432B09008283CD /* LCBaseTaskNetWork.m in Sources */,
 				58BA6E311A3D3C7E005E9F3B /* User.m in Sources */,
+				587A71AD1A4334BD008283CD /* LCCheckVersionTask.m in Sources */,
 				58BA6E1C1A3D3C40005E9F3B /* Utils.m in Sources */,
 				58BA6E2B1A3D3C6D005E9F3B /* UIPayoutView.m in Sources */,
+				587A71B61A433BD4008283CD /* LCRegisterTask.m in Sources */,
+				587A71C51A433E1D008283CD /* LCDoSpin.m in Sources */,
 				58BA6E291A3D3C6D005E9F3B /* UIPopupView.m in Sources */,
 				58BA6E191A3D3B78005E9F3B /* UIView+Frame.m in Sources */,
+				587A71B31A4338D9008283CD /* LCNetworkConfig.m in Sources */,
 				58BA6E181A3D3B78005E9F3B /* SKNode+Frame.m in Sources */,
 				58BA6DEE1A3D3A0B005E9F3B /* LCViewController.m in Sources */,
+				587A71BC1A433CCC008283CD /* LCPurChaseTask.m in Sources */,
 				58BA6E2D1A3D3C6D005E9F3B /* HistoryTableViewCell.m in Sources */,
+				587A71B91A433C37008283CD /* LCGetFreeCoin.m in Sources */,
 				58BA6E131A3D3B62005E9F3B /* LCVeticalCell.m in Sources */,
+				587A71B01A433547008283CD /* LCSplashViewController.m in Sources */,
 				58BA6E2E1A3D3C6D005E9F3B /* UIHistoryView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -578,6 +703,7 @@
 		};
 		58BA6E0C1A3D3A0C005E9F3B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 07477775B03E16551E79F41B /* Pods-slotMachine.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -593,6 +719,7 @@
 		};
 		58BA6E0D1A3D3A0C005E9F3B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F3D59F15945238A415CB4840 /* Pods-slotMachine.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
