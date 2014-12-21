@@ -17,10 +17,6 @@ extern NSString *const METHOD_DELETE;
 
 extern NSString *const DOWNLOAD;
 
-extern NSString *const HOST_URL;
-
-extern NSString *const kSession;
-
 typedef void (^BlockSucess)(id sucess);
 typedef void (^BlockFailure)(id error);
 
@@ -33,6 +29,18 @@ typedef void (^BlockFailure)(id error);
 @property (nonatomic, strong) NSString *URL;
 @property (nonatomic, strong) NSDictionary *parameters;
 
+@property (nonatomic, strong) id dataParse;
+
 - (void)requestWithBlockSucess:(BlockSucess) sucess andBlockFailure:(BlockFailure) failure;
+
+#pragma mark - Method Overide Subclass
+
+- (id)parseDataWithResponse:(id)response;
+
+#pragma mark - Debug
+
+@property (nonatomic) BOOL isDeBug;
+
+- (id)genResponse;
 
 @end

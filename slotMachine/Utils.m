@@ -7,6 +7,7 @@
 //
 
 #import "Utils.h"
+#import <SSKeychain.h>
 
 @implementation Utils
 
@@ -24,4 +25,19 @@
     NSString *numberAsString = [numberFormatter stringFromNumber:[NSNumber numberWithInt:currency]];
     return numberAsString;
 }
+
++ (NSString *)getUniqueDeviceIdentifierAsString {
+    
+    NSString *appName=[[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString*)kCFBundleNameKey];
+    
+    NSString *strApplicationUUID = [SSKeychain passwordForService:appName account:@"congdola"];
+    if (strApplicationUUID == nil)
+    {
+        strApplicationUUID  = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
+        [SSKeychain setPassword:strApplicationUUID forService:appName account:@"congdola"];
+    }
+    
+    return strApplicationUUID;
+}
+
 @end

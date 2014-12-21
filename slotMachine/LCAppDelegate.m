@@ -7,13 +7,65 @@
 //
 
 #import "LCAppDelegate.h"
+#import "LCConstant.h"
 
 @implementation LCAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    
+    [self CopyFile];
+    
+    NSMutableDictionary *dictDefault = [self readDict];
+    BOOL __block isFirstLaunch = [dictDefault[kIsFirstlaunch] boolValue];
+    if (isFirstLaunch) {
+        
+        LCRegisterTask *registerTask = [[LCRegisterTask alloc] initWithDeviceID:[Utils getUniqueDeviceIdentifierAsString]];
+        [registerTask requestWithBlockSucess:^(id sucess) {
+            [self saveDictfile:dictDefault WithBool:isFirstLaunch];
+        } andBlockFailure:^(id error) {
+            
+        }];
+        
+    }
+    
     return YES;
+}
+
+- (void)saveDictfile:(NSMutableDictionary *)dictDefault WithBool:(BOOL)isFirstLaunch {
+    isFirstLaunch = false;
+    [dictDefault setObject:[NSNumber numberWithBool:isFirstLaunch] forKey:kIsFirstlaunch];
+    [dictDefault writeToFile:[self filePath] atomically:YES];
+}
+
+- (NSMutableDictionary *)readDict{
+    NSMutableDictionary *contentDict = [NSMutableDictionary dictionaryWithContentsOfFile:[self filePath]];
+    return contentDict;
+}
+
+- (NSString*)filePath
+{
+    NSArray *Paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *DocumentDir = [Paths objectAtIndex:0];
+    return [DocumentDir stringByAppendingPathComponent:kDefaultFileName];
+}
+
+- (void)CopyFile
+{
+    BOOL success;
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    success = [fileManager fileExistsAtPath:[self filePath]];
+    NSString *BundleFile = [[[NSBundle mainBundle]resourcePath]stringByAppendingPathComponent:kDefaultFileName];
+    if (success)
+    {
+        NSLog(@"File Exist");
+        return;
+    }
+    else
+    {
+        [fileManager copyItemAtPath:BundleFile toPath:[self filePath] error:nil];
+    }
+    
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application

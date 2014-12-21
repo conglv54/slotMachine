@@ -31,4 +31,5 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
 + (NSString *)stringFromDouble:(CGFloat)currency;
 + (NSString *)stringFromDouble:(CGFloat)currency andNumberFormatterStyle:(NSNumberFormatterStyle) style;
 
++ (NSString *)getUniqueDeviceIdentifierAsString;
 @end

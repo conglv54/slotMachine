@@ -1,0 +1,13 @@
+/* 
+  LCError.strings
+  slotMachine
+
+  Created by Le Cong on 12/21/14.
+  Copyright (c) 2014 Le Cong. All rights reserved.
+*/
+
+"1000" = "User not logged in.";
+"1001" = "Logout failed.";
+"1002" = "Parser failed.";
+"1003" = "Incorrect username or password.";
+"1004" = "Failed to parse FNID.";

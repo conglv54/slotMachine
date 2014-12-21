@@ -7,8 +7,6 @@
 //
 
 #import "LCSplashViewController.h"
-#import "LCCheckVersionTask.h"
-#import "LCDownloadTask.h"
 
 @interface LCSplashViewController ()
 
@@ -19,22 +17,27 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    LCCheckVersionTask *task = [[LCCheckVersionTask alloc] init];
-//    [task requestWithBlockSucess:^(id sucess) {
-//        
-//    } andBlockFailure:^(id error) {
-//        
-//    }];
+    NSDictionary *defaultValue = [self readDict];
+    NSNumber *oldVersion = defaultValue[@"Version"];
 
-    LCDownloadTask *task = [[LCDownloadTask alloc] init];
-    [task requestWithBlockSucess:^(id sucess) {
-        NSURL *url = (NSURL *)sucess;
-        NSDictionary *dir = [self readDict];
-        
+    LCCheckVersionTask *checkVersionTask = [[LCCheckVersionTask alloc] init];
+    [checkVersionTask requestWithBlockSucess:^(id sucess) {
+        NSNumber *newVersion = sucess;
+        if (oldVersion != newVersion) {
+            [self downloadNewfileConfig];
+        }
     } andBlockFailure:^(id error) {
         
     }];
-    
+}
+
+- (void)downloadNewfileConfig {
+    LCDownloadTask *task = [[LCDownloadTask alloc] init];
+    [task requestWithBlockSucess:^(id sucess) {
+        [self presentMainViewController];
+    } andBlockFailure:^(id error) {
+        
+    }];
 }
 
 - (NSDictionary *)readDict{

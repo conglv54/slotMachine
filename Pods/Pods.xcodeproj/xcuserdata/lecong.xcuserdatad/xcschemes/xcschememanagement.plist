@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-slotMachine-SSKeychain.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-slotMachine.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -17,12 +22,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>15F7E24B59AA1AA75058C735</key>
+		<key>4F8E7EE57E6BF5AD8C47B8EA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>71182DB9811A01AF985BF358</key>
+		<key>6599DA40BC14A897541AD54E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8817D05A9B36B0109B62DD0F</key>
 		<dict>
 			<key>primary</key>
 			<true/>

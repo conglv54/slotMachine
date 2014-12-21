@@ -10,4 +10,8 @@
 
 @interface LCRegisterTask : LCBaseTaskNetWork
 
+@property (nonatomic, strong) NSString *deviceID;
+
+- (id)initWithDeviceID:(NSString *)deviceID;
+
 @end

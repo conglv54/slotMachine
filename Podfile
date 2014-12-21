@@ -3,6 +3,7 @@
 
 target 'slotMachine' do
 pod 'AFNetworking'
+pod 'SSKeychain'
 end
 
 target 'slotMachineTests' do
