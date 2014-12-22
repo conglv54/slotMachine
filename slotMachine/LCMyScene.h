@@ -13,7 +13,10 @@
 @property (nonatomic) BOOL isAuto;
 @property (nonatomic) BOOL isRote;
 
+@property (nonatomic) NSInteger bet;
+
 @property (nonatomic) int timerCount;
+
 - (void)start;
 
 @end

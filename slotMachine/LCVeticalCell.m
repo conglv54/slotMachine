@@ -25,7 +25,7 @@
     if (self) {
         _arrCell = [NSMutableArray new];
         currentIndex = index;
-        _isReciveResult = TRUE;
+        _isReciveResult = false;
         _velocityDefault = 500;
         
         for (int i = 0; i < 6; i ++) {

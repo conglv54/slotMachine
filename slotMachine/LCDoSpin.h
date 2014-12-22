@@ -10,4 +10,6 @@
 
 @interface LCDoSpin : LCBaseTaskNetWork
 
+@property (nonatomic) NSInteger bet;
+
 @end

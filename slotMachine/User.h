@@ -15,6 +15,6 @@
 @property (nonatomic) CGFloat myCoin;
 @property (nonatomic, strong) NSString *payoutAccount;
 
-- (id)initWithTotalCoin:(CGFloat)totalCoin andFreeCoin:(CGFloat)freeCoin;
+- (id)initWithMyCoin:(CGFloat)myCoin andFreeCoin:(CGFloat)freeCoin;
 
 @end

@@ -10,6 +10,18 @@
 
 @implementation LCGetFreeCoin
 
+- (BOOL)isDeBug {
+    return YES;
+}
+
+- (id)parseDataWithResponse:(id)response {
+    NSNumber *freeCoin = response[@"coin"];
+    return freeCoin;
+}
+
+- (id)genResponse {
+    return @{@"code": [NSNumber numberWithInt:0], @"data": @{@"coin": [NSNumber numberWithInt:100]}};
+}
 - (NSString *)method {
     return METHOD_GET;
 }

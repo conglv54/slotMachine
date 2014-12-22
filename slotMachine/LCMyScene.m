@@ -9,6 +9,8 @@
 #import "LCMyScene.h"
 #import "LCVeticalCell.h"
 #import "SKNode+Frame.h"
+#import "LCDoSpin.h"
+#import "LCSpin.h"
 
 @implementation LCMyScene {
     NSMutableArray *arrVerticalCell;
@@ -21,6 +23,8 @@
     int index;
     
     NSTimer *timer;
+    
+    LCDoSpin *spinTask;
 }
 
 - (id)initWithSize:(CGSize)size {
@@ -38,6 +42,8 @@
         bg.size = [self newSize:CGSizeMake(366, 204.5)];
         
         [self addChild:bg];
+        
+        spinTask = [[LCDoSpin alloc] init];
         
         for (int i = 0 ; i < 5; i ++) {
             LCVeticalCell *verticalCell = [[LCVeticalCell alloc] initWithIndex:i];
@@ -152,6 +158,23 @@
 }
 
 - (void)start {
+    NSLog(@"Sent to server");
+ 
+    spinTask.bet = self.bet;
+    
+    [spinTask requestWithBlockSucess:^(id sucess) {
+        LCSpin *spin = (LCSpin *)sucess;
+        NSArray *results = spin.arrResult;
+        
+        for (int i = 0 ; i < arrVerticalCell.count; i ++) {
+            LCVeticalCell *verticalCell = arrVerticalCell[i];
+            verticalCell.isReciveResult = true;
+            verticalCell.result = [results[i] intValue];
+        }
+    } andBlockFailure:^(id error) {
+        
+    }];
+    
     LCVeticalCell *lastCell = arrVerticalCell[4];
     if (lastCell.currentState == State_Idle) {
         for (LCVeticalCell *verticalCell in arrVerticalCell) {

@@ -15,6 +15,8 @@
 
 #import "UIView+Frame.h"
 
+#import "LCGetFreeCoin.h"
+
 @implementation LCViewController {
     LCMyScene *scene;
     
@@ -66,6 +68,7 @@
     UIImage *imgFreeCoin = [UIImage imageNamed:@"btnFreeCoin"];
     UIButton *btnFreeCoin = [UIButton buttonWithType:UIButtonTypeCustom];
     [btnFreeCoin setImage:imgFreeCoin forState:UIControlStateNormal];
+    [btnFreeCoin addTarget:self action:@selector(getFreeCoin) forControlEvents:UIControlEventTouchUpInside];
     [btnFreeCoin setNewFrame:CGRectMake(101, 22, imgFreeCoin.size.width, imgFreeCoin.size.height)];
     [self.view addSubview:btnFreeCoin];
     
@@ -161,7 +164,7 @@
     [lblTitleWin sizeToFit];
     [self.view addSubview:lblTitleWin];
     
-    _user = [[User alloc] initWithTotalCoin:1000 andFreeCoin:200];
+    _user = [[User alloc] initWithMyCoin:800 andFreeCoin:200];
     
     lblBet = [[UILabel alloc] init];
     [lblBet setNewFrame:CGRectMake(242, 268, 0, 0)];
@@ -229,6 +232,8 @@
     if (scene.isAuto) {
         [scene start];
     }
+    
+    
 }
 
 - (IBAction)BuyCoint:(id)sender {
@@ -266,6 +271,8 @@
         lblBet.text = [NSString stringWithFormat:@"%0.2f", bet];
         lblMaxBet.text = [NSString stringWithFormat:@"%0.2f", bet];
         [lblBet sizeToFit];
+        
+        scene.bet = bet;
     }
 }
 
@@ -285,6 +292,7 @@
     lblMaxBet.text = [NSString stringWithFormat:@"%0.2f", bet];
     [lblBet sizeToFit];
     
+    scene.bet = bet;
 }
 
 - (void)touchUpOutSide {
@@ -295,6 +303,20 @@
     bet = 0;
     lblBet.text = [NSString stringWithFormat:@"%0.2f", maxBet];
     lblMaxBet.text = [NSString stringWithFormat:@"%0.2f", maxBet];
+    
+    scene.bet = bet;
+}
+
+- (void)getFreeCoin {
+    LCGetFreeCoin *getFreeCoin = [[LCGetFreeCoin alloc] init];
+    [getFreeCoin requestWithBlockSucess:^(id sucess) {
+        NSNumber *freeCoint = (NSNumber *)sucess;
+        CGFloat oldCoin = _user.freeCoin;
+        [_user setFreeCoin:oldCoin + [freeCoint intValue]];
+        lblTotalCoin.text = [Utils stringFromDouble:_user.totalCoin];
+    } andBlockFailure:^(id error) {
+        
+    }];
 }
 
 - (BOOL)shouldAutorotate

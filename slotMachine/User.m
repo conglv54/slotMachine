@@ -10,13 +10,19 @@
 
 @implementation User
 
-- (id)initWithTotalCoin:(CGFloat)totalCoin andFreeCoin:(CGFloat)freeCoin {
+- (id)initWithMyCoin:(CGFloat)myCoin andFreeCoin:(CGFloat)freeCoin {
     self = [super init];
     if (self) {
         _freeCoin = freeCoin;
-        _totalCoin = totalCoin;
-        _myCoin = _totalCoin - freeCoin;
+        _myCoin = myCoin;
+        _totalCoin = _myCoin + _freeCoin;
     }
     return self;
 }
+
+- (void)setFreeCoin:(CGFloat)freeCoin {
+    _freeCoin = freeCoin;
+    _totalCoin = _freeCoin + _myCoin;
+}
+
 @end

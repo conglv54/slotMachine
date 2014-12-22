@@ -11,6 +11,7 @@
 		580CF39E1A46D0F400685841 /* LCError.m in Sources */ = {isa = PBXBuildFile; fileRef = 580CF39D1A46D0F400685841 /* LCError.m */; };
 		580CF3A21A46D4B500685841 /* LCError.strings in Resources */ = {isa = PBXBuildFile; fileRef = 580CF3A11A46D4B500685841 /* LCError.strings */; };
 		58116EF01A4721420099CE96 /* LCConstant.m in Sources */ = {isa = PBXBuildFile; fileRef = 58116EEF1A4721420099CE96 /* LCConstant.m */; };
+		5842319C1A48828A002E5FD5 /* LCSpin.m in Sources */ = {isa = PBXBuildFile; fileRef = 5842319B1A48828A002E5FD5 /* LCSpin.m */; };
 		587A71AA1A432B09008283CD /* LCBaseTaskNetWork.m in Sources */ = {isa = PBXBuildFile; fileRef = 587A71A91A432B09008283CD /* LCBaseTaskNetWork.m */; };
 		587A71AD1A4334BD008283CD /* LCCheckVersionTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 587A71AC1A4334BD008283CD /* LCCheckVersionTask.m */; };
 		587A71B01A433547008283CD /* LCSplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 587A71AF1A433547008283CD /* LCSplashViewController.m */; };
@@ -102,6 +103,8 @@
 		580CF3A11A46D4B500685841 /* LCError.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = LCError.strings; sourceTree = "<group>"; };
 		58116EEE1A4721420099CE96 /* LCConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCConstant.h; sourceTree = "<group>"; };
 		58116EEF1A4721420099CE96 /* LCConstant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCConstant.m; sourceTree = "<group>"; };
+		5842319A1A48828A002E5FD5 /* LCSpin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCSpin.h; sourceTree = "<group>"; };
+		5842319B1A48828A002E5FD5 /* LCSpin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCSpin.m; sourceTree = "<group>"; };
 		587A71A81A432B09008283CD /* LCBaseTaskNetWork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCBaseTaskNetWork.h; sourceTree = "<group>"; };
 		587A71A91A432B09008283CD /* LCBaseTaskNetWork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCBaseTaskNetWork.m; sourceTree = "<group>"; };
 		587A71AB1A4334BD008283CD /* LCCheckVersionTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCCheckVersionTask.h; sourceTree = "<group>"; };
@@ -262,6 +265,17 @@
 			name = NetWork;
 			sourceTree = "<group>";
 		};
+		588BEF6C1A486E14003E0728 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				58BA6E2F1A3D3C7E005E9F3B /* User.h */,
+				58BA6E301A3D3C7E005E9F3B /* User.m */,
+				5842319A1A48828A002E5FD5 /* LCSpin.h */,
+				5842319B1A48828A002E5FD5 /* LCSpin.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		58BA6DC91A3D3A0B005E9F3B = {
 			isa = PBXGroup;
 			children = (
@@ -299,6 +313,7 @@
 			isa = PBXGroup;
 			children = (
 				587A71A71A432AEA008283CD /* NetWork */,
+				588BEF6C1A486E14003E0728 /* Model */,
 				58BA6DE61A3D3A0B005E9F3B /* LCAppDelegate.h */,
 				58BA6DE71A3D3A0B005E9F3B /* LCAppDelegate.m */,
 				587A71AE1A433547008283CD /* LCSplashViewController.h */,
@@ -328,10 +343,8 @@
 				58BA6E261A3D3C6D005E9F3B /* HistoryTableViewCell.m */,
 				58BA6E271A3D3C6D005E9F3B /* UIHistoryView.h */,
 				58BA6E281A3D3C6D005E9F3B /* UIHistoryView.m */,
-				58BA6E2F1A3D3C7E005E9F3B /* User.h */,
 				58116EEE1A4721420099CE96 /* LCConstant.h */,
 				58116EEF1A4721420099CE96 /* LCConstant.m */,
-				58BA6E301A3D3C7E005E9F3B /* User.m */,
 				58E3B3221A46F7C1007C8EB5 /* Default.plist */,
 				58BA6DF41A3D3A0B005E9F3B /* Images.xcassets */,
 				58BA6DDE1A3D3A0B005E9F3B /* Supporting Files */,
@@ -578,6 +591,7 @@
 			files = (
 				58BA6DE41A3D3A0B005E9F3B /* main.m in Sources */,
 				58BA6DF11A3D3A0B005E9F3B /* LCMyScene.m in Sources */,
+				5842319C1A48828A002E5FD5 /* LCSpin.m in Sources */,
 				587A71BF1A433DB8008283CD /* LCGetHistoryTask.m in Sources */,
 				58BA6E2C1A3D3C6D005E9F3B /* BuyGoldTableViewCell.m in Sources */,
 				587A71C21A433E01008283CD /* LCGetUserInfo.m in Sources */,
