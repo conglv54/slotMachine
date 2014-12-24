@@ -10,4 +10,8 @@
 
 @interface LCCheckVersionTask : LCBaseTaskNetWork
 
+- (id)initWithVersion:(NSString *)version;
+
+@property (nonatomic, strong) NSString *version;
+
 @end

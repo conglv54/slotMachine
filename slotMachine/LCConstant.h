@@ -10,8 +10,21 @@
 
 #define kDefaultFileName @"Default.plist"
 #define kIsFirstlaunch @"isFirstLaunch"
-#define kVersion @"Version"
+#define kVersion @"version"
+
+#define kMaxBet @"MaxBet"
+#define kMinBet @"MinBet"
+#define kStepBet @"StepBet"
+#define kRatioPayout @"RatioPayout"
+
 #define kDeviceID @"DeviceID"
+#define kOS @"os"
+#define kToken @"token"
+
+#define kOSType 1
+#define kTokenType @"token"
+
+#define kSessionID @"session_id"
 
 @interface LCConstant : NSObject
 

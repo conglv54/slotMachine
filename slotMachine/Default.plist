@@ -2,11 +2,17 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>ratioPayout</key>
+	<integer>500</integer>
+	<key>minBet</key>
+	<integer>10</integer>
+	<key>stepBet</key>
+	<integer>5</integer>
 	<key>isFirstLaunch</key>
 	<true/>
-	<key>Version</key>
-	<integer>1</integer>
-	<key>MaxBet</key>
+	<key>version</key>
+	<string>1</string>
+	<key>maxBet</key>
 	<integer>90</integer>
 </dict>
 </plist>

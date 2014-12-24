@@ -19,20 +19,23 @@
 }
 
 - (id)parseDataWithResponse:(id)response {
-    return nil;
+    NSString *session = response[kSessionID];
+    return session;
 }
 
 - (id)initWithDeviceID:(NSString *)deviceID {
     self = [super init];
     if (self) {
         _deviceID = deviceID;
+        _os = kOSType;
+        _token = kTokenType;
     }
     
     return self;
 }
 
 - (NSDictionary *)parameters {
-    return @{kDeviceID: _deviceID};
+    return @{kDeviceID: _deviceID, kOS: [NSNumber numberWithInt:_os], kToken: _token};
 }
 
 #pragma mark - Debug
@@ -42,7 +45,7 @@
 }
 
 - (id)genResponse {
-    return @{@"code": [NSNumber numberWithInt:0]};
+    return @{@"code": [NSNumber numberWithInt:0], @"data": @{@"session_id": @"123456"}};
 }
 
 @end

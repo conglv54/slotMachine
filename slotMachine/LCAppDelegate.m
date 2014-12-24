@@ -16,31 +16,7 @@
     
     [self CopyFile];
     
-    NSMutableDictionary *dictDefault = [self readDict];
-    BOOL __block isFirstLaunch = [dictDefault[kIsFirstlaunch] boolValue];
-    if (isFirstLaunch) {
-        
-        LCRegisterTask *registerTask = [[LCRegisterTask alloc] initWithDeviceID:[Utils getUniqueDeviceIdentifierAsString]];
-        [registerTask requestWithBlockSucess:^(id sucess) {
-            [self saveDictfile:dictDefault WithBool:isFirstLaunch];
-        } andBlockFailure:^(id error) {
-            
-        }];
-        
-    }
-    
     return YES;
-}
-
-- (void)saveDictfile:(NSMutableDictionary *)dictDefault WithBool:(BOOL)isFirstLaunch {
-    isFirstLaunch = false;
-    [dictDefault setObject:[NSNumber numberWithBool:isFirstLaunch] forKey:kIsFirstlaunch];
-    [dictDefault writeToFile:[self filePath] atomically:YES];
-}
-
-- (NSMutableDictionary *)readDict{
-    NSMutableDictionary *contentDict = [NSMutableDictionary dictionaryWithContentsOfFile:[self filePath]];
-    return contentDict;
 }
 
 - (NSString*)filePath

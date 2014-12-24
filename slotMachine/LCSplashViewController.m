@@ -7,6 +7,8 @@
 //
 
 #import "LCSplashViewController.h"
+#import "LCFileManager.h"
+#import "LCCheckVersion.h"
 
 @interface LCSplashViewController ()
 
@@ -17,35 +19,39 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSDictionary *defaultValue = [self readDict];
-    NSNumber *oldVersion = defaultValue[@"Version"];
-
-    LCCheckVersionTask *checkVersionTask = [[LCCheckVersionTask alloc] init];
-    [checkVersionTask requestWithBlockSucess:^(id sucess) {
-        NSNumber *newVersion = sucess;
-        if (oldVersion != newVersion) {
-            [self downloadNewfileConfig];
-        }
-    } andBlockFailure:^(id error) {
-        
-    }];
-}
-
-- (void)downloadNewfileConfig {
-    LCDownloadTask *task = [[LCDownloadTask alloc] init];
-    [task requestWithBlockSucess:^(id sucess) {
-        [self presentMainViewController];
-    } andBlockFailure:^(id error) {
-        
-    }];
-}
-
-- (NSDictionary *)readDict{
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString *filePath = [documentsDirectory stringByAppendingPathComponent:@"/Default.plist"];
+    LCFileManager *fileManager = [LCFileManager shareInstance];
+    NSString *currentVersion = [fileManager getVersion];
+    LCCheckVersionTask *checkVersionTask = [[LCCheckVersionTask alloc] initWithVersion:currentVersion];
     
-    NSDictionary *contentDict = [NSDictionary dictionaryWithContentsOfFile:filePath];    return contentDict;
+    [checkVersionTask requestWithBlockSucess:^(id sucess) {
+        
+        LCCheckVersion *checkVersion = sucess;
+        BOOL isUpdate = checkVersion.isUpdate;
+        
+        if (isUpdate) {
+            [fileManager setSettingDefault:checkVersion.setting];
+            [self presentMainViewController];
+        }
+        
+    } andBlockFailure:^(id error) {
+        
+    }];
+    
+
+    __block BOOL isFirstLaunch = [fileManager isFirstLaunch];
+    if (isFirstLaunch) {
+        
+        LCRegisterTask *registerTask = [[LCRegisterTask alloc] initWithDeviceID:[Utils getUniqueDeviceIdentifierAsString]];
+        [registerTask requestWithBlockSucess:^(id sucess) {
+            isFirstLaunch = false;
+            [fileManager setIsFirstLaunch:isFirstLaunch];
+            [fileManager saveSessionID:sucess];
+        } andBlockFailure:^(id error) {
+            
+        }];
+        
+    }
+    
 }
 
 - (void)presentMainViewController {
