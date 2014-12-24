@@ -61,4 +61,19 @@
     [self addSubview:lblWin];
     [self addSubview:sperate];
 }
+
+- (void)setHistory:(LCHistory *)history {
+    lblTime.text = history.time;
+    [lblTime sizeToFit];
+    
+    lblDate.text = history.date;
+    [lblDate sizeToFit];
+    
+    lblBet.text = history.bet;
+    [lblBet sizeToFit];
+    
+    lblWin.text = history.win;
+    [lblWin sizeToFit];
+}
+
 @end

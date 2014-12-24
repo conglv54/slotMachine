@@ -8,8 +8,12 @@
 
 #import "UIHistoryView.h"
 #import "HistoryTableViewCell.h"
+#import "LCGetHistoryTask.h"
 
-@implementation UIHistoryView
+@implementation UIHistoryView {
+    NSArray *histories;
+    UITableView *tbl;
+}
 
 - (UIView *)viewForContentView {
     UIView *contentView = [[UIView alloc] initWithFrame:CGRectMake(54, 30, 460, 243)];
@@ -38,7 +42,7 @@
     lblWine.textColor = [UIColor whiteColor];
     [lblWine sizeToFit];
     
-    UITableView *tbl = [[UITableView alloc] initWithFrame:CGRectMake(20, 62, 400, 160)];
+    tbl = [[UITableView alloc] initWithFrame:CGRectMake(20, 62, 400, 160)];
     tbl.backgroundColor = [UIColor clearColor];
     tbl.separatorStyle = UITableViewCellSeparatorStyleNone;
     tbl.showsVerticalScrollIndicator = NO;
@@ -56,7 +60,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    return histories.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -69,7 +73,20 @@
         cell = [[HistoryTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
     }
     
+    LCHistory *history = histories[indexPath.row];
+    [cell setHistory:history];
+    
     return cell;
+}
+
+- (void)sentRequest {
+    LCGetHistoryTask *getHistory = [[LCGetHistoryTask alloc] init];
+    [getHistory requestWithBlockSucess:^(id sucess) {
+        histories = sucess;
+        [tbl reloadData];
+    } andBlockFailure:^(id error) {
+        
+    }];
 }
 
 @end

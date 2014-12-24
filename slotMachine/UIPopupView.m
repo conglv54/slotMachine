@@ -14,6 +14,7 @@
     self = [super init];
     if (self) {
         [self initCompoment];
+        [self sentRequest];
     }
     return self;
 }
@@ -43,6 +44,10 @@
 
 - (UIView *)viewForContentView {
     return nil;
+}
+
+- (void)sentRequest {
+    
 }
 
 - (void)showinView:(UIView *)view {

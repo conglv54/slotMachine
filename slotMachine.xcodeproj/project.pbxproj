@@ -23,6 +23,7 @@
 		587A71C21A433E01008283CD /* LCGetUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 587A71C11A433E01008283CD /* LCGetUserInfo.m */; };
 		587A71C51A433E1D008283CD /* LCDoSpin.m in Sources */ = {isa = PBXBuildFile; fileRef = 587A71C41A433E1D008283CD /* LCDoSpin.m */; };
 		587A71C81A4349C8008283CD /* LCDownloadTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 587A71C71A4349C8008283CD /* LCDownloadTask.m */; };
+		58A837121A4B2B8400D46F8F /* LCHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = 58A837111A4B2B8400D46F8F /* LCHistory.m */; };
 		58BA6DD61A3D3A0B005E9F3B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58BA6DD51A3D3A0B005E9F3B /* Foundation.framework */; };
 		58BA6DD81A3D3A0B005E9F3B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58BA6DD71A3D3A0B005E9F3B /* CoreGraphics.framework */; };
 		58BA6DDA1A3D3A0B005E9F3B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58BA6DD91A3D3A0B005E9F3B /* UIKit.framework */; };
@@ -130,6 +131,8 @@
 		587A71C41A433E1D008283CD /* LCDoSpin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCDoSpin.m; sourceTree = "<group>"; };
 		587A71C61A4349C8008283CD /* LCDownloadTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCDownloadTask.h; sourceTree = "<group>"; };
 		587A71C71A4349C8008283CD /* LCDownloadTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCDownloadTask.m; sourceTree = "<group>"; };
+		58A837101A4B2B8400D46F8F /* LCHistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCHistory.h; sourceTree = "<group>"; };
+		58A837111A4B2B8400D46F8F /* LCHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCHistory.m; sourceTree = "<group>"; };
 		58BA6DD21A3D3A0B005E9F3B /* slotMachine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = slotMachine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58BA6DD51A3D3A0B005E9F3B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		58BA6DD71A3D3A0B005E9F3B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -285,6 +288,8 @@
 				6EE9C4AF1A4AAB0C001E18E7 /* LCSetting.m */,
 				6EE9C4B41A4AB87A001E18E7 /* LCCheckVersion.h */,
 				6EE9C4B51A4AB87A001E18E7 /* LCCheckVersion.m */,
+				58A837101A4B2B8400D46F8F /* LCHistory.h */,
+				58A837111A4B2B8400D46F8F /* LCHistory.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -632,6 +637,7 @@
 				587A71B91A433C37008283CD /* LCGetFreeCoin.m in Sources */,
 				58BA6E131A3D3B62005E9F3B /* LCVeticalCell.m in Sources */,
 				587A71B01A433547008283CD /* LCSplashViewController.m in Sources */,
+				58A837121A4B2B8400D46F8F /* LCHistory.m in Sources */,
 				580CF39E1A46D0F400685841 /* LCError.m in Sources */,
 				58BA6E2E1A3D3C6D005E9F3B /* UIHistoryView.m in Sources */,
 				6EE9C4B61A4AB87A001E18E7 /* LCCheckVersion.m in Sources */,

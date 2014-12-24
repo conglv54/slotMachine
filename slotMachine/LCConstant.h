@@ -12,10 +12,10 @@
 #define kIsFirstlaunch @"isFirstLaunch"
 #define kVersion @"version"
 
-#define kMaxBet @"MaxBet"
-#define kMinBet @"MinBet"
-#define kStepBet @"StepBet"
-#define kRatioPayout @"RatioPayout"
+#define kMaxBet @"maxBet"
+#define kMinBet @"minBet"
+#define kStepBet @"stepBet"
+#define kRatioPayout @"ratioPayout"
 
 #define kDeviceID @"DeviceID"
 #define kOS @"os"

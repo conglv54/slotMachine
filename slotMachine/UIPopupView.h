@@ -16,5 +16,6 @@
 
 - (void)showinView:(UIView *)view;
 - (UIView *)viewForContentView;
+- (void)sentRequest;
 
 @end

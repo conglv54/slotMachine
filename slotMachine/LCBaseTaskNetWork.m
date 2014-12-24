@@ -119,8 +119,8 @@ int const kSucess = 0;
         
         NSDictionary *data = response[@"data"];
             
-            id resPonsedata = [self parseDataWithResponse:data];
-            _blockSucess(resPonsedata);
+        id resPonsedata = [self parseDataWithResponse:data];
+        _blockSucess(resPonsedata);
             
     } else {
 

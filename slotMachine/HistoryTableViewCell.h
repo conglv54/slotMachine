@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LCHistory.h"
 
 @interface HistoryTableViewCell : UITableViewCell
 
+- (void)setHistory:(LCHistory *)history;
 @end

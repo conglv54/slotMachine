@@ -18,25 +18,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
     LCFileManager *fileManager = [LCFileManager shareInstance];
     NSString *currentVersion = [fileManager getVersion];
-    LCCheckVersionTask *checkVersionTask = [[LCCheckVersionTask alloc] initWithVersion:currentVersion];
-    
-    [checkVersionTask requestWithBlockSucess:^(id sucess) {
-        
-        LCCheckVersion *checkVersion = sucess;
-        BOOL isUpdate = checkVersion.isUpdate;
-        
-        if (isUpdate) {
-            [fileManager setSettingDefault:checkVersion.setting];
-            [self presentMainViewController];
-        }
-        
-    } andBlockFailure:^(id error) {
-        
-    }];
-    
 
     __block BOOL isFirstLaunch = [fileManager isFirstLaunch];
     if (isFirstLaunch) {
@@ -51,6 +35,22 @@
         }];
         
     }
+    
+    LCCheckVersionTask *checkVersionTask = [[LCCheckVersionTask alloc] initWithVersion:currentVersion];
+    
+    [checkVersionTask requestWithBlockSucess:^(id sucess) {
+        
+        LCCheckVersion *checkVersion = sucess;
+        BOOL isUpdate = checkVersion.isUpdate;
+        
+        if (isUpdate) {
+            [fileManager setSettingDefault:checkVersion.setting];
+            [self performSelector:@selector(presentMainViewController) withObject:nil afterDelay:0.5];
+        }
+        
+    } andBlockFailure:^(id error) {
+        
+    }];
     
 }
 
