@@ -12,10 +12,14 @@ NSString *const kCheckVersion = @"check_version";
 NSString *const kRegister = @"register";
 NSString *const kGetFreeCoin = @"get_free_coin";
 NSString *const kPurchase = @"purchase";
+
 NSString *const kPayout = @"payout";
 NSString *const kGetHistory = @"get_history_spim";
 NSString *const kGetUserInfo = @"get_init";
 NSString *const kDoSpin = @"do_spin";
+
+NSString *const kPriceID = @"price_id";
+NSString *const kReceipt = @"receipt";
 
 @implementation LCNetworkConfig
 @end

@@ -13,6 +13,8 @@
     UILabel *lblExtra;
     UILabel *lblMoney;
     UIButton *btnBuy;
+
+    LCTablePurchase *_tablePurchase;
 }
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
@@ -31,7 +33,7 @@
         [self addSubview:imvGold];
         
         lblGold = [[UILabel alloc] initWithFrame:CGRectMake(80, 12, 100, 20)];
-        lblGold.text = @"625 Gold";
+//        lblGold.text = @"625 Gold";
         lblGold.font = [UIFont systemFontOfSize:13];
         lblGold.textColor = [UIColor whiteColor];
         [lblGold sizeToFit];
@@ -39,14 +41,14 @@
         
         lblExtra = [[UILabel alloc] initWithFrame:CGRectMake(167, 12, 100, 20)];
         lblExtra.textColor = [UIColor colorWithRed:207/255.0 green:79/255.0 blue:0 alpha:1.0];
-        lblExtra.text = @"25% Extral!";
+//        lblExtra.text = @"25% Extral!";
         lblExtra.font = [UIFont systemFontOfSize:13];
         [lblExtra sizeToFit];
         [self addSubview:lblExtra];
         
         lblMoney = [[UILabel alloc] initWithFrame:CGRectMake(278, 12, 100, 20)];
         lblMoney.textColor = [UIColor whiteColor];
-        lblMoney.text = @"$95.99";
+//        lblMoney.text = @"$95.99";
         lblMoney.font = [UIFont systemFontOfSize:13];
         [lblMoney sizeToFit];
         [self addSubview:lblMoney];
@@ -63,8 +65,26 @@
 }
 
 - (void)buyGold {
-    if ([_delegate respondsToSelector:@selector(buyGoldWithIndex:)]) {
-        [_delegate buyGoldWithIndex:_index];
+    if ([_delegate respondsToSelector:@selector(buyGoldWithID:)]) {
+        [_delegate buyGoldWithID:_tablePurchase.priceID];
+    }
+}
+
+- (void)setTablePurchase:(LCTablePurchase *)tablePurchase {
+    _tablePurchase = tablePurchase;
+    int gold = tablePurchase.numCoin + tablePurchase.numCoin * tablePurchase.extra;
+    
+    lblGold.text = [NSString stringWithFormat:@"$%d", tablePurchase.numUSD];
+    [lblGold sizeToFit];
+    
+    lblMoney.text = [NSString stringWithFormat:@"%d Gold", gold];
+    [lblMoney sizeToFit];
+    
+    if (tablePurchase.isPromotion) {
+        lblExtra.text = [NSString stringWithFormat:@"%f%% Extral!", tablePurchase.extra];
+        [lblExtra sizeToFit];
+    } else {
+        lblExtra.text = @"";
     }
 }
 

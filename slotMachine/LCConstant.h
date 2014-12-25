@@ -17,7 +17,7 @@
 #define kStepBet @"stepBet"
 #define kRatioPayout @"ratioPayout"
 
-#define kDeviceID @"DeviceID"
+#define kDeviceID @"udid"
 #define kOS @"os"
 #define kToken @"token"
 
@@ -25,6 +25,7 @@
 #define kTokenType @"token"
 
 #define kSessionID @"session_id"
+
 
 @interface LCConstant : NSObject
 

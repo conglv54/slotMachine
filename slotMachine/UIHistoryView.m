@@ -13,9 +13,17 @@
 @implementation UIHistoryView {
     NSArray *histories;
     UITableView *tbl;
+
+    NSString *nextUrl;
+    BOOL isLoadmore;
+    
+    LCGetHistoryTask *getHistory;
 }
 
 - (UIView *)viewForContentView {
+    
+    getHistory = [[LCGetHistoryTask alloc] init];
+    
     UIView *contentView = [[UIView alloc] initWithFrame:CGRectMake(54, 30, 460, 243)];
     
     UILabel *lblDate = [[UILabel alloc] initWithFrame:CGRectMake(37, 34, 83, 30)];
@@ -79,10 +87,28 @@
     return cell;
 }
 
+- (void)scrollViewDidScroll:(UIScrollView *)aScrollView {
+    CGPoint offset = aScrollView.contentOffset;
+    CGRect bounds = aScrollView.bounds;
+    CGSize size = aScrollView.contentSize;
+    UIEdgeInsets inset = aScrollView.contentInset;
+    float y = offset.y + bounds.size.height - inset.bottom;
+    float h = size.height;
+    
+    float reload_distance = 10;
+    if(y > h + reload_distance) {
+        if (!isLoadmore) {
+            isLoadmore = true;
+            NSLog(@"load more rows");
+        }
+    }
+}
+
 - (void)sentRequest {
-    LCGetHistoryTask *getHistory = [[LCGetHistoryTask alloc] init];
+    
     [getHistory requestWithBlockSucess:^(id sucess) {
-        histories = sucess;
+        histories = sucess[@"histories"];
+        nextUrl = sucess[@"next_url"];
         [tbl reloadData];
     } andBlockFailure:^(id error) {
         

@@ -237,9 +237,7 @@
 }
 
 - (IBAction)BuyCoint:(id)sender {
-    if (!buyGold) {
-        buyGold = [[UIBuyGoldVIew alloc] init];
-    }
+    buyGold = [[UIBuyGoldVIew alloc] init];
     [buyGold showinView:self.view];
 }
 

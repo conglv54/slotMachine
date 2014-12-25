@@ -7,8 +7,13 @@
 //
 
 #import "UIBuyGoldVIew.h"
+#import "LCPurChaseTask.h"
+#import "LCGetTablePurchaseTask.h"
 
-@implementation UIBuyGoldVIew 
+@implementation UIBuyGoldVIew {
+    NSArray *tablePurchase;
+    UITableView *tbl;
+}
 
 - (UIView *)viewForContentView {
     UIView *contentView = [[UIView alloc] initWithFrame:CGRectMake(54, 30, 460, 243)];
@@ -19,7 +24,7 @@
     lbl.textColor = [UIColor whiteColor];
     [lbl sizeToFit];
     
-    UITableView *tbl = [[UITableView alloc] initWithFrame:CGRectMake(24, 51, 412, 160)];
+    tbl = [[UITableView alloc] initWithFrame:CGRectMake(24, 51, 412, 160)];
     tbl.backgroundColor = [UIColor clearColor];
     tbl.separatorStyle = UITableViewCellSeparatorStyleNone;
     tbl.showsVerticalScrollIndicator = NO;
@@ -32,7 +37,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 4;
+    return tablePurchase.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -43,14 +48,32 @@
     BuyGoldTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
     if (cell == nil) {
         cell = [[BuyGoldTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
-        cell.index = (int)indexPath.row;
         cell.delegate = self;
     }
     
+    LCTablePurchase *purchase = tablePurchase[indexPath.row];
+    [cell setTablePurchase:purchase];
     return cell;
 }
 
-- (void)buyGoldWithIndex:(int)index {
-    
+- (void)sentRequest {
+    LCGetTablePurchaseTask *getTablePurchase = [[LCGetTablePurchaseTask alloc] init];
+    [getTablePurchase requestWithBlockSucess:^(id sucess) {
+        tablePurchase = sucess;
+        [tbl reloadData];
+    } andBlockFailure:^(id error) {
+        
+    }];
+}
+
+#pragma mark - Buy gold Delegate
+
+- (void)buyGoldWithID:(int)priceID {
+    LCPurChaseTask *purchaseTask = [[LCPurChaseTask alloc] initWithPriceID:priceID];
+    [purchaseTask requestWithBlockSucess:^(id sucess) {
+        
+    } andBlockFailure:^(id error) {
+        
+    }];
 }
 @end

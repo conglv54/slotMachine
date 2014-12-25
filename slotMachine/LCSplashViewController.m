@@ -9,18 +9,20 @@
 #import "LCSplashViewController.h"
 #import "LCFileManager.h"
 #import "LCCheckVersion.h"
+#import "LCGetUserInfo.h"
 
 @interface LCSplashViewController ()
 
 @end
 
-@implementation LCSplashViewController
+@implementation LCSplashViewController {
+    LCFileManager *fileManager;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    LCFileManager *fileManager = [LCFileManager shareInstance];
-    NSString *currentVersion = [fileManager getVersion];
+    fileManager = [LCFileManager shareInstance];
 
     __block BOOL isFirstLaunch = [fileManager isFirstLaunch];
     if (isFirstLaunch) {
@@ -30,12 +32,27 @@
             isFirstLaunch = false;
             [fileManager setIsFirstLaunch:isFirstLaunch];
             [fileManager saveSessionID:sucess];
+            [self checkVersion];
         } andBlockFailure:^(id error) {
             
         }];
         
+    } else {
+        [self checkVersion];
     }
-    
+}
+
+- (void)getUserInfo {
+    LCGetUserInfo *getUserInfo = [[LCGetUserInfo alloc] init];
+    [getUserInfo requestWithBlockSucess:^(id sucess) {
+        
+    } andBlockFailure:^(id error) {
+        
+    }];
+}
+
+- (void)checkVersion {
+    NSString *currentVersion = [fileManager getVersion];
     LCCheckVersionTask *checkVersionTask = [[LCCheckVersionTask alloc] initWithVersion:currentVersion];
     
     [checkVersionTask requestWithBlockSucess:^(id sucess) {
@@ -45,13 +62,13 @@
         
         if (isUpdate) {
             [fileManager setSettingDefault:checkVersion.setting];
-            [self performSelector:@selector(presentMainViewController) withObject:nil afterDelay:0.5];
         }
+        
+        [self presentMainViewController];
         
     } andBlockFailure:^(id error) {
         
-    }];
-    
+    }];    
 }
 
 - (void)presentMainViewController {

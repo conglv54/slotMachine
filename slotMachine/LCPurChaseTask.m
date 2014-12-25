@@ -8,7 +8,21 @@
 
 #import "LCPurChaseTask.h"
 
-@implementation LCPurChaseTask
+@implementation LCPurChaseTask {
+    int _priceID;
+}
+
+- (id)initWithPriceID:(int)priceID {
+    self = [super init];
+    if (self) {
+        _priceID = priceID;
+    }
+    return self;
+}
+
+- (NSDictionary *)parameters {
+    return @{kPriceID: [NSNumber numberWithInt:_priceID], kReceipt: @"Do some thing"};
+}
 
 - (NSString *)method {
     return METHOD_POST;

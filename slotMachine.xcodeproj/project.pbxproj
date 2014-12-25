@@ -84,6 +84,8 @@
 		58BA6E701A3D3D83005E9F3B /* btnBuyGold@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 58BA6E501A3D3D83005E9F3B /* btnBuyGold@2x.png */; };
 		58BA6E711A3D3D83005E9F3B /* icGold@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 58BA6E511A3D3D83005E9F3B /* icGold@2x.png */; };
 		58E3B3231A46F7C1007C8EB5 /* Default.plist in Resources */ = {isa = PBXBuildFile; fileRef = 58E3B3221A46F7C1007C8EB5 /* Default.plist */; };
+		6EAE18381A4BC2E100329A2F /* LCGetTablePurchaseTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EAE18371A4BC2E100329A2F /* LCGetTablePurchaseTask.m */; };
+		6EAE183B1A4BF00800329A2F /* LCTablePurchase.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EAE183A1A4BF00800329A2F /* LCTablePurchase.m */; };
 		6EE9C4B01A4AAB0C001E18E7 /* LCSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE9C4AF1A4AAB0C001E18E7 /* LCSetting.m */; };
 		6EE9C4B31A4AAC7E001E18E7 /* LCFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE9C4B21A4AAC7E001E18E7 /* LCFileManager.m */; };
 		6EE9C4B61A4AB87A001E18E7 /* LCCheckVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE9C4B51A4AB87A001E18E7 /* LCCheckVersion.m */; };
@@ -211,6 +213,10 @@
 		58BA6E511A3D3D83005E9F3B /* icGold@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icGold@2x.png"; sourceTree = "<group>"; };
 		58E3B31F1A46E140007C8EB5 /* LCNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCNetwork.h; sourceTree = "<group>"; };
 		58E3B3221A46F7C1007C8EB5 /* Default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Default.plist; sourceTree = "<group>"; };
+		6EAE18361A4BC2E100329A2F /* LCGetTablePurchaseTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCGetTablePurchaseTask.h; sourceTree = "<group>"; };
+		6EAE18371A4BC2E100329A2F /* LCGetTablePurchaseTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCGetTablePurchaseTask.m; sourceTree = "<group>"; };
+		6EAE18391A4BF00800329A2F /* LCTablePurchase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCTablePurchase.h; sourceTree = "<group>"; };
+		6EAE183A1A4BF00800329A2F /* LCTablePurchase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCTablePurchase.m; sourceTree = "<group>"; };
 		6EE9C4AE1A4AAB0C001E18E7 /* LCSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCSetting.h; sourceTree = "<group>"; };
 		6EE9C4AF1A4AAB0C001E18E7 /* LCSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCSetting.m; sourceTree = "<group>"; };
 		6EE9C4B11A4AAC7E001E18E7 /* LCFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCFileManager.h; sourceTree = "<group>"; };
@@ -265,6 +271,8 @@
 				587A71B81A433C37008283CD /* LCGetFreeCoin.m */,
 				587A71BA1A433CCC008283CD /* LCPurChaseTask.h */,
 				587A71BB1A433CCC008283CD /* LCPurChaseTask.m */,
+				6EAE18361A4BC2E100329A2F /* LCGetTablePurchaseTask.h */,
+				6EAE18371A4BC2E100329A2F /* LCGetTablePurchaseTask.m */,
 				587A71BD1A433DB8008283CD /* LCGetHistoryTask.h */,
 				587A71BE1A433DB8008283CD /* LCGetHistoryTask.m */,
 				587A71C01A433E01008283CD /* LCGetUserInfo.h */,
@@ -290,6 +298,8 @@
 				6EE9C4B51A4AB87A001E18E7 /* LCCheckVersion.m */,
 				58A837101A4B2B8400D46F8F /* LCHistory.h */,
 				58A837111A4B2B8400D46F8F /* LCHistory.m */,
+				6EAE18391A4BF00800329A2F /* LCTablePurchase.h */,
+				6EAE183A1A4BF00800329A2F /* LCTablePurchase.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -627,6 +637,7 @@
 				587A71B61A433BD4008283CD /* LCRegisterTask.m in Sources */,
 				587A71C51A433E1D008283CD /* LCDoSpin.m in Sources */,
 				58BA6E291A3D3C6D005E9F3B /* UIPopupView.m in Sources */,
+				6EAE18381A4BC2E100329A2F /* LCGetTablePurchaseTask.m in Sources */,
 				6EE9C4B31A4AAC7E001E18E7 /* LCFileManager.m in Sources */,
 				58BA6E191A3D3B78005E9F3B /* UIView+Frame.m in Sources */,
 				587A71B31A4338D9008283CD /* LCNetworkConfig.m in Sources */,
@@ -640,6 +651,7 @@
 				58A837121A4B2B8400D46F8F /* LCHistory.m in Sources */,
 				580CF39E1A46D0F400685841 /* LCError.m in Sources */,
 				58BA6E2E1A3D3C6D005E9F3B /* UIHistoryView.m in Sources */,
+				6EAE183B1A4BF00800329A2F /* LCTablePurchase.m in Sources */,
 				6EE9C4B61A4AB87A001E18E7 /* LCCheckVersion.m in Sources */,
 				6EE9C4B01A4AAB0C001E18E7 /* LCSetting.m in Sources */,
 			);

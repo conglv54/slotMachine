@@ -10,4 +10,7 @@
 
 @interface LCPurChaseTask : LCBaseTaskNetWork
 
+- (id)initWithPriceID:(int)priceID;
+
+
 @end

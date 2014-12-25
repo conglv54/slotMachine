@@ -8,6 +8,7 @@
 
 #import "LCBaseTaskNetWork.h"
 #import <AFNetworking.h>
+#import "LCFileManager.h"
 
 NSString *const METHOD_GET = @"GET";
 NSString *const METHOD_PUSH = @"PUSH";
@@ -17,9 +18,9 @@ NSString *const METHOD_DELETE = @"DELETE";
 
 NSString *const DOWNLOAD = @"DELETE";
 
-NSString *const HOST_URL = @"http://example.com/api";
+NSString *const HOST_URL = @"http://nguyenhung.freevnn.com/public/api/jackpot";
 
-NSString *const kSession = @"session";
+NSString *const kSession = @"app-session-id";
 
 int const kSucess = 0;
 
@@ -28,7 +29,8 @@ int const kSucess = 0;
 - (id)init {
     self = [super init];
     if (self) {
-        
+        self.isSession = true;
+        self.isDeBug = false;
     }
     return self;
 }
@@ -40,13 +42,19 @@ int const kSucess = 0;
     _blockFailure = failure;
     
     if (self.isDeBug) {
-        [self setCallBackWithResponse:[self genResponse]];
+        int64_t delayInSeconds = 2;
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+            [self setCallBackWithResponse:[self genResponse]];
+        });
         return;
     }
 
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
-    [manager.requestSerializer setValue:@"calvinAndHobbessRock" forHTTPHeaderField:kSession];
+    if (self.isSession) {
+        [manager.requestSerializer setValue:[[LCFileManager shareInstance]getSessionID] forHTTPHeaderField:kSession];
+    }
 
     if ([self.method isEqualToString:METHOD_GET]) {
         [self requestMethodGetWithManager:manager];
@@ -81,7 +89,7 @@ int const kSucess = 0;
     
     [manager POST:[self finalUrl] parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
-        NSLog(@"JSON: %@", responseObject);
+        NSLog(@"JSON Response %@: %@", NSStringFromClass(self.class), responseObject);
         
         [self setCallBackWithResponse:responseObject];
         

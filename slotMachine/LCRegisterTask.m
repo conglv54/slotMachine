@@ -26,6 +26,7 @@
 - (id)initWithDeviceID:(NSString *)deviceID {
     self = [super init];
     if (self) {
+        self.isSession = NO;
         _deviceID = deviceID;
         _os = kOSType;
         _token = kTokenType;
@@ -40,9 +41,9 @@
 
 #pragma mark - Debug
 
-- (BOOL)isDeBug {
-    return YES;
-}
+//- (BOOL)isDeBug {
+//    return YES;
+//}
 
 - (id)genResponse {
     return @{@"code": [NSNumber numberWithInt:0], @"data": @{@"session_id": @"123456"}};

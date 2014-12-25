@@ -12,10 +12,14 @@ extern NSString *const kCheckVersion;
 extern NSString *const kRegister;
 extern NSString *const kGetFreeCoin;
 extern NSString *const kPurchase;
+
 extern NSString *const kPayout;
 extern NSString *const kGetHistory;
 extern NSString *const kGetUserInfo;
 extern NSString *const kDoSpin;
+
+extern NSString *const kPriceID;
+extern NSString *const kReceipt;
 
 @interface LCNetworkConfig : NSObject
 @end

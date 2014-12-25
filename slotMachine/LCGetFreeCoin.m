@@ -10,10 +10,6 @@
 
 @implementation LCGetFreeCoin
 
-- (BOOL)isDeBug {
-    return YES;
-}
-
 - (id)parseDataWithResponse:(id)response {
     NSNumber *freeCoin = response[@"coin"];
     return freeCoin;

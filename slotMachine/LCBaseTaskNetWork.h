@@ -28,7 +28,7 @@ typedef void (^BlockFailure)(id error);
 @property (nonatomic, strong) NSString *method;
 @property (nonatomic, strong) NSString *URL;
 @property (nonatomic, strong) NSDictionary *parameters;
-
+@property (nonatomic)         BOOL isSession;
 @property (nonatomic, strong) id dataParse;
 
 - (void)requestWithBlockSucess:(BlockSucess) sucess andBlockFailure:(BlockFailure) failure;
