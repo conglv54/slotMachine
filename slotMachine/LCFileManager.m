@@ -84,6 +84,20 @@
     return setting;
 }
 
+// User
+
+- (void)setUser:(HAUser *)user {
+    [dictDefault setObject:[NSNumber numberWithInt:user.freeCoin] forKey:kFreeCoin];
+    [dictDefault setObject:[NSNumber numberWithInt:user.myCoin] forKey:kMyCoin];
+}
+
+- (HAUser *)getUser {
+    HAUser *user = [HAUser new];
+    user.freeCoin = [dictDefault[kFreeCoin] intValue];
+    user.myCoin = [dictDefault[kMyCoin] intValue];
+    return user;
+}
+
 #pragma mark - Private Method
 
 - (NSMutableDictionary *)readDict{

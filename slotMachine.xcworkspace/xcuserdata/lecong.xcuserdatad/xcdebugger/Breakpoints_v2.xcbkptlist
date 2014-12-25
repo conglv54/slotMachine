@@ -9,12 +9,12 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "slotMachine/LCCheckVersionTask.m"
-            timestampString = "441132682.108658"
+            filePath = "slotMachine/LCGetFreeCoin.m"
+            timestampString = "441212298.745761"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
             landmarkName = "-parseDataWithResponse:"
             landmarkType = "5">
          </BreakpointContent>
@@ -25,12 +25,12 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "slotMachine/LCRegisterTask.m"
-            timestampString = "441132145.999392"
+            filePath = "slotMachine/LCDoSpin.m"
+            timestampString = "441218206.522165"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "22"
-            endingLineNumber = "22"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
             landmarkName = "-parseDataWithResponse:"
             landmarkType = "5">
          </BreakpointContent>
@@ -41,14 +41,76 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "slotMachine/LCCheckVersionTask.m"
-            timestampString = "441132208.783393"
+            filePath = "slotMachine/LCViewController.m"
+            timestampString = "441220272.228094"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
+            startingLineNumber = "311"
+            endingLineNumber = "311"
+            landmarkName = "-getFreeCoin"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "slotMachine/LCGetHistoryTask.m"
+            timestampString = "441220602.969108"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
             landmarkName = "-parseDataWithResponse:"
             landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "slotMachine/UIPayoutView.m"
+            timestampString = "441221399.454261"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "193"
+            endingLineNumber = "193"
+            landmarkName = "-requestPayout"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[UIPayoutView requestPayout]"
+                  moduleName = "slotMachine"
+                  urlString = "file:///Users/lecong/Desktop/slotMachine/slotMachine/UIPayoutView.m"
+                  timestampString = "441221582.549268"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "193"
+                  endingLineNumber = "193"
+                  offsetFromSymbolStart = "404">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__29-[UIPayoutView requestPayout]_block_invoke"
+                  moduleName = "slotMachine"
+                  urlString = "file:///Users/lecong/Desktop/slotMachine/slotMachine/UIPayoutView.m"
+                  timestampString = "441221582.54949"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "193"
+                  endingLineNumber = "193"
+                  offsetFromSymbolStart = "50">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

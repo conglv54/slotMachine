@@ -19,11 +19,14 @@
     return kGetHistory;
 }
 
+- (NSDictionary *)parameters {
+    return @{@"kind": [NSNumber numberWithInt:1]};
+}
 #pragma mark - Debug
 
-- (BOOL)isDeBug {
-    return YES;
-}
+//- (BOOL)isDeBug {
+//    return YES;
+//}
 
 - (id)parseDataWithResponse:(id)response {
     NSMutableDictionary *dictResponse = [NSMutableDictionary new];

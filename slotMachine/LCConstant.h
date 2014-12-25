@@ -26,6 +26,8 @@
 
 #define kSessionID @"session_id"
 
+#define kFreeCoin @"freeCoin"
+#define kMyCoin @"myCoin"
 
 @interface LCConstant : NSObject
 

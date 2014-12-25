@@ -11,6 +11,9 @@
 		580CF39E1A46D0F400685841 /* LCError.m in Sources */ = {isa = PBXBuildFile; fileRef = 580CF39D1A46D0F400685841 /* LCError.m */; };
 		580CF3A21A46D4B500685841 /* LCError.strings in Resources */ = {isa = PBXBuildFile; fileRef = 580CF3A11A46D4B500685841 /* LCError.strings */; };
 		58116EF01A4721420099CE96 /* LCConstant.m in Sources */ = {isa = PBXBuildFile; fileRef = 58116EEF1A4721420099CE96 /* LCConstant.m */; };
+		5812E9F21A4C550500B2598E /* HARegister.m in Sources */ = {isa = PBXBuildFile; fileRef = 5812E9F11A4C550500B2598E /* HARegister.m */; };
+		5812E9F51A4C5F4900B2598E /* HAUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 5812E9F41A4C5F4900B2598E /* HAUser.m */; };
+		5812E9FB1A4C7EF400B2598E /* LCPayoutTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 5812E9FA1A4C7EF400B2598E /* LCPayoutTask.m */; };
 		5842319C1A48828A002E5FD5 /* LCSpin.m in Sources */ = {isa = PBXBuildFile; fileRef = 5842319B1A48828A002E5FD5 /* LCSpin.m */; };
 		587A71AA1A432B09008283CD /* LCBaseTaskNetWork.m in Sources */ = {isa = PBXBuildFile; fileRef = 587A71A91A432B09008283CD /* LCBaseTaskNetWork.m */; };
 		587A71AD1A4334BD008283CD /* LCCheckVersionTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 587A71AC1A4334BD008283CD /* LCCheckVersionTask.m */; };
@@ -109,6 +112,12 @@
 		580CF3A11A46D4B500685841 /* LCError.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = LCError.strings; sourceTree = "<group>"; };
 		58116EEE1A4721420099CE96 /* LCConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCConstant.h; sourceTree = "<group>"; };
 		58116EEF1A4721420099CE96 /* LCConstant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCConstant.m; sourceTree = "<group>"; };
+		5812E9F01A4C550500B2598E /* HARegister.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HARegister.h; sourceTree = "<group>"; };
+		5812E9F11A4C550500B2598E /* HARegister.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HARegister.m; sourceTree = "<group>"; };
+		5812E9F31A4C5F4900B2598E /* HAUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAUser.h; sourceTree = "<group>"; };
+		5812E9F41A4C5F4900B2598E /* HAUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAUser.m; sourceTree = "<group>"; };
+		5812E9F91A4C7EF400B2598E /* LCPayoutTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCPayoutTask.h; sourceTree = "<group>"; };
+		5812E9FA1A4C7EF400B2598E /* LCPayoutTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCPayoutTask.m; sourceTree = "<group>"; };
 		5842319A1A48828A002E5FD5 /* LCSpin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCSpin.h; sourceTree = "<group>"; };
 		5842319B1A48828A002E5FD5 /* LCSpin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCSpin.m; sourceTree = "<group>"; };
 		587A71A81A432B09008283CD /* LCBaseTaskNetWork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCBaseTaskNetWork.h; sourceTree = "<group>"; };
@@ -281,6 +290,8 @@
 				587A71C41A433E1D008283CD /* LCDoSpin.m */,
 				587A71C61A4349C8008283CD /* LCDownloadTask.h */,
 				587A71C71A4349C8008283CD /* LCDownloadTask.m */,
+				5812E9F91A4C7EF400B2598E /* LCPayoutTask.h */,
+				5812E9FA1A4C7EF400B2598E /* LCPayoutTask.m */,
 			);
 			name = NetWork;
 			sourceTree = "<group>";
@@ -300,6 +311,10 @@
 				58A837111A4B2B8400D46F8F /* LCHistory.m */,
 				6EAE18391A4BF00800329A2F /* LCTablePurchase.h */,
 				6EAE183A1A4BF00800329A2F /* LCTablePurchase.m */,
+				5812E9F01A4C550500B2598E /* HARegister.h */,
+				5812E9F11A4C550500B2598E /* HARegister.m */,
+				5812E9F31A4C5F4900B2598E /* HAUser.h */,
+				5812E9F41A4C5F4900B2598E /* HAUser.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -622,11 +637,14 @@
 				58BA6DE41A3D3A0B005E9F3B /* main.m in Sources */,
 				58BA6DF11A3D3A0B005E9F3B /* LCMyScene.m in Sources */,
 				5842319C1A48828A002E5FD5 /* LCSpin.m in Sources */,
+				5812E9FB1A4C7EF400B2598E /* LCPayoutTask.m in Sources */,
 				587A71BF1A433DB8008283CD /* LCGetHistoryTask.m in Sources */,
 				58BA6E2C1A3D3C6D005E9F3B /* BuyGoldTableViewCell.m in Sources */,
+				5812E9F21A4C550500B2598E /* HARegister.m in Sources */,
 				587A71C21A433E01008283CD /* LCGetUserInfo.m in Sources */,
 				587A71C81A4349C8008283CD /* LCDownloadTask.m in Sources */,
 				58BA6DE81A3D3A0B005E9F3B /* LCAppDelegate.m in Sources */,
+				5812E9F51A4C5F4900B2598E /* HAUser.m in Sources */,
 				58BA6E2A1A3D3C6D005E9F3B /* UIBuyGoldVIew.m in Sources */,
 				58116EF01A4721420099CE96 /* LCConstant.m in Sources */,
 				587A71AA1A432B09008283CD /* LCBaseTaskNetWork.m in Sources */,

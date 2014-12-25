@@ -7,6 +7,7 @@
 //
 
 #import "LCRegisterTask.h"
+#import "HARegister.h"
 
 @implementation LCRegisterTask
 
@@ -19,8 +20,19 @@
 }
 
 - (id)parseDataWithResponse:(id)response {
-    NSString *session = response[kSessionID];
-    return session;
+    HARegister *haregister = [[HARegister alloc] init];
+    HAUser *user = [[HAUser alloc] init];
+    NSString *session_id = response[kSessionID];
+    
+//    user.freeCoin = [response[@"free_coins_total"] intValue];
+//    user.myCoin = [response[@"major_coins_total"] intValue];
+    [user setFreeCoin:100];
+    [user setMyCoin:6100];
+    
+    haregister.user = user;
+    haregister.session_id = session_id;
+    
+    return haregister;
 }
 
 - (id)initWithDeviceID:(NSString *)deviceID {

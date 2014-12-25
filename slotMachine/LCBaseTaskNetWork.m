@@ -9,6 +9,7 @@
 #import "LCBaseTaskNetWork.h"
 #import <AFNetworking.h>
 #import "LCFileManager.h"
+#import <SVProgressHUD.h>
 
 NSString *const METHOD_GET = @"GET";
 NSString *const METHOD_PUSH = @"PUSH";
@@ -31,6 +32,9 @@ int const kSucess = 0;
     if (self) {
         self.isSession = true;
         self.isDeBug = false;
+        
+        [SVProgressHUD setBackgroundColor:[UIColor blackColor]];
+        [SVProgressHUD setForegroundColor:[UIColor whiteColor]];
     }
     return self;
 }
@@ -38,6 +42,10 @@ int const kSucess = 0;
 #pragma mark - Public Method 
 
 - (void)requestWithBlockSucess:(BlockSucess)sucess andBlockFailure:(BlockFailure)failure {
+    
+    [SVProgressHUD show];
+    
+    
     _blockSucess = sucess;
     _blockFailure = failure;
     
@@ -120,6 +128,8 @@ int const kSucess = 0;
 }
 
 - (void)setCallBackWithResponse:(id)response {
+    
+    [SVProgressHUD dismiss];
     
     int code = [self parseCodeFromResponse:response];
     

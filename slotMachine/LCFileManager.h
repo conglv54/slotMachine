@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "LCSetting.h"
+#import "HAUser.h"
 
 @interface LCFileManager : NSObject
 
@@ -24,5 +25,8 @@
 
 - (void)setSettingDefault:(LCSetting *)setting;
 - (LCSetting *)getSettingDefault;
+
+- (void)setUser:(HAUser *)user;
+- (HAUser *)getUser;
 
 @end

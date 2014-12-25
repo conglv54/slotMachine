@@ -11,9 +11,9 @@
 
 @implementation LCDoSpin
 
-- (BOOL)isDeBug {
-    return true;
-}
+//- (BOOL)isDeBug {
+//    return true;
+//}
 
 - (id)parseDataWithResponse:(id)response {
     LCSpin *spin = [LCSpin new];

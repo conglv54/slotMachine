@@ -9,10 +9,10 @@
 #import <UIKit/UIKit.h>
 #import <SpriteKit/SpriteKit.h>
 
-#import "User.h"
+#import "HAUser.h"
 
 @interface LCViewController : UIViewController
 
-@property (nonatomic, strong) User *user;
+@property (nonatomic, strong) HAUser *user;
 
 @end

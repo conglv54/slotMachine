@@ -7,6 +7,7 @@
 //
 
 #import "UIPayoutView.h"
+#import "LCPayoutTask.h"
 
 @implementation UIPayoutView {
     UILabel *lblTotalCoins;
@@ -177,7 +178,23 @@
 }
 
 - (void)requestPayout {
+    [txtAmount resignFirstResponder];
     
+    NSString *account = txtPaypalAccount.text;
+    if ([account isEqualToString:@""]) {
+        return;
+    }
+    CGFloat amount = [txtAmount.text intValue];
+    if (amount == 0) {
+        return;
+    }
+    
+    LCPayoutTask *payoutTask = [[LCPayoutTask alloc] initWithPayoutAccount:account andAmount:amount];
+    [payoutTask requestWithBlockSucess:^(id sucess) {
+        
+    } andBlockFailure:^(id error) {
+        
+    }];
 }
 
 

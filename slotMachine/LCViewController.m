@@ -164,7 +164,7 @@
     [lblTitleWin sizeToFit];
     [self.view addSubview:lblTitleWin];
     
-    _user = [[User alloc] initWithMyCoin:800 andFreeCoin:200];
+    _user = [[HAUser alloc] init];
     
     lblBet = [[UILabel alloc] init];
     [lblBet setNewFrame:CGRectMake(242, 268, 0, 0)];
@@ -309,8 +309,7 @@
     LCGetFreeCoin *getFreeCoin = [[LCGetFreeCoin alloc] init];
     [getFreeCoin requestWithBlockSucess:^(id sucess) {
         NSNumber *freeCoint = (NSNumber *)sucess;
-        CGFloat oldCoin = _user.freeCoin;
-        [_user setFreeCoin:oldCoin + [freeCoint intValue]];
+        [_user setFreeCoin:[freeCoint intValue]];
         lblTotalCoin.text = [Utils stringFromDouble:_user.totalCoin];
     } andBlockFailure:^(id error) {
         

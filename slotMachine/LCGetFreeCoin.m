@@ -7,12 +7,14 @@
 //
 
 #import "LCGetFreeCoin.h"
+#import "HAUser.h"
 
 @implementation LCGetFreeCoin
 
 - (id)parseDataWithResponse:(id)response {
-    NSNumber *freeCoin = response[@"coin"];
-    return freeCoin;
+    HAUser *user = [[HAUser alloc] init];
+    user.freeCoin = [response[kFreeCoin] intValue];
+    return user;
 }
 
 - (id)genResponse {
