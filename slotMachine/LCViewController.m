@@ -21,6 +21,10 @@
     UIBuyGoldVIew *buyGold;
     UIPayoutView *payOutView;
     UIHistoryView *historyView;
+
+    UIButton *btnHistory;
+    UIButton *btnBuy;
+    UIButton *btnFreeCoin;
     
     UILabel *lblTotalCoin;
     UILabel *lblBet;
@@ -66,7 +70,7 @@
     [self.view addSubview:imvHeader];
     
     UIImage *imgFreeCoin = [UIImage imageNamed:@"btnFreeCoin"];
-    UIButton *btnFreeCoin = [UIButton buttonWithType:UIButtonTypeCustom];
+    btnFreeCoin = [UIButton buttonWithType:UIButtonTypeCustom];
     [btnFreeCoin setImage:imgFreeCoin forState:UIControlStateNormal];
     [btnFreeCoin addTarget:self action:@selector(getFreeCoin) forControlEvents:UIControlEventTouchUpInside];
     [btnFreeCoin setNewFrame:CGRectMake(101, 22, imgFreeCoin.size.width, imgFreeCoin.size.height)];
@@ -85,7 +89,7 @@
     [self.view addSubview:btnPayout];
     
     UIImage *imgBuy = [UIImage imageNamed:@"btnBuy"];
-    UIButton *btnBuy = [UIButton buttonWithType:UIButtonTypeCustom];
+    btnBuy = [UIButton buttonWithType:UIButtonTypeCustom];
     [btnBuy setImage:imgBuy forState:UIControlStateNormal];
     [btnBuy setNewFrame:CGRectMake(484, 137, imgBuy.size.width, imgBuy.size.height)];
     [btnBuy addTarget:self action:@selector(BuyCoint:) forControlEvents:UIControlEventTouchUpInside];
@@ -103,7 +107,7 @@
     [self.view addSubview:imvRight];
     
     UIImage *imgHistory = [UIImage imageNamed:@"btnHistory"];
-    UIButton *btnHistory = [UIButton buttonWithType:UIButtonTypeCustom];
+    btnHistory = [UIButton buttonWithType:UIButtonTypeCustom];
     [btnHistory setImage:imgHistory forState:UIControlStateNormal];
     [btnHistory addTarget:self action:@selector(showHistory) forControlEvents:UIControlEventTouchUpInside];
     [btnHistory setNewFrame:CGRectMake(102, 263, imgHistory.size.width, imgHistory.size.height)];
@@ -305,7 +309,7 @@
     lblBet.text = [NSString stringWithFormat:@"%0.2f", maxBet];
     lblMaxBet.text = [NSString stringWithFormat:@"%0.2f", maxBet];
     
-    scene.bet = bet;
+    scene.bet = maxBet;
 }
 
 - (void)getFreeCoin {
@@ -322,12 +326,22 @@
 #pragma mark - Game Delegate 
 
 - (void)didStart:(NSInteger)coin {
+    
+    btnBuy.enabled = NO;
+    btnFreeCoin.enabled = NO;
+    btnHistory.enabled = NO;
+    
     _user.myCoin = _user.myCoin - (int)coin;
     [[LCFileManager shareInstance] setUser:@{@"major_coins_total": [NSNumber numberWithInt:_user.myCoin], @"free_coins_total": [NSNumber numberWithInt:_user.freeCoin]}];
     lblTotalCoin.text = [Utils stringFromDouble:_user.totalCoin];
 }
 
 - (void)didStop:(NSInteger)coin {
+    
+    btnBuy.enabled = YES;
+    btnFreeCoin.enabled = YES;
+    btnHistory.enabled = YES;
+    
     if (coin > 0) {
         _user.myCoin = _user.myCoin + (int)coin;
         [[LCFileManager shareInstance] setUser:@{@"major_coins_total": [NSNumber numberWithInt:_user.myCoin], @"free_coins_total": [NSNumber numberWithInt:_user.freeCoin]}];

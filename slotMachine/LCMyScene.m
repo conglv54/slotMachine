@@ -159,7 +159,7 @@
 }
 
 - (void)start {
-    NSLog(@"Sent to server");
+    NSLog(@"Sent to server, bet: %ld", self.bet);
  
     spinTask.bet = self.bet;
     
