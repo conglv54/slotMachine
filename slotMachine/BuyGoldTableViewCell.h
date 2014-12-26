@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "LCTablePurchase.h"
 
-@protocol BuyGoldDelegate <NSObject>
+@protocol BuyGoldCellDelegate <NSObject>
 
 - (void)buyGoldWithID:(int)priceID;
 
@@ -17,7 +17,7 @@
 
 @interface BuyGoldTableViewCell : UITableViewCell
 
-@property (nonatomic, assign) id<BuyGoldDelegate> delegate;
+@property (nonatomic, assign) id<BuyGoldCellDelegate> delegate;
 
 - (void)setTablePurchase:(LCTablePurchase *)tablePurchase;
 

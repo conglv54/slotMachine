@@ -20,19 +20,7 @@
 }
 
 - (id)parseDataWithResponse:(id)response {
-    HARegister *haregister = [[HARegister alloc] init];
-    HAUser *user = [[HAUser alloc] init];
-    NSString *session_id = response[kSessionID];
-    
-//    user.freeCoin = [response[@"free_coins_total"] intValue];
-//    user.myCoin = [response[@"major_coins_total"] intValue];
-    [user setFreeCoin:100];
-    [user setMyCoin:6100];
-    
-    haregister.user = user;
-    haregister.session_id = session_id;
-    
-    return haregister;
+    return response;
 }
 
 - (id)initWithDeviceID:(NSString *)deviceID {
@@ -53,12 +41,8 @@
 
 #pragma mark - Debug
 
-//- (BOOL)isDeBug {
-//    return YES;
-//}
-
 - (id)genResponse {
-    return @{@"code": [NSNumber numberWithInt:0], @"data": @{@"session_id": @"123456"}};
+    return @{@"code": [NSNumber numberWithInt:0], @"data": @{@"session_id": @"123456", @"free_coins_total": [NSNumber numberWithInt:100], @"major_coins_total": [NSNumber numberWithInt:1100]}};
 }
 
-@end
+    @end

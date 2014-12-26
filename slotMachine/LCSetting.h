@@ -13,7 +13,7 @@
 @property (nonatomic) int maxBet;
 @property (nonatomic) int stepBet;
 @property (nonatomic) int minBet;
-@property (nonatomic) int ratioPayout;
+@property (nonatomic) float ratioPayout;
 @property (nonatomic) int freeCoin;
 
 @end

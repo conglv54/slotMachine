@@ -33,26 +33,19 @@
 
 - (id)parseDataWithResponse:(id)response {
     LCCheckVersion *checkVersion = [[LCCheckVersion alloc] init];
-    LCSetting *setting = [[LCSetting alloc] init];
-    
     NSDictionary *dictSetting = response[@"settings"];
     
-    setting.maxBet = [dictSetting[kMaxBet] intValue];
-    setting.minBet = [dictSetting[kMinBet] intValue];
-    setting.stepBet = [dictSetting[kStepBet] intValue];
-    setting.ratioPayout = [dictSetting[kRatioPayout] intValue];
-    
-    checkVersion.version = response[kVersion];
+    checkVersion.version = response[kVersion][@"value"];
     checkVersion.isUpdate = [response[@"is_update"] boolValue];
-    checkVersion.setting = setting;
+    checkVersion.setting = dictSetting;
     return checkVersion;
 }
 
 #pragma mark - Debug
 
-- (BOOL)isDeBug {
-    return YES;
-}
+//- (BOOL)isDeBug {
+//    return YES;
+//}
 
 - (id)genResponse {
     NSDictionary *response = @{@"code":[NSNumber numberWithInt:0], @"data":@{kVersion: @"20142312", @"is_update": [NSNumber numberWithBool:true], @"settings": @{kMaxBet: [NSNumber numberWithInt:50], kMinBet: [NSNumber numberWithInt:10], kStepBet: [NSNumber numberWithInt:5], kRatioPayout: [NSNumber numberWithInt:10]}}};

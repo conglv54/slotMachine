@@ -9,6 +9,7 @@
 #import "UIBuyGoldVIew.h"
 #import "LCPurChaseTask.h"
 #import "LCGetTablePurchaseTask.h"
+#import "LCFileManager.h"
 
 @implementation UIBuyGoldVIew {
     NSArray *tablePurchase;
@@ -71,7 +72,9 @@
 - (void)buyGoldWithID:(int)priceID {
     LCPurChaseTask *purchaseTask = [[LCPurChaseTask alloc] initWithPriceID:priceID];
     [purchaseTask requestWithBlockSucess:^(id sucess) {
-        
+        if ([_delegate respondsToSelector:@selector(didBuyGold:)]) {
+            [_delegate didBuyGold:[sucess[@"major_coins_total"] intValue]];
+        }
     } andBlockFailure:^(id error) {
         
     }];

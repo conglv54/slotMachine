@@ -53,7 +53,6 @@
 		58BA6E2C1A3D3C6D005E9F3B /* BuyGoldTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 58BA6E241A3D3C6D005E9F3B /* BuyGoldTableViewCell.m */; };
 		58BA6E2D1A3D3C6D005E9F3B /* HistoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 58BA6E261A3D3C6D005E9F3B /* HistoryTableViewCell.m */; };
 		58BA6E2E1A3D3C6D005E9F3B /* UIHistoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 58BA6E281A3D3C6D005E9F3B /* UIHistoryView.m */; };
-		58BA6E311A3D3C7E005E9F3B /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 58BA6E301A3D3C7E005E9F3B /* User.m */; };
 		58BA6E521A3D3D83005E9F3B /* Oswald-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 58BA6E321A3D3D83005E9F3B /* Oswald-Bold.otf */; };
 		58BA6E531A3D3D83005E9F3B /* bgTxtAmount@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 58BA6E331A3D3D83005E9F3B /* bgTxtAmount@2x.png */; };
 		58BA6E541A3D3D83005E9F3B /* bgTxtPaypalAcc@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 58BA6E341A3D3D83005E9F3B /* bgTxtPaypalAcc@2x.png */; };
@@ -87,6 +86,8 @@
 		58BA6E701A3D3D83005E9F3B /* btnBuyGold@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 58BA6E501A3D3D83005E9F3B /* btnBuyGold@2x.png */; };
 		58BA6E711A3D3D83005E9F3B /* icGold@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 58BA6E511A3D3D83005E9F3B /* icGold@2x.png */; };
 		58E3B3231A46F7C1007C8EB5 /* Default.plist in Resources */ = {isa = PBXBuildFile; fileRef = 58E3B3221A46F7C1007C8EB5 /* Default.plist */; };
+		6E3025101A4D01A3000A9A1C /* LCUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E30250F1A4D01A3000A9A1C /* LCUser.m */; };
+		6E3025131A4D0483000A9A1C /* LCRegister.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E3025121A4D0483000A9A1C /* LCRegister.m */; };
 		6EAE18381A4BC2E100329A2F /* LCGetTablePurchaseTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EAE18371A4BC2E100329A2F /* LCGetTablePurchaseTask.m */; };
 		6EAE183B1A4BF00800329A2F /* LCTablePurchase.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EAE183A1A4BF00800329A2F /* LCTablePurchase.m */; };
 		6EE9C4B01A4AAB0C001E18E7 /* LCSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE9C4AF1A4AAB0C001E18E7 /* LCSetting.m */; };
@@ -186,8 +187,6 @@
 		58BA6E261A3D3C6D005E9F3B /* HistoryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryTableViewCell.m; sourceTree = "<group>"; };
 		58BA6E271A3D3C6D005E9F3B /* UIHistoryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIHistoryView.h; sourceTree = "<group>"; };
 		58BA6E281A3D3C6D005E9F3B /* UIHistoryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIHistoryView.m; sourceTree = "<group>"; };
-		58BA6E2F1A3D3C7E005E9F3B /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		58BA6E301A3D3C7E005E9F3B /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		58BA6E321A3D3D83005E9F3B /* Oswald-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-Bold.otf"; sourceTree = "<group>"; };
 		58BA6E331A3D3D83005E9F3B /* bgTxtAmount@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bgTxtAmount@2x.png"; sourceTree = "<group>"; };
 		58BA6E341A3D3D83005E9F3B /* bgTxtPaypalAcc@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bgTxtPaypalAcc@2x.png"; sourceTree = "<group>"; };
@@ -222,6 +221,10 @@
 		58BA6E511A3D3D83005E9F3B /* icGold@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icGold@2x.png"; sourceTree = "<group>"; };
 		58E3B31F1A46E140007C8EB5 /* LCNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCNetwork.h; sourceTree = "<group>"; };
 		58E3B3221A46F7C1007C8EB5 /* Default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Default.plist; sourceTree = "<group>"; };
+		6E30250E1A4D01A2000A9A1C /* LCUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCUser.h; sourceTree = "<group>"; };
+		6E30250F1A4D01A3000A9A1C /* LCUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCUser.m; sourceTree = "<group>"; };
+		6E3025111A4D0483000A9A1C /* LCRegister.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCRegister.h; sourceTree = "<group>"; };
+		6E3025121A4D0483000A9A1C /* LCRegister.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCRegister.m; sourceTree = "<group>"; };
 		6EAE18361A4BC2E100329A2F /* LCGetTablePurchaseTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCGetTablePurchaseTask.h; sourceTree = "<group>"; };
 		6EAE18371A4BC2E100329A2F /* LCGetTablePurchaseTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCGetTablePurchaseTask.m; sourceTree = "<group>"; };
 		6EAE18391A4BF00800329A2F /* LCTablePurchase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCTablePurchase.h; sourceTree = "<group>"; };
@@ -299,8 +302,6 @@
 		588BEF6C1A486E14003E0728 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				58BA6E2F1A3D3C7E005E9F3B /* User.h */,
-				58BA6E301A3D3C7E005E9F3B /* User.m */,
 				5842319A1A48828A002E5FD5 /* LCSpin.h */,
 				5842319B1A48828A002E5FD5 /* LCSpin.m */,
 				6EE9C4AE1A4AAB0C001E18E7 /* LCSetting.h */,
@@ -313,8 +314,12 @@
 				6EAE183A1A4BF00800329A2F /* LCTablePurchase.m */,
 				5812E9F01A4C550500B2598E /* HARegister.h */,
 				5812E9F11A4C550500B2598E /* HARegister.m */,
+				6E3025111A4D0483000A9A1C /* LCRegister.h */,
+				6E3025121A4D0483000A9A1C /* LCRegister.m */,
 				5812E9F31A4C5F4900B2598E /* HAUser.h */,
 				5812E9F41A4C5F4900B2598E /* HAUser.m */,
+				6E30250E1A4D01A2000A9A1C /* LCUser.h */,
+				6E30250F1A4D01A3000A9A1C /* LCUser.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -643,12 +648,13 @@
 				5812E9F21A4C550500B2598E /* HARegister.m in Sources */,
 				587A71C21A433E01008283CD /* LCGetUserInfo.m in Sources */,
 				587A71C81A4349C8008283CD /* LCDownloadTask.m in Sources */,
+				6E3025101A4D01A3000A9A1C /* LCUser.m in Sources */,
+				6E3025131A4D0483000A9A1C /* LCRegister.m in Sources */,
 				58BA6DE81A3D3A0B005E9F3B /* LCAppDelegate.m in Sources */,
 				5812E9F51A4C5F4900B2598E /* HAUser.m in Sources */,
 				58BA6E2A1A3D3C6D005E9F3B /* UIBuyGoldVIew.m in Sources */,
 				58116EF01A4721420099CE96 /* LCConstant.m in Sources */,
 				587A71AA1A432B09008283CD /* LCBaseTaskNetWork.m in Sources */,
-				58BA6E311A3D3C7E005E9F3B /* User.m in Sources */,
 				587A71AD1A4334BD008283CD /* LCCheckVersionTask.m in Sources */,
 				58BA6E1C1A3D3C40005E9F3B /* Utils.m in Sources */,
 				58BA6E2B1A3D3C6D005E9F3B /* UIPayoutView.m in Sources */,

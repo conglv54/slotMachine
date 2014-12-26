@@ -24,6 +24,10 @@
     return @{kPriceID: [NSNumber numberWithInt:_priceID], kReceipt: @"Do some thing"};
 }
 
+- (id)parseDataWithResponse:(id)response {
+    return response;
+}
+
 - (NSString *)method {
     return METHOD_POST;
 }

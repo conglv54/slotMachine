@@ -7,14 +7,12 @@
 //
 
 #import "LCViewController.h"
-#import "LCMyScene.h"
 
-#import "UIBuyGoldVIew.h"
 #import "UIPayoutView.h"
 #import "UIHistoryView.h"
 
 #import "UIView+Frame.h"
-
+#import "LCFileManager.h"
 #import "LCGetFreeCoin.h"
 
 @implementation LCViewController {
@@ -32,6 +30,7 @@
     CGFloat bet;
     CGFloat maxBet;
     CGFloat minBet;
+    CGFloat stepBet;
     CGFloat win;
     
     BOOL isHold;
@@ -44,10 +43,11 @@
 {
     [super viewDidLoad];
 
-    maxBet = 90;
-    minBet = 10;
+    maxBet = [[LCFileManager shareInstance] getSettingDefault].maxBet;
+    minBet = [[LCFileManager shareInstance] getSettingDefault].minBet;
+    stepBet = [[LCFileManager shareInstance] getSettingDefault].stepBet;
     
-    bet = 0;
+    bet = minBet;
     win = 0;
     
     UIImage *imgBg = [UIImage imageNamed:@"bg"];
@@ -164,7 +164,7 @@
     [lblTitleWin sizeToFit];
     [self.view addSubview:lblTitleWin];
     
-    _user = [[HAUser alloc] init];
+    _user = [[LCFileManager shareInstance]getUser];
     
     lblBet = [[UILabel alloc] init];
     [lblBet setNewFrame:CGRectMake(242, 268, 0, 0)];
@@ -216,6 +216,7 @@
     
     // Create and configure the scene.
     scene = [[LCMyScene alloc] initWithSize:skView.bounds.size];
+    scene.gameDelegate = self;
     scene.scaleMode = SKSceneScaleModeAspectFill;
     
     // Present the scene.
@@ -230,6 +231,7 @@
     
     scene.isAuto = !scene.isAuto;
     if (scene.isAuto) {
+        scene.bet = bet;
         [scene start];
     }
     
@@ -238,6 +240,7 @@
 
 - (IBAction)BuyCoint:(id)sender {
     buyGold = [[UIBuyGoldVIew alloc] init];
+    buyGold.delegate = self;
     [buyGold showinView:self.view];
 }
 
@@ -280,7 +283,7 @@
 
 - (void)touchUpInSide {
     isHold = FALSE;
-    bet = bet + minBet;
+    bet = bet + stepBet;
     
     if (bet > maxBet) {
         bet = minBet;
@@ -316,18 +319,28 @@
     }];
 }
 
-- (BOOL)shouldAutorotate
-{
-    return YES;
+#pragma mark - Game Delegate 
+
+- (void)didStart:(NSInteger)coin {
+    _user.myCoin = _user.myCoin - (int)coin;
+    [[LCFileManager shareInstance] setUser:@{@"major_coins_total": [NSNumber numberWithInt:_user.myCoin], @"free_coins_total": [NSNumber numberWithInt:_user.freeCoin]}];
+    lblTotalCoin.text = [Utils stringFromDouble:_user.totalCoin];
 }
 
-- (NSUInteger)supportedInterfaceOrientations
-{
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        return UIInterfaceOrientationMaskAllButUpsideDown;
-    } else {
-        return UIInterfaceOrientationMaskAll;
+- (void)didStop:(NSInteger)coin {
+    if (coin > 0) {
+        _user.myCoin = _user.myCoin + (int)coin;
+        [[LCFileManager shareInstance] setUser:@{@"major_coins_total": [NSNumber numberWithInt:_user.myCoin], @"free_coins_total": [NSNumber numberWithInt:_user.freeCoin]}];
+        lblTotalCoin.text = [Utils stringFromDouble:_user.totalCoin];
     }
+}
+
+#pragma mark - Buy Gold Delegate 
+
+- (void)didBuyGold:(int)coin {
+    _user.myCoin = coin;
+    [[LCFileManager shareInstance] setUser:@{@"major_coins_total": [NSNumber numberWithInt:_user.myCoin], @"free_coins_total": [NSNumber numberWithInt:_user.freeCoin]}];
+    lblTotalCoin.text = [Utils stringFromDouble:_user.totalCoin];
 }
 
 - (void)didReceiveMemoryWarning

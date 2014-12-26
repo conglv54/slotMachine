@@ -20,7 +20,7 @@
 }
 
 - (NSDictionary *)parameters {
-    return @{@"kind": [NSNumber numberWithInt:1]};
+    return @{@"kind": [NSNumber numberWithInt:3]};
 }
 #pragma mark - Debug
 
@@ -32,6 +32,7 @@
     NSMutableDictionary *dictResponse = [NSMutableDictionary new];
     NSMutableArray *histories = [NSMutableArray new];
     NSString *nextUrl = @"";
+    
     
     for (NSDictionary *dictHistory in response[@"content"]) {
         LCHistory *history = [[LCHistory alloc] init];

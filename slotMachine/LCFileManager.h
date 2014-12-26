@@ -23,10 +23,10 @@
 - (void)setVersion:(NSString *)version;
 - (NSString *)getVersion;
 
-- (void)setSettingDefault:(LCSetting *)setting;
+- (void)setSettingDefault:(NSDictionary *)setting;
 - (LCSetting *)getSettingDefault;
 
-- (void)setUser:(HAUser *)user;
+- (void)setUser:(NSDictionary *)userDict;
 - (HAUser *)getUser;
 
 @end

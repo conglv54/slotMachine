@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import <SpriteKit/SpriteKit.h>
-
+#import "LCMyScene.h"
 #import "HAUser.h"
+#import "UIBuyGoldVIew.h"
 
-@interface LCViewController : UIViewController
+@interface LCViewController : UIViewController <LCMygameDelegate, BuyGoldDelegate>
 
 @property (nonatomic, strong) HAUser *user;
 

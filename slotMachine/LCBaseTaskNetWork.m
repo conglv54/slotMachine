@@ -32,6 +32,7 @@ int const kSucess = 0;
     if (self) {
         self.isSession = true;
         self.isDeBug = false;
+        self.isShowLoading = true;
         
         [SVProgressHUD setBackgroundColor:[UIColor blackColor]];
         [SVProgressHUD setForegroundColor:[UIColor whiteColor]];
@@ -43,8 +44,9 @@ int const kSucess = 0;
 
 - (void)requestWithBlockSucess:(BlockSucess)sucess andBlockFailure:(BlockFailure)failure {
     
-    [SVProgressHUD show];
-    
+    if (self.isShowLoading) {
+        [SVProgressHUD show];
+    }
     
     _blockSucess = sucess;
     _blockFailure = failure;
@@ -84,10 +86,7 @@ int const kSucess = 0;
         [self setCallBackWithResponse:responseObject];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
-        NSLog(@"Error: %@", error);
-        _blockFailure(error);
-        
+        [self setCallbackWithError:error];
     }];
 }
 
@@ -102,8 +101,7 @@ int const kSucess = 0;
         [self setCallBackWithResponse:responseObject];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Error: %@", error);
-        _blockFailure(error);
+        [self setCallbackWithError:error];
     }];
 }
 
@@ -128,8 +126,9 @@ int const kSucess = 0;
 }
 
 - (void)setCallBackWithResponse:(id)response {
-    
-    [SVProgressHUD dismiss];
+    if (self.isShowLoading) {
+        [SVProgressHUD dismiss];
+    }
     
     int code = [self parseCodeFromResponse:response];
     
@@ -147,6 +146,15 @@ int const kSucess = 0;
         _blockFailure(error);
     }
 
+}
+
+- (void)setCallbackWithError:(NSError *)error {
+    if (self.isShowLoading) {
+        [SVProgressHUD dismiss];
+    }
+    
+    NSLog(@"Error: %@", error);
+    _blockFailure(error);
 }
 
 #pragma mark - Method Overide Subclass

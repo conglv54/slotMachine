@@ -21,6 +21,7 @@
     
     CGPoint locationBegin;
     int index;
+    NSInteger coinWin;
     
     NSTimer *timer;
     
@@ -162,9 +163,14 @@
  
     spinTask.bet = self.bet;
     
+    if ([_gameDelegate respondsToSelector:@selector(didStart:)]) {
+        [_gameDelegate didStart:self.bet];
+    }
+    
     [spinTask requestWithBlockSucess:^(id sucess) {
         LCSpin *spin = (LCSpin *)sucess;
         NSArray *results = spin.arrResult;
+        coinWin = spin.coin;
         
         for (int i = 0 ; i < arrVerticalCell.count; i ++) {
             LCVeticalCell *verticalCell = arrVerticalCell[i];
@@ -180,6 +186,12 @@
         for (LCVeticalCell *verticalCell in arrVerticalCell) {
             [verticalCell stepState];
         }
+    }
+}
+
+- (void)stop {
+    if ([_gameDelegate respondsToSelector:@selector(didStop:)]) {
+        [_gameDelegate didStop:coinWin];
     }
 }
 

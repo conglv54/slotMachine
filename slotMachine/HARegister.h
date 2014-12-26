@@ -7,11 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "HAUser.h"
+#import "LCUser.h"
 
 @interface HARegister : NSObject
 
-@property (nonatomic, strong) HAUser *user;
+@property (nonatomic, strong) LCUser *user;
 @property (nonatomic, strong) NSString *session_id;
 
 @end

@@ -40,6 +40,7 @@ typedef void (^BlockFailure)(id error);
 #pragma mark - Debug
 
 @property (nonatomic) BOOL isDeBug;
+@property (nonatomic) BOOL isShowLoading;
 
 - (id)genResponse;
 

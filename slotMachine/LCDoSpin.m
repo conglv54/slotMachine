@@ -11,15 +11,19 @@
 
 @implementation LCDoSpin
 
-//- (BOOL)isDeBug {
-//    return true;
-//}
+- (id)init {
+    self = [super init];
+    if (self) {
+        self.isShowLoading = false;
+    }
+    return self;
+}
 
 - (id)parseDataWithResponse:(id)response {
     LCSpin *spin = [LCSpin new];
     NSInteger coin = [response[@"coin"] integerValue];
     spin.coin = coin;
-    NSArray *result = response[@"result"];
+    NSArray *result = response[@"range"];
     spin.arrResult = result;
     return spin;
 }

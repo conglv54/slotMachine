@@ -8,15 +8,24 @@
 
 #import <SpriteKit/SpriteKit.h>
 
+@protocol LCMygameDelegate <NSObject>
+
+- (void)didStart:(NSInteger)coin;
+- (void)didStop:(NSInteger)coin;
+
+@end
+
 @interface LCMyScene : SKScene
 
 @property (nonatomic) BOOL isAuto;
 @property (nonatomic) BOOL isRote;
 
 @property (nonatomic) NSInteger bet;
-
 @property (nonatomic) int timerCount;
 
+@property (nonatomic, assign) id <LCMygameDelegate> gameDelegate;
+
 - (void)start;
+- (void)stop;
 
 @end

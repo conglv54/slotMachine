@@ -11,6 +11,7 @@
 #import "LCCheckVersion.h"
 #import "LCGetUserInfo.h"
 #import "HARegister.h"
+#import "LCRegister.h"
 
 @interface LCSplashViewController ()
 
@@ -24,26 +25,25 @@
     [super viewDidLoad];
 
     fileManager = [LCFileManager shareInstance];
-
     __block BOOL isFirstLaunch = [fileManager isFirstLaunch];
-//    if (isFirstLaunch) {
+    
+    if (isFirstLaunch) {
     
         LCRegisterTask *registerTask = [[LCRegisterTask alloc] initWithDeviceID:[Utils getUniqueDeviceIdentifierAsString]];
         [registerTask requestWithBlockSucess:^(id sucess) {
             isFirstLaunch = false;
-            HARegister *haRegister = sucess;
             
             [fileManager setIsFirstLaunch:isFirstLaunch];
-            [fileManager saveSessionID:haRegister.session_id];
-            [fileManager setUser:haRegister.user];
+            [fileManager saveSessionID:sucess[@"session_id"]];
+            [fileManager setUser:sucess];
             [self checkVersion];
         } andBlockFailure:^(id error) {
             
         }];
         
-//    } else {
-//        [self checkVersion];
-//    }
+    } else {
+        [self checkVersion];
+    }
 }
 
 - (void)getUserInfo {
@@ -65,6 +65,7 @@
         BOOL isUpdate = checkVersion.isUpdate;
         
         if (isUpdate) {
+            [fileManager setVersion:checkVersion.version];
             [fileManager setSettingDefault:checkVersion.setting];
         }
         

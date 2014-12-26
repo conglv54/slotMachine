@@ -9,6 +9,14 @@
 #import "UIPopupView.h"
 #import "BuyGoldTableViewCell.h"
 
-@interface UIBuyGoldVIew : UIPopupView <UITableViewDataSource, UITableViewDelegate, BuyGoldDelegate>
+@protocol BuyGoldDelegate <NSObject>
+
+- (void)didBuyGold:(int)gold;
+
+@end
+
+@interface UIBuyGoldVIew : UIPopupView <UITableViewDataSource, UITableViewDelegate, BuyGoldCellDelegate>
+
+@property (nonatomic, assign) id <BuyGoldDelegate> delegate;
 
 @end

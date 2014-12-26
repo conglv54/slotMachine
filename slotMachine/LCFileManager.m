@@ -67,11 +67,11 @@
 
 // setting
 
-- (void)setSettingDefault:(LCSetting *)setting {
-    [dictDefault setObject:[NSNumber numberWithInt:setting.maxBet] forKey:kMaxBet];
-    [dictDefault setObject:[NSNumber numberWithInt:setting.minBet] forKey:kMinBet];
-    [dictDefault setObject:[NSNumber numberWithInt:setting.stepBet] forKey:kStepBet];
-    [dictDefault setObject:[NSNumber numberWithInt:setting.ratioPayout] forKey:kMaxBet];
+- (void)setSettingDefault:(NSDictionary *)setting {
+    [dictDefault setObject:setting[@"MAXBET"] forKey:kMaxBet];
+    [dictDefault setObject:setting[@"MINBET"] forKey:kMinBet];
+    [dictDefault setObject:setting[@"STEBET"] forKey:kStepBet];
+    [dictDefault setObject:setting[@"RTEOUT"] forKey:kRatioPayout];
     [dictDefault writeToFile:[self filePath] atomically:YES];
 }
 
@@ -86,9 +86,10 @@
 
 // User
 
-- (void)setUser:(HAUser *)user {
-    [dictDefault setObject:[NSNumber numberWithInt:user.freeCoin] forKey:kFreeCoin];
-    [dictDefault setObject:[NSNumber numberWithInt:user.myCoin] forKey:kMyCoin];
+- (void)setUser:(NSDictionary *)userDict {
+    [dictDefault setObject:userDict[@"free_coins_total"] forKey:kFreeCoin];
+    [dictDefault setObject:userDict[@"major_coins_total"] forKey:kMyCoin];
+    [dictDefault writeToFile:[self filePath] atomically:YES];
 }
 
 - (HAUser *)getUser {

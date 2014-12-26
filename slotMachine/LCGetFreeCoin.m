@@ -12,14 +12,14 @@
 @implementation LCGetFreeCoin
 
 - (id)parseDataWithResponse:(id)response {
-    HAUser *user = [[HAUser alloc] init];
-    user.freeCoin = [response[kFreeCoin] intValue];
-    return user;
+    NSNumber *freeCoin = response[@"free_coin"];
+    return freeCoin;
 }
 
 - (id)genResponse {
     return @{@"code": [NSNumber numberWithInt:0], @"data": @{@"coin": [NSNumber numberWithInt:100]}};
 }
+
 - (NSString *)method {
     return METHOD_GET;
 }

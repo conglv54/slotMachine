@@ -10,4 +10,12 @@
 
 @implementation HAUser
 
+@synthesize totalCoin;
+@synthesize freeCoin;
+@synthesize myCoin;
+
+- (int)totalCoin {
+    return self.freeCoin + self.myCoin;
+}
+
 @end

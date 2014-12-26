@@ -11,7 +11,7 @@
 
 @interface LCCheckVersion : NSObject
 
-@property (nonatomic, strong) LCSetting *setting;
+@property (nonatomic, strong) NSDictionary *setting;
 @property (nonatomic, strong) NSString *version;
 @property (nonatomic) BOOL isUpdate;
 
