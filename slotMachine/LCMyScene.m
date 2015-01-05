@@ -58,11 +58,11 @@
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     
-    for (LCVeticalCell *cell in arrVerticalCell) {
-        if (cell.currentState != State_Idle) {
-            return;
-        }
-    }
+//    for (LCVeticalCell *cell in arrVerticalCell) {
+//        if (cell.currentState != State_Idle) {
+//            return;
+//        }
+//    }
     
     for (UITouch *touch in touches) {
         locationBegin  = [touch locationInNode:self];
@@ -72,11 +72,11 @@
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
     
-    for (LCVeticalCell *cell in arrVerticalCell) {
-        if (cell.currentState != State_Idle) {
-            return;
-        }
-    }
+//    for (LCVeticalCell *cell in arrVerticalCell) {
+//        if (cell.currentState != State_Idle) {
+//            return;
+//        }
+//    }
 
     if (_isAuto) {
         return;
@@ -104,11 +104,11 @@
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
     
-    for (LCVeticalCell *cell in arrVerticalCell) {
-        if (cell.currentState != State_Idle) {
-            return;
-        }
-    }
+//    for (LCVeticalCell *cell in arrVerticalCell) {
+//        if (cell.currentState != State_Idle) {
+//            return;
+//        }
+//    }
     
     CGPoint locationEnd;
     LCVeticalCell *cell = arrVerticalCell[index];
