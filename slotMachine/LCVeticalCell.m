@@ -190,7 +190,7 @@
 - (void)reset {
     velocityY.y = 0;
     _velocityDefault = 500;
-    
+    _isReciveResult = FALSE;
     extraTime = 0;
     isGenResult = FALSE;
     

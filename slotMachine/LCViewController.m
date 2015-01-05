@@ -222,6 +222,7 @@
     // Create and configure the scene.
     scene = [[LCMyScene alloc] initWithSize:skView.bounds.size];
     scene.gameDelegate = self;
+    scene.bet = bet;
     scene.scaleMode = SKSceneScaleModeAspectFill;
     
     // Present the scene.
@@ -346,7 +347,7 @@
     btnPayout.enabled = YES;
     
     if (coin > 0) {
-        lblWin.text = [NSString stringWithFormat:@"%d", coin];
+        lblWin.text = [NSString stringWithFormat:@"%ld", coin];
         _user.myCoin = _user.myCoin + (int)coin;
         [[LCFileManager shareInstance] setUser:@{@"major_coins_total": [NSNumber numberWithInt:_user.myCoin], @"free_coins_total": [NSNumber numberWithInt:_user.freeCoin]}];
         lblTotalCoin.text = [Utils stringFromDouble:_user.totalCoin];

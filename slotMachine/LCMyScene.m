@@ -95,6 +95,10 @@
                 
                 index = [self cellInLocation:location];
                 LCVeticalCell *verticalCell = arrVerticalCell[index];
+                if (verticalCell.currentState == State_Idle) {
+                    return;
+                }
+                
                 [verticalCell changeLocationWithDistance:diff];
             }
         }
@@ -104,14 +108,12 @@
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
     
-//    for (LCVeticalCell *cell in arrVerticalCell) {
-//        if (cell.currentState != State_Idle) {
-//            return;
-//        }
-//    }
-    
     CGPoint locationEnd;
     LCVeticalCell *cell = arrVerticalCell[index];
+    if (cell.currentState != State_Idle) {
+        return;
+        
+    }
     
     for (UITouch *touch in touches) {
         locationEnd  = [touch locationInNode:self];
@@ -140,6 +142,19 @@
         cell.velocityDefault = - vRote;
         [cell stepState];
     }
+
+    int countCellStart = 0;
+    
+    for (LCVeticalCell *cell in arrVerticalCell) {
+        if (cell.currentState != State_Idle) {
+            countCellStart ++;
+        }
+    }
+    
+    if (countCellStart == 5) {
+        [self start];
+    }
+    
 }
 
 - (void)update:(NSTimeInterval)currentTime {
