@@ -8,6 +8,7 @@
 
 #import "UIPayoutView.h"
 #import "LCPayoutTask.h"
+#import "LCFileManager.h"
 
 @implementation UIPayoutView {
     UILabel *lblTotalCoins;
@@ -19,6 +20,8 @@
     UITextField *txtAmount;
     
     UIButton *btnRequestPayout;
+    
+    CGFloat maxPayout;
 }
 
 - (UIView *)viewForContentView {
@@ -151,16 +154,8 @@
     if ([textField isEqual:txtPaypalAccount]) {
         [txtAmount becomeFirstResponder];
     } else if ([textField isEqual:txtAmount]){
-        [UIView animateWithDuration:0.5 animations:^{
-            CGRect frame = self.foregroundView.frame;
-            frame.origin.y = 0;
-            self.foregroundView.frame = frame;
-            
-        } completion:^(BOOL finished) {
-            
-        }];
+        [self requestPayout];
         
-        [textField resignFirstResponder];
     }
     return YES;
 }
@@ -172,6 +167,11 @@
     lblFreeCoins.text  = [NSString stringWithFormat:@"%0.f", freeCoin];
     lblMyCoins.text    = [NSString stringWithFormat:@"%0.f", (totalCoin - freeCoin)];
     
+    CGFloat ratioPayout = [[LCFileManager shareInstance]getSettingDefault].ratioPayout;
+    maxPayout   = (totalCoin - freeCoin) / ratioPayout;
+    
+    lblMaxPayout.text  = [NSString stringWithFormat:@"%0.f", maxPayout];
+    
     [lblTotalCoins sizeToFit];
     [lblFreeCoins sizeToFit];
     [lblMyCoins sizeToFit];
@@ -179,13 +179,25 @@
 
 - (void)requestPayout {
     [txtAmount resignFirstResponder];
+    [txtPaypalAccount resignFirstResponder];
+    
+    [UIView animateWithDuration:0.5 animations:^{
+        CGRect frame = self.foregroundView.frame;
+        frame.origin.y = 0;
+        self.foregroundView.frame = frame;
+        
+    } completion:^(BOOL finished) {
+        
+    }];
     
     NSString *account = txtPaypalAccount.text;
     if ([account isEqualToString:@""]) {
+        txtAmount.text = @"";
         return;
     }
     CGFloat amount = [txtAmount.text intValue];
-    if (amount == 0) {
+    if (amount == 0 || amount > maxPayout) {
+        txtAmount.text = @"";
         return;
     }
     

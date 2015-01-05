@@ -13,6 +13,10 @@
     CGFloat _amount;
 }
 
+- (NSString *)method {
+    return METHOD_POST;
+}
+
 - (NSString *)URL {
     return kPayout;
 }
@@ -24,6 +28,10 @@
         _amount = amount;
     }
     return self;
+}
+
+- (NSDictionary *)parameters {
+    return @{kPaypal_account: _account, kAmount: [NSNumber numberWithFloat:_amount]};
 }
 
 - (id)parseDataWithResponse:(id)response {

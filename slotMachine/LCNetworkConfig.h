@@ -21,5 +21,8 @@ extern NSString *const kDoSpin;
 extern NSString *const kPriceID;
 extern NSString *const kReceipt;
 
+extern NSString *const kPaypal_account;
+extern NSString *const kAmount;
+
 @interface LCNetworkConfig : NSObject
 @end

@@ -21,5 +21,8 @@ NSString *const kDoSpin = @"spin";
 NSString *const kPriceID = @"price_id";
 NSString *const kReceipt = @"receipt";
 
+NSString *const kPaypal_account = @"paypal_account";
+NSString *const kAmount = @"amount";
+
 @implementation LCNetworkConfig
 @end

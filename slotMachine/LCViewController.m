@@ -327,9 +327,9 @@
 
 - (void)didStart:(NSInteger)coin {
     
-    btnBuy.enabled = NO;
-    btnFreeCoin.enabled = NO;
-    btnHistory.enabled = NO;
+//    btnBuy.enabled = NO;
+//    btnFreeCoin.enabled = NO;
+//    btnHistory.enabled = NO;
     
     _user.myCoin = _user.myCoin - (int)coin;
     [[LCFileManager shareInstance] setUser:@{@"major_coins_total": [NSNumber numberWithInt:_user.myCoin], @"free_coins_total": [NSNumber numberWithInt:_user.freeCoin]}];
@@ -338,9 +338,9 @@
 
 - (void)didStop:(NSInteger)coin {
     
-    btnBuy.enabled = YES;
-    btnFreeCoin.enabled = YES;
-    btnHistory.enabled = YES;
+//    btnBuy.enabled = YES;
+//    btnFreeCoin.enabled = YES;
+//    btnHistory.enabled = YES;
     
     if (coin > 0) {
         _user.myCoin = _user.myCoin + (int)coin;
