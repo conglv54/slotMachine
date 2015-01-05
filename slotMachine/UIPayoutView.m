@@ -203,7 +203,8 @@
     
     LCPayoutTask *payoutTask = [[LCPayoutTask alloc] initWithPayoutAccount:account andAmount:amount];
     [payoutTask requestWithBlockSucess:^(id sucess) {
-        
+//        [self setTotalCoin:<#(CGFloat)#> andFreeCoin:<#(CGFloat)#>]
+//        [LCFileManager shareInstance] setUser:<#(NSDictionary *)#>
     } andBlockFailure:^(id error) {
         
     }];

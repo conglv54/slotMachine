@@ -178,6 +178,12 @@
             verticalCell.result = [results[i] intValue];
         }
     } andBlockFailure:^(id error) {
+        NSArray *results = @[@"1", @"2", @"3", @"4", @"5"];
+        for (int i = 0 ; i < arrVerticalCell.count; i ++) {
+            LCVeticalCell *verticalCell = arrVerticalCell[i];
+            verticalCell.isReciveResult = true;
+            verticalCell.result = [results[i] intValue];
+        }
         
     }];
     

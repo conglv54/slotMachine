@@ -12,7 +12,7 @@
 @implementation LCGetFreeCoin
 
 - (id)parseDataWithResponse:(id)response {
-    NSNumber *freeCoin = response[@"free_coin"];
+    NSNumber *freeCoin = response[@"free_coins_total"];
     return freeCoin;
 }
 

@@ -21,7 +21,7 @@
 
 - (id)parseDataWithResponse:(id)response {
     LCSpin *spin = [LCSpin new];
-    NSInteger coin = [response[@"coin"] integerValue];
+    NSInteger coin = [response[@"coins"] integerValue];
     spin.coin = coin;
     NSArray *result = response[@"range"];
     spin.arrResult = result;

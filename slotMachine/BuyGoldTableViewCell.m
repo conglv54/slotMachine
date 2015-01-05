@@ -72,7 +72,11 @@
 
 - (void)setTablePurchase:(LCTablePurchase *)tablePurchase {
     _tablePurchase = tablePurchase;
-    int gold = tablePurchase.numCoin + tablePurchase.numCoin * tablePurchase.extra;
+    int gold = tablePurchase.numCoin;
+    
+    if (tablePurchase.isPromotion) {
+        gold = gold + tablePurchase.numCoin * tablePurchase.extra;
+    }
     
     lblGold.text = [NSString stringWithFormat:@"$%d", tablePurchase.numUSD];
     [lblGold sizeToFit];

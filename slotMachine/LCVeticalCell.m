@@ -200,8 +200,8 @@
     [self stepState];
     
     if (currentIndex == 4) {
+        [_gameScene stop];
         if (_gameScene.isAuto) {
-            [_gameScene stop];
             [_gameScene start];            
         }
     }

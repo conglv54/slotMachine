@@ -34,7 +34,7 @@
     NSString *nextUrl = @"";
     
     
-    for (NSDictionary *dictHistory in response[@"content"]) {
+    for (NSDictionary *dictHistory in response[@"histories"]) {
         LCHistory *history = [[LCHistory alloc] init];
         history.date = dictHistory[@"date"];
         history.time = dictHistory[@"time"];
@@ -43,8 +43,8 @@
         [histories addObject:history];
     }
     
-    nextUrl = response[@"next_url"];
-    [dictResponse setObject:nextUrl forKey:@"next_url"];
+    nextUrl = response[@"next"];
+    [dictResponse setObject:nextUrl forKey:@"next"];
     [dictResponse setObject:histories forKey:@"histories"];
     
     return dictResponse;
