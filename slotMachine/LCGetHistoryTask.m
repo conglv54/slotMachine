@@ -11,6 +11,14 @@
 
 @implementation LCGetHistoryTask
 
+- (id)init {
+    self = [super init];
+    if (self) {
+        _nextUrl = @"";
+    }
+    return self;
+}
+
 - (NSString *)method {
     return METHOD_GET;
 }
@@ -19,14 +27,16 @@
     return kGetHistory;
 }
 
+- (NSString *)finalUrl {
+    if ([_nextUrl isEqualToString:@""]) {
+        return [NSString stringWithFormat:@"%@/%@", HOST_URL, [self URL]];
+    } else
+        return _nextUrl;
+}
+
 - (NSDictionary *)parameters {
     return @{@"kind": [NSNumber numberWithInt:3]};
 }
-#pragma mark - Debug
-
-//- (BOOL)isDeBug {
-//    return YES;
-//}
 
 - (id)parseDataWithResponse:(id)response {
     NSMutableDictionary *dictResponse = [NSMutableDictionary new];
@@ -36,18 +46,68 @@
     
     for (NSDictionary *dictHistory in response[@"histories"]) {
         LCHistory *history = [[LCHistory alloc] init];
-        history.date = dictHistory[@"date"];
-        history.time = dictHistory[@"time"];
-        history.bet = dictHistory[@"bet"];
-        history.win = dictHistory[@"win"];
+        history.date = [self dateFromString:dictHistory[@"created_at"]];
+        history.time = [self timeFromString:dictHistory[@"created_at"]];
+        history.bet = [dictHistory[@"coins_play"] intValue];
+        history.win = [dictHistory[@"coins_win"] intValue];
         [histories addObject:history];
     }
     
     nextUrl = response[@"next"];
+    if ([nextUrl isEqual:[NSNull null]])
+        nextUrl = @"";
+    
     [dictResponse setObject:nextUrl forKey:@"next"];
     [dictResponse setObject:histories forKey:@"histories"];
     
     return dictResponse;
+}
+
+- (NSString *)dateFromString:(NSString *)time {
+    NSDate *date = [self nsdateFromString:time];
+    
+    NSDateComponents *components = [[NSCalendar currentCalendar] components:NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit fromDate:date];
+    
+    NSInteger year = [components year];
+    NSString *yearString = [NSString stringWithFormat:@"%ld", year];
+    
+    NSInteger month = [components month];
+    NSString *monthString = month < 10 ? [NSString stringWithFormat:@"0%ld", month] : [NSString stringWithFormat:@"%ld", month];
+    
+    NSInteger day = [components day];
+    NSString *dayString = day < 10 ? [NSString stringWithFormat:@"0%ld", day] : [NSString stringWithFormat:@"%ld", day];
+    
+    return [NSString stringWithFormat:@"%@-%@-%@", yearString, monthString, dayString];
+}
+
+- (NSString *)timeFromString:(NSString *)time {
+    NSDate *date = [self nsdateFromString:time];
+    
+    NSDateComponents *components = [[NSCalendar currentCalendar] components:NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit fromDate:date];
+    
+    NSInteger hour = [components hour];
+    NSString *hourString = hour < 10 ? [NSString stringWithFormat:@"0%ld", hour] : [NSString stringWithFormat:@"%ld", hour];
+    
+    NSInteger minute = [components minute];
+    NSString *minuteString = minute < 10 ? [NSString stringWithFormat:@"0%ld", minute] : [NSString stringWithFormat:@"%ld", minute];
+    
+    NSInteger second = [components second];
+    NSString *secondString = second < 10 ? [NSString stringWithFormat:@"0%ld", second] : [NSString stringWithFormat:@"%ld", second];
+    
+    return [NSString stringWithFormat:@"%@:%@:%@", hourString, minuteString, secondString];
+}
+
+- (NSDate *)nsdateFromString:(NSString *)string {
+    NSDateFormatter *dataFormat = [[NSDateFormatter alloc] init];
+    [dataFormat setDateFormat:@"yyyy'-'MM'-'dd HH':'mm':'ss"];
+    NSDate *date = [dataFormat dateFromString:string];
+    return date;
+}
+
+#pragma mark - Debug
+
+- (BOOL)isDeBug {
+    return NO;
 }
 
 - (id)genResponse {

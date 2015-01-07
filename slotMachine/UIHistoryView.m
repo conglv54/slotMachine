@@ -11,7 +11,7 @@
 #import "LCGetHistoryTask.h"
 
 @implementation UIHistoryView {
-    NSArray *histories;
+    NSMutableArray *histories;
     UITableView *tbl;
 
     NSString *nextUrl;
@@ -99,6 +99,7 @@
     if(y > h + reload_distance) {
         if (!isLoadmore) {
             isLoadmore = true;
+            [self getMoreHistories];
             NSLog(@"load more rows");
         }
     }
@@ -108,8 +109,30 @@
     
     [getHistory requestWithBlockSucess:^(id sucess) {
         histories = sucess[@"histories"];
-        nextUrl = sucess[@"next_url"];
+        nextUrl = sucess[@"next"];
         [tbl reloadData];
+    } andBlockFailure:^(id error) {
+        
+    }];
+}
+
+- (void)getMoreHistories {
+    getHistory.nextUrl = nextUrl;
+    [getHistory requestWithBlockSucess:^(id sucess) {
+
+        for (LCHistory *history in sucess[@"histories"]) {
+            [histories addObject:history];
+        }
+        
+        nextUrl = sucess[@"next"];
+        if ([nextUrl isEqualToString:@""]) {
+            isLoadmore = true;
+        } else {
+            isLoadmore = false;
+        }
+        
+        [tbl reloadData];
+        
     } andBlockFailure:^(id error) {
         
     }];

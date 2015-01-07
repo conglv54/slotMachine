@@ -69,10 +69,10 @@
     lblDate.text = history.date;
     [lblDate sizeToFit];
     
-    lblBet.text = history.bet;
+    lblBet.text = [NSString stringWithFormat:@"%d", history.bet];
     [lblBet sizeToFit];
     
-    lblWin.text = history.win;
+    lblWin.text = [NSString stringWithFormat:@"%d", history.win];
     [lblWin sizeToFit];
 }
 

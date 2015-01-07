@@ -10,4 +10,6 @@
 
 @interface LCGetHistoryTask : LCBaseTaskNetWork
 
+@property (nonatomic, strong) NSString *nextUrl;
+
 @end

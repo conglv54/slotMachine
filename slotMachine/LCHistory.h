@@ -12,7 +12,7 @@
 
 @property (nonatomic, strong) NSString *date;
 @property (nonatomic, strong) NSString *time;
-@property (nonatomic, strong) NSString *bet;
-@property (nonatomic, strong) NSString *win;
+@property (nonatomic) int bet;
+@property (nonatomic) int win;
 
 @end

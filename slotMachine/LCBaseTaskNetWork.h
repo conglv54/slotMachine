@@ -17,6 +17,8 @@ extern NSString *const METHOD_DELETE;
 
 extern NSString *const DOWNLOAD;
 
+extern NSString *const HOST_URL;
+
 typedef void (^BlockSucess)(id sucess);
 typedef void (^BlockFailure)(id error);
 
@@ -27,6 +29,8 @@ typedef void (^BlockFailure)(id error);
 
 @property (nonatomic, strong) NSString *method;
 @property (nonatomic, strong) NSString *URL;
+@property (nonatomic, strong) NSString *finalUrl;
+
 @property (nonatomic, strong) NSDictionary *parameters;
 @property (nonatomic)         BOOL isSession;
 @property (nonatomic, strong) id dataParse;

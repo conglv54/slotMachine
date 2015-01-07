@@ -79,7 +79,7 @@ int const kSucess = 0;
 
 - (void)requestMethodGetWithManager:(AFHTTPRequestOperationManager *)manager {
     
-    [manager GET:[self finalUrl] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [manager GET:[self finalUrl] parameters:self.parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
 
         NSLog(@"JSON: %@", responseObject);
         
