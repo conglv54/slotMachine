@@ -108,15 +108,14 @@
 // User
 
 - (void)setUser:(NSDictionary *)userDict {
-    [dictDefault setObject:userDict[@"free_coins_total"] forKey:kFreeCoin];
-    [dictDefault setObject:userDict[@"major_coins_total"] forKey:kMyCoin];
-    [dictDefault writeToFile:[self filePath] atomically:YES];
+    HAUser *user = [HAUser new];
+    user.freeCoin = [userDict[@"free_coins_total"] intValue];
+    user.myCoin = [userDict[@"major_coins_total"] intValue];
+    [NSKeyedArchiver archiveRootObject:user toFile:[self userArchivePath]];
 }
 
 - (HAUser *)getUser {
-    HAUser *user = [HAUser new];
-    user.freeCoin = [dictDefault[kFreeCoin] intValue];
-    user.myCoin = [dictDefault[kMyCoin] intValue];
+    HAUser *user = [NSKeyedUnarchiver unarchiveObjectWithFile:[self userArchivePath]];
     return user;
 }
 
@@ -135,6 +134,11 @@
 - (NSString *)itemArchivePath {
     NSString *documentDirectory = [self documentDirectory];
     return [documentDirectory stringByAppendingPathComponent:@"items.archive"];
+}
+
+- (NSString *)userArchivePath {
+    NSString *documentDirectory = [self documentDirectory];
+    return [documentDirectory stringByAppendingPathComponent:@"user.archive"];
 }
 
 @end

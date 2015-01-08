@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface HAUser : NSObject
+@interface HAUser : NSObject <NSCoding>
 
 @property (nonatomic) int totalCoin;
 @property (nonatomic) int freeCoin;

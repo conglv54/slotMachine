@@ -18,4 +18,17 @@
     return self.freeCoin + self.myCoin;
 }
 
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+    [aCoder encodeInt:freeCoin forKey:kFreeCoin];
+    [aCoder encodeInt:myCoin forKey:kMyCoin];
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+    self = [super init];
+    if (self) {
+        freeCoin = [aDecoder decodeIntForKey:kFreeCoin];
+        myCoin = [aDecoder decodeIntForKey:kMyCoin];
+    }
+    return self;
+}
 @end
