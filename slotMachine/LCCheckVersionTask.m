@@ -8,6 +8,7 @@
 
 #import "LCCheckVersionTask.h"
 #import "LCCheckVersion.h"
+#import "LCItem.h"
 
 @implementation LCCheckVersionTask
 
@@ -34,7 +35,20 @@
 - (id)parseDataWithResponse:(id)response {
     LCCheckVersion *checkVersion = [[LCCheckVersion alloc] init];
     NSDictionary *dictSetting = response[@"settings"];
+
+    NSMutableArray *items = [NSMutableArray new];
+    NSDictionary *dictItems = response[@"items"];
+    if (![dictItems isEqual:[NSNull null]]) {
+        for (NSString *itemId in dictItems.allKeys) {
+            LCItem *item = [LCItem new];
+            item.item_id = [itemId intValue];
+            item.name = [dictItems[itemId] lastPathComponent];
+            item.pathUrl = dictItems[itemId];
+            [items addObject:item];
+        }
+    }
     
+    checkVersion.items = items;
     checkVersion.version = response[kVersion][@"value"];
     checkVersion.isUpdate = [response[@"is_update"] boolValue];
     checkVersion.setting = dictSetting;

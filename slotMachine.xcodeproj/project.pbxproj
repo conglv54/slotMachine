@@ -88,6 +88,7 @@
 		58E3B3231A46F7C1007C8EB5 /* Default.plist in Resources */ = {isa = PBXBuildFile; fileRef = 58E3B3221A46F7C1007C8EB5 /* Default.plist */; };
 		6E3025101A4D01A3000A9A1C /* LCUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E30250F1A4D01A3000A9A1C /* LCUser.m */; };
 		6E3025131A4D0483000A9A1C /* LCRegister.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E3025121A4D0483000A9A1C /* LCRegister.m */; };
+		6E8B877C1A5E32AF002B960D /* LCItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8B877B1A5E32AF002B960D /* LCItem.m */; };
 		6EAE18381A4BC2E100329A2F /* LCGetTablePurchaseTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EAE18371A4BC2E100329A2F /* LCGetTablePurchaseTask.m */; };
 		6EAE183B1A4BF00800329A2F /* LCTablePurchase.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EAE183A1A4BF00800329A2F /* LCTablePurchase.m */; };
 		6EE9C4B01A4AAB0C001E18E7 /* LCSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE9C4AF1A4AAB0C001E18E7 /* LCSetting.m */; };
@@ -225,6 +226,8 @@
 		6E30250F1A4D01A3000A9A1C /* LCUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCUser.m; sourceTree = "<group>"; };
 		6E3025111A4D0483000A9A1C /* LCRegister.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCRegister.h; sourceTree = "<group>"; };
 		6E3025121A4D0483000A9A1C /* LCRegister.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCRegister.m; sourceTree = "<group>"; };
+		6E8B877A1A5E32AF002B960D /* LCItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCItem.h; sourceTree = "<group>"; };
+		6E8B877B1A5E32AF002B960D /* LCItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCItem.m; sourceTree = "<group>"; };
 		6EAE18361A4BC2E100329A2F /* LCGetTablePurchaseTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCGetTablePurchaseTask.h; sourceTree = "<group>"; };
 		6EAE18371A4BC2E100329A2F /* LCGetTablePurchaseTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCGetTablePurchaseTask.m; sourceTree = "<group>"; };
 		6EAE18391A4BF00800329A2F /* LCTablePurchase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCTablePurchase.h; sourceTree = "<group>"; };
@@ -320,6 +323,8 @@
 				5812E9F41A4C5F4900B2598E /* HAUser.m */,
 				6E30250E1A4D01A2000A9A1C /* LCUser.h */,
 				6E30250F1A4D01A3000A9A1C /* LCUser.m */,
+				6E8B877A1A5E32AF002B960D /* LCItem.h */,
+				6E8B877B1A5E32AF002B960D /* LCItem.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -648,6 +653,7 @@
 				5812E9F21A4C550500B2598E /* HARegister.m in Sources */,
 				587A71C21A433E01008283CD /* LCGetUserInfo.m in Sources */,
 				587A71C81A4349C8008283CD /* LCDownloadTask.m in Sources */,
+				6E8B877C1A5E32AF002B960D /* LCItem.m in Sources */,
 				6E3025101A4D01A3000A9A1C /* LCUser.m in Sources */,
 				6E3025131A4D0483000A9A1C /* LCRegister.m in Sources */,
 				58BA6DE81A3D3A0B005E9F3B /* LCAppDelegate.m in Sources */,

@@ -29,7 +29,7 @@
 
 - (NSString *)finalUrl {
     if ([_nextUrl isEqualToString:@""]) {
-        return [NSString stringWithFormat:@"%@/%@", HOST_URL, [self URL]];
+        return [NSString stringWithFormat:@"%@/%@", HOST_URL_API, [self URL]];
     } else
         return _nextUrl;
 }

@@ -7,11 +7,13 @@
 //
 
 #import "LCSplashViewController.h"
+#import "LCViewController.h"
 #import "LCFileManager.h"
 #import "LCCheckVersion.h"
 #import "LCGetUserInfo.h"
 #import "HARegister.h"
 #import "LCRegister.h"
+#import "LCItem.h"
 
 @interface LCSplashViewController ()
 
@@ -19,6 +21,9 @@
 
 @implementation LCSplashViewController {
     LCFileManager *fileManager;
+    
+    __weak IBOutlet UIActivityIndicatorView *indicatorLoading;
+    
 }
 
 - (void)viewDidLoad {
@@ -44,6 +49,8 @@
     } else {
         [self checkVersion];
     }
+    
+    [indicatorLoading startAnimating];
 }
 
 - (void)getUserInfo {
@@ -67,17 +74,46 @@
         if (isUpdate) {
             [fileManager setVersion:checkVersion.version];
             [fileManager setSettingDefault:checkVersion.setting];
+            [fileManager setItems:checkVersion.items];
+            
+            [self loadItemImage:checkVersion.items];
+        } else {
+            [self presentMainViewController];            
         }
-        
-        [self presentMainViewController];
-        
     } andBlockFailure:^(id error) {
         
     }];    
 }
 
+- (void)loadItemImage:(NSArray *)items {
+    dispatch_queue_t myQueue = dispatch_queue_create("My Queue",NULL);
+    dispatch_async(myQueue, ^{
+        for (LCItem *item in items) {
+            NSString *stringName = [NSString stringWithFormat:@"%@/%@",HOST_URL, item.pathUrl];
+            NSURL *imageUrl = [NSURL URLWithString:stringName];
+            UIImage *img = [UIImage imageWithData:[NSData dataWithContentsOfURL:imageUrl]];
+            [self saveImage:img withFileName:item.name];
+        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self presentMainViewController];
+        });
+    });
+}
+
+-(void)saveImage:(UIImage *)image withFileName:(NSString *)imageName{
+    NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    NSString *imagePath = [path stringByAppendingPathComponent:imageName];
+    NSData *data = UIImageJPEGRepresentation(image, 1.0);
+    [data writeToFile:imagePath atomically:YES];
+}
+
 - (void)presentMainViewController {
-    [self performSegueWithIdentifier:@"PRESENT_MAIN" sender:self];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    LCViewController *mainVC = [storyboard instantiateViewControllerWithIdentifier:@"MainViewController"];
+    [mainVC setModalPresentationStyle:UIModalPresentationFullScreen];
+    [self presentViewController:mainVC animated:NO completion:nil];
+    
+//    [self performSegueWithIdentifier:@"PRESENT_MAIN" sender:self];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -29,6 +29,11 @@
 #define kFreeCoin @"freeCoin"
 #define kMyCoin @"myCoin"
 
+#define kItems @"items"
+
+#define kItemName @"itemName"
+#define kItemID @"itemID"
+
 @interface LCConstant : NSObject
 
 @end

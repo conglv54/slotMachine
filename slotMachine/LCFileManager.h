@@ -29,4 +29,14 @@
 - (void)setUser:(NSDictionary *)userDict;
 - (HAUser *)getUser;
 
+
+// Item
+
+- (void)setItems:(NSArray *)items;
+- (NSArray *)getItems;
+
+// document file path
+
+- (NSString *)documentDirectory;
+
 @end

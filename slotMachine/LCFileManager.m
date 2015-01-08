@@ -7,6 +7,7 @@
 //
 
 #import "LCFileManager.h"
+#import "LCItem.h"
 
 @implementation LCFileManager {
     NSMutableDictionary *dictDefault;
@@ -27,6 +28,12 @@
         dictDefault = [self readDict];
     }
     return self;
+}
+
+- (NSString *)documentDirectory {
+    NSArray *documentDirectories = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentDirectory = [documentDirectories firstObject];
+    return documentDirectory;
 }
 
 #pragma mark - Public method
@@ -84,6 +91,20 @@
     return setting;
 }
 
+// Item
+
+- (NSArray *)getItems {
+    NSString *path = [self itemArchivePath];
+    return [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+}
+
+- (void)setItems:(NSArray *)items {
+    NSString *path = [self itemArchivePath];
+    BOOL isSucess = [NSKeyedArchiver archiveRootObject:items toFile:path];
+    if (!isSucess) {
+        NSLog(@"Not Save");
+    }
+}
 // User
 
 - (void)setUser:(NSDictionary *)userDict {
@@ -106,11 +127,14 @@
     return contentDict;
 }
 
-- (NSString*)filePath
-{
-    NSArray *Paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *DocumentDir = [Paths objectAtIndex:0];
+- (NSString*)filePath {
+    NSString *DocumentDir = [self documentDirectory];
     return [DocumentDir stringByAppendingPathComponent:kDefaultFileName];
+}
+
+- (NSString *)itemArchivePath {
+    NSString *documentDirectory = [self documentDirectory];
+    return [documentDirectory stringByAppendingPathComponent:@"items.archive"];
 }
 
 @end

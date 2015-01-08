@@ -7,6 +7,8 @@
 //
 
 #import "LCVeticalCell.h"
+#import "LCFileManager.h"
+#import "LCItem.h"
 
 @implementation LCVeticalCell {
     NSMutableArray *_arrCell;
@@ -18,6 +20,8 @@
     CGFloat extraTime;
     
     int currentIndex;
+    
+    NSArray *items;
 }
 
 - (id)initWithIndex:(int)index {
@@ -28,20 +32,39 @@
         _isReciveResult = false;
         _velocityDefault = 500;
         
+        items = [[LCFileManager shareInstance]getItems];
+        
         for (int i = 0; i < 6; i ++) {
             CGPoint position = CGPointMake(102.5+75*index, 62 + (65*i));
-            int slot = arc4random()%4;
-            NSString *imageName = [NSString stringWithFormat:@"jackPot%d", slot];
-            SKSpriteNode *node = [self generateObjectWithPosition:position andImageName:imageName];
+            SKSpriteNode *node = [self generateObjectWithPosition:position andImageName:[self imageNameRandom]];
             [_arrCell addObject:node];
         }
     }
     return self;
 }
 
-- (SKSpriteNode *)generateObjectWithPosition:(CGPoint) position andImageName:(NSString *)imageName{
+- (NSString *)imageNameRandom {
+    NSUInteger randomIndex = arc4random() % items.count;
+    LCItem *item = items[randomIndex];
+    return item.name;
+}
+
+- (NSString *)imageNameWittItemID:(int)item_id {
+    for (LCItem *item in items) {
+        if (item.item_id == item_id) {
+            return item.name;
+        }
+    }
     
-    SKTexture *texture = [SKTexture textureWithImageNamed:imageName];
+    NSLog(@"No image with id: %d", item_id);
+    return @"noImage";
+}
+
+- (SKSpriteNode *)generateObjectWithPosition:(CGPoint) position andImageName:(NSString *)imageName{
+    NSString *imagPath = [[LCFileManager shareInstance] documentDirectory];
+    UIImage *image = [UIImage imageWithContentsOfFile:[imagPath stringByAppendingPathComponent:imageName]];
+    
+    SKTexture *texture = [SKTexture textureWithImage:image];
     
     SKSpriteNode *note = [[SKSpriteNode alloc] initWithTexture:texture];
     note.position = position;
@@ -149,16 +172,16 @@
     
     if (minNode.position.y < 0) {
         
-        int slot = arc4random()%4;
+        NSString *imageName  = [self imageNameRandom];
         NSString *name = @"Cell";
         
         if (velocityY.y > - 600 && _currentState == State_Stop && isGenResult == FALSE) {
             isGenResult = TRUE;
-            slot = _result;
+            imageName = [self imageNameWittItemID:_result];
             name = @"Result";
         }
         
-        SKSpriteNode *node = [self generateObjectWithPosition:CGPointMake(maxNode.position.x, maxNode.position.y + maxNode.size.height) andImageName:[self imageNameWithSlot:slot]];
+        SKSpriteNode *node = [self generateObjectWithPosition:CGPointMake(maxNode.position.x, maxNode.position.y + maxNode.size.height) andImageName:imageName];
         node.name = name;
         [_arrCell addObject:node];
         [self.gameScene addChild:node];
@@ -168,10 +191,10 @@
     }
     
     if (maxNode.position.y > 387) {
-        int slot = arc4random()%4;
+        NSString *imageName = [self imageNameRandom];
         NSString *name = @"Cell";
 
-        SKSpriteNode *node = [self generateObjectWithPosition:CGPointMake(minNode.position.x, minNode.position.y - minNode.size.height) andImageName:[self imageNameWithSlot:slot]];
+        SKSpriteNode *node = [self generateObjectWithPosition:CGPointMake(minNode.position.x, minNode.position.y - minNode.size.height) andImageName:imageName];
         node.name = name;
         [_arrCell insertObject:node atIndex:0];
         [self.gameScene addChild:node];

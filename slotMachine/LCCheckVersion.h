@@ -13,6 +13,7 @@
 
 @property (nonatomic, strong) NSDictionary *setting;
 @property (nonatomic, strong) NSString *version;
+@property (nonatomic, strong) NSArray *items;
 @property (nonatomic) BOOL isUpdate;
 
 @end

@@ -19,7 +19,8 @@ NSString *const METHOD_DELETE = @"DELETE";
 
 NSString *const DOWNLOAD = @"DELETE";
 
-NSString *const HOST_URL = @"http://nguyenhung.freevnn.com/public/api/jackpot";
+NSString *const HOST_URL_API = @"http://nguyenhung.freevnn.com/public/api/jackpot";
+NSString *const HOST_URL = @"http://nguyenhung.freevnn.com/public";
 
 NSString *const kSession = @"app-session-id";
 
@@ -45,7 +46,7 @@ int const kSucess = 0;
 - (void)requestWithBlockSucess:(BlockSucess)sucess andBlockFailure:(BlockFailure)failure {
     
     if (self.isShowLoading) {
-        [SVProgressHUD show];
+        [SVProgressHUD showWithStatus:@"Loading..." maskType:SVProgressHUDMaskTypeBlack];
     }
     
     _blockSucess = sucess;
@@ -182,7 +183,7 @@ int const kSucess = 0;
 }
 
 - (NSString *)finalUrl {
-    return [NSString stringWithFormat:@"%@/%@", HOST_URL, [self URL]];
+    return [NSString stringWithFormat:@"%@/%@", HOST_URL_API, [self URL]];
 }
 
 @end

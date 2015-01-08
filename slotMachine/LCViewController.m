@@ -260,9 +260,7 @@
 }
 
 - (void)showHistory {
-    if (!historyView) {
-        historyView  = [[UIHistoryView alloc] init];
-    }
+    historyView  = [[UIHistoryView alloc] init];
     [historyView showinView:self.view];
 }
 

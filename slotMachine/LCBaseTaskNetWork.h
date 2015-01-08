@@ -17,6 +17,7 @@ extern NSString *const METHOD_DELETE;
 
 extern NSString *const DOWNLOAD;
 
+extern NSString *const HOST_URL_API;
 extern NSString *const HOST_URL;
 
 typedef void (^BlockSucess)(id sucess);
