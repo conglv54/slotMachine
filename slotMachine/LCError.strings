@@ -6,8 +6,8 @@
   Copyright (c) 2014 Le Cong. All rights reserved.
 */
 
-"1000" = "User not logged in.";
-"1001" = "Logout failed.";
-"1002" = "Parser failed.";
-"1003" = "Incorrect username or password.";
-"1004" = "Failed to parse FNID.";
+"1000" = "";
+"1001" = "";
+"1002" = "";
+"1003" = "amount payout greater current amount";
+"1004" = "";

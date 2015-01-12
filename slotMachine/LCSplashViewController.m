@@ -15,7 +15,7 @@
 #import "LCRegister.h"
 #import "LCItem.h"
 
-@interface LCSplashViewController ()
+@interface LCSplashViewController () <UIAlertViewDelegate>
 
 @end
 
@@ -33,7 +33,6 @@
     __block BOOL isFirstLaunch = [fileManager isFirstLaunch];
     
     if (isFirstLaunch) {
-    
         LCRegisterTask *registerTask = [[LCRegisterTask alloc] initWithDeviceID:[Utils getUniqueDeviceIdentifierAsString]];
         [registerTask requestWithBlockSucess:^(id sucess) {
             isFirstLaunch = false;
@@ -43,7 +42,9 @@
             [fileManager setUser:sucess];
             [self checkVersion];
         } andBlockFailure:^(id error) {
-            
+            // if is first launch and register error
+            // app will die
+            [self showAlertWithTitle:@"Regiser error"];
         }];
         
     } else {
@@ -81,7 +82,10 @@
             [self presentMainViewController];            
         }
     } andBlockFailure:^(id error) {
-        
+        // if not load version
+        // Using current version
+        NSLog(@"Check version error");
+        [self presentMainViewController];
     }];    
 }
 
@@ -114,6 +118,21 @@
     [self presentViewController:mainVC animated:NO completion:nil];
     
 //    [self performSegueWithIdentifier:@"PRESENT_MAIN" sender:self];
+}
+
+// Show alert view
+
+- (void)showAlertWithTitle:(NSString *)title {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    [alert show];
+}
+
+#pragma mark - Alert Delegate 
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 0) {
+        exit(0);
+    }
 }
 
 - (void)didReceiveMemoryWarning {
