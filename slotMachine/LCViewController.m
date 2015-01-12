@@ -331,8 +331,10 @@
     btnFreeCoin.enabled = NO;
     btnHistory.enabled = NO;
     btnPayout.enabled = NO;
+//    
+//    _user.myCoin = _user.myCoin - (int)coin;
+    _user.totalCoin = _user.totalCoin - (int)coin;
     
-    _user.myCoin = _user.myCoin - (int)coin;
     [[LCFileManager shareInstance] setUser:@{@"major_coins_total": [NSNumber numberWithInt:_user.myCoin], @"free_coins_total": [NSNumber numberWithInt:_user.freeCoin]}];
     lblTotalCoin.text = [Utils stringFromDouble:_user.totalCoin];
 }

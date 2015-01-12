@@ -11,6 +11,7 @@
 #import "SKNode+Frame.h"
 #import "LCDoSpin.h"
 #import "LCSpin.h"
+#import "LCFileManager.h"
 
 @implementation LCMyScene {
     NSMutableArray *arrVerticalCell;
@@ -176,6 +177,12 @@
 - (void)start {
     NSLog(@"Sent to server, bet: %ld", self.bet);
  
+    int currentMyCoin = [[LCFileManager shareInstance]getUser].myCoin;
+    if (currentMyCoin < self.bet) {
+        NSLog(@"You must get more coin");
+        return;
+    }
+    
     spinTask.bet = self.bet;
     
     if ([_gameDelegate respondsToSelector:@selector(didStart:)]) {

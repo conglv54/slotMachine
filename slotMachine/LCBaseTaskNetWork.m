@@ -19,8 +19,8 @@ NSString *const METHOD_DELETE = @"DELETE";
 
 NSString *const DOWNLOAD = @"DELETE";
 
-NSString *const HOST_URL_API = @"http://10.0.0.7:8002/api/jackpot";
-NSString *const HOST_URL = @"http://10.0.0.7:8002";
+NSString *const HOST_URL_API = @"http://nguyenhung.freevnn.com/public/api/jackpot";
+NSString *const HOST_URL = @"http://nguyenhung.freevnn.com/public";
 
 NSString *const kSession = @"app-session-id";
 

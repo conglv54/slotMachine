@@ -85,6 +85,7 @@
 		58BA6E6F1A3D3D83005E9F3B /* bgBuyGoldCell@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 58BA6E4F1A3D3D83005E9F3B /* bgBuyGoldCell@2x.png */; };
 		58BA6E701A3D3D83005E9F3B /* btnBuyGold@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 58BA6E501A3D3D83005E9F3B /* btnBuyGold@2x.png */; };
 		58BA6E711A3D3D83005E9F3B /* icGold@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 58BA6E511A3D3D83005E9F3B /* icGold@2x.png */; };
+		58C358421A6428C20070A35A /* NO_DATA.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 58C358411A6428C20070A35A /* NO_DATA.jpg */; };
 		58E3B3231A46F7C1007C8EB5 /* Default.plist in Resources */ = {isa = PBXBuildFile; fileRef = 58E3B3221A46F7C1007C8EB5 /* Default.plist */; };
 		6E3025101A4D01A3000A9A1C /* LCUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E30250F1A4D01A3000A9A1C /* LCUser.m */; };
 		6E3025131A4D0483000A9A1C /* LCRegister.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E3025121A4D0483000A9A1C /* LCRegister.m */; };
@@ -220,6 +221,7 @@
 		58BA6E4F1A3D3D83005E9F3B /* bgBuyGoldCell@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bgBuyGoldCell@2x.png"; sourceTree = "<group>"; };
 		58BA6E501A3D3D83005E9F3B /* btnBuyGold@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btnBuyGold@2x.png"; sourceTree = "<group>"; };
 		58BA6E511A3D3D83005E9F3B /* icGold@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icGold@2x.png"; sourceTree = "<group>"; };
+		58C358411A6428C20070A35A /* NO_DATA.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = NO_DATA.jpg; sourceTree = "<group>"; };
 		58E3B31F1A46E140007C8EB5 /* LCNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCNetwork.h; sourceTree = "<group>"; };
 		58E3B3221A46F7C1007C8EB5 /* Default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Default.plist; sourceTree = "<group>"; };
 		6E30250E1A4D01A2000A9A1C /* LCUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCUser.h; sourceTree = "<group>"; };
@@ -442,6 +444,7 @@
 				58BA6E4F1A3D3D83005E9F3B /* bgBuyGoldCell@2x.png */,
 				58BA6E501A3D3D83005E9F3B /* btnBuyGold@2x.png */,
 				58BA6E511A3D3D83005E9F3B /* icGold@2x.png */,
+				58C358411A6428C20070A35A /* NO_DATA.jpg */,
 				58BA6DDF1A3D3A0B005E9F3B /* slotMachine-Info.plist */,
 				58BA6DE01A3D3A0B005E9F3B /* InfoPlist.strings */,
 				58BA6DE31A3D3A0B005E9F3B /* main.m */,
@@ -584,6 +587,7 @@
 				58BA6E5B1A3D3D83005E9F3B /* bgMachine@2x.png in Resources */,
 				58BA6E6A1A3D3D83005E9F3B /* jackPot1@2x.png in Resources */,
 				58BA6E581A3D3D83005E9F3B /* bgCenterMachine@2x.png in Resources */,
+				58C358421A6428C20070A35A /* NO_DATA.jpg in Resources */,
 				58BA6E5D1A3D3D83005E9F3B /* bgMoney@2x.png in Resources */,
 				58BA6E671A3D3D83005E9F3B /* btnSpin@2x.png in Resources */,
 				58BA6E601A3D3D83005E9F3B /* btnBet@2x.png in Resources */,
