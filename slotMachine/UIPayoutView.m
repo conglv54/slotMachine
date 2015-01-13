@@ -25,8 +25,6 @@
 }
 
 - (UIView *)viewForContentView {
-    UIView *contentView = [[UIView alloc] initWithFrame:CGRectMake(54, 30, 460, 243)];
-    
     UILabel *lblTitle = [[UILabel alloc] initWithFrame:CGRectMake(190, 19, 83, 30)];
     lblTitle.text = @"PAY OUT";
     lblTitle.font = [UIFont systemFontOfSize:18];
@@ -111,29 +109,29 @@
     btnRequestPayout.frame = CGRectMake(42, 180, imgRequest.size.width, imgRequest.size.height);
     [btnRequestPayout addTarget:self action:@selector(requestPayout) forControlEvents:UIControlEventTouchUpInside];
 
-    [contentView addSubview:lblTitle];
+    [self.contentView addSubview:lblTitle];
     
-    [contentView addSubview:lblTitleTotalCoin];
-    [contentView addSubview:lblTotalCoins];
+    [self.contentView addSubview:lblTitleTotalCoin];
+    [self.contentView addSubview:lblTotalCoins];
     
-    [contentView addSubview:lblTitleMyCoins];
-    [contentView addSubview:lblMyCoins]
+    [self.contentView addSubview:lblTitleMyCoins];
+    [self.contentView addSubview:lblMyCoins]
     ;
-    [contentView addSubview:lblTitleFreeCoin];
-    [contentView addSubview:lblFreeCoins];
+    [self.contentView addSubview:lblTitleFreeCoin];
+    [self.contentView addSubview:lblFreeCoins];
     
-    [contentView addSubview:lblTitleMaxPayout];
-    [contentView addSubview:lblMaxPayout];
+    [self.contentView addSubview:lblTitleMaxPayout];
+    [self.contentView addSubview:lblMaxPayout];
     
-    [contentView addSubview:lblTitlePaypalAccount];
-    [contentView addSubview:txtPaypalAccount];
+    [self.contentView addSubview:lblTitlePaypalAccount];
+    [self.contentView addSubview:txtPaypalAccount];
     
-    [contentView addSubview:lblTitleAmount];
-    [contentView addSubview:txtAmount];
+    [self.contentView addSubview:lblTitleAmount];
+    [self.contentView addSubview:txtAmount];
     
-    [contentView addSubview:btnRequestPayout];
+    [self.contentView addSubview:btnRequestPayout];
     
-    return contentView;
+    return self.contentView;
 }
 
 #pragma mark - Textfield Delegate 

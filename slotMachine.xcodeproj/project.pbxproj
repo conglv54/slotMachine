@@ -53,7 +53,6 @@
 		58BA6E2C1A3D3C6D005E9F3B /* BuyGoldTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 58BA6E241A3D3C6D005E9F3B /* BuyGoldTableViewCell.m */; };
 		58BA6E2D1A3D3C6D005E9F3B /* HistoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 58BA6E261A3D3C6D005E9F3B /* HistoryTableViewCell.m */; };
 		58BA6E2E1A3D3C6D005E9F3B /* UIHistoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 58BA6E281A3D3C6D005E9F3B /* UIHistoryView.m */; };
-		58BA6E521A3D3D83005E9F3B /* Oswald-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 58BA6E321A3D3D83005E9F3B /* Oswald-Bold.otf */; };
 		58BA6E531A3D3D83005E9F3B /* bgTxtAmount@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 58BA6E331A3D3D83005E9F3B /* bgTxtAmount@2x.png */; };
 		58BA6E541A3D3D83005E9F3B /* bgTxtPaypalAcc@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 58BA6E341A3D3D83005E9F3B /* bgTxtPaypalAcc@2x.png */; };
 		58BA6E551A3D3D83005E9F3B /* bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 58BA6E351A3D3D83005E9F3B /* bg@2x.png */; };
@@ -87,6 +86,11 @@
 		58BA6E711A3D3D83005E9F3B /* icGold@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 58BA6E511A3D3D83005E9F3B /* icGold@2x.png */; };
 		58C358421A6428C20070A35A /* NO_DATA.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 58C358411A6428C20070A35A /* NO_DATA.jpg */; };
 		58E3B3231A46F7C1007C8EB5 /* Default.plist in Resources */ = {isa = PBXBuildFile; fileRef = 58E3B3221A46F7C1007C8EB5 /* Default.plist */; };
+		58EBA3111A657C480019DAB1 /* LCShippingAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 58EBA3101A657C480019DAB1 /* LCShippingAddress.m */; };
+		58EBA3131A6581420019DAB1 /* Oswald-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 58EBA3121A6581420019DAB1 /* Oswald-Bold.ttf */; };
+		58EBA3151A6585950019DAB1 /* avantgarde-bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 58EBA3141A6585950019DAB1 /* avantgarde-bold.ttf */; };
+		58EBA3171A6589320019DAB1 /* bgTxt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 58EBA3161A6589320019DAB1 /* bgTxt@2x.png */; };
+		58EBA3191A6590030019DAB1 /* btnSubmit@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 58EBA3181A6590030019DAB1 /* btnSubmit@2x.png */; };
 		6E3025101A4D01A3000A9A1C /* LCUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E30250F1A4D01A3000A9A1C /* LCUser.m */; };
 		6E3025131A4D0483000A9A1C /* LCRegister.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E3025121A4D0483000A9A1C /* LCRegister.m */; };
 		6E8B877C1A5E32AF002B960D /* LCItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8B877B1A5E32AF002B960D /* LCItem.m */; };
@@ -189,7 +193,6 @@
 		58BA6E261A3D3C6D005E9F3B /* HistoryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryTableViewCell.m; sourceTree = "<group>"; };
 		58BA6E271A3D3C6D005E9F3B /* UIHistoryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIHistoryView.h; sourceTree = "<group>"; };
 		58BA6E281A3D3C6D005E9F3B /* UIHistoryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIHistoryView.m; sourceTree = "<group>"; };
-		58BA6E321A3D3D83005E9F3B /* Oswald-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-Bold.otf"; sourceTree = "<group>"; };
 		58BA6E331A3D3D83005E9F3B /* bgTxtAmount@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bgTxtAmount@2x.png"; sourceTree = "<group>"; };
 		58BA6E341A3D3D83005E9F3B /* bgTxtPaypalAcc@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bgTxtPaypalAcc@2x.png"; sourceTree = "<group>"; };
 		58BA6E351A3D3D83005E9F3B /* bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg@2x.png"; sourceTree = "<group>"; };
@@ -224,6 +227,12 @@
 		58C358411A6428C20070A35A /* NO_DATA.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = NO_DATA.jpg; sourceTree = "<group>"; };
 		58E3B31F1A46E140007C8EB5 /* LCNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCNetwork.h; sourceTree = "<group>"; };
 		58E3B3221A46F7C1007C8EB5 /* Default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Default.plist; sourceTree = "<group>"; };
+		58EBA30F1A657C480019DAB1 /* LCShippingAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCShippingAddress.h; sourceTree = "<group>"; };
+		58EBA3101A657C480019DAB1 /* LCShippingAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCShippingAddress.m; sourceTree = "<group>"; };
+		58EBA3121A6581420019DAB1 /* Oswald-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-Bold.ttf"; sourceTree = "<group>"; };
+		58EBA3141A6585950019DAB1 /* avantgarde-bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "avantgarde-bold.ttf"; sourceTree = "<group>"; };
+		58EBA3161A6589320019DAB1 /* bgTxt@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bgTxt@2x.png"; sourceTree = "<group>"; };
+		58EBA3181A6590030019DAB1 /* btnSubmit@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btnSubmit@2x.png"; sourceTree = "<group>"; };
 		6E30250E1A4D01A2000A9A1C /* LCUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCUser.h; sourceTree = "<group>"; };
 		6E30250F1A4D01A3000A9A1C /* LCUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCUser.m; sourceTree = "<group>"; };
 		6E3025111A4D0483000A9A1C /* LCRegister.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCRegister.h; sourceTree = "<group>"; };
@@ -396,6 +405,8 @@
 				58BA6E261A3D3C6D005E9F3B /* HistoryTableViewCell.m */,
 				58BA6E271A3D3C6D005E9F3B /* UIHistoryView.h */,
 				58BA6E281A3D3C6D005E9F3B /* UIHistoryView.m */,
+				58EBA30F1A657C480019DAB1 /* LCShippingAddress.h */,
+				58EBA3101A657C480019DAB1 /* LCShippingAddress.m */,
 				58116EEE1A4721420099CE96 /* LCConstant.h */,
 				58116EEF1A4721420099CE96 /* LCConstant.m */,
 				58BA6E1A1A3D3C40005E9F3B /* Utils.h */,
@@ -412,9 +423,9 @@
 		58BA6DDE1A3D3A0B005E9F3B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				58BA6E321A3D3D83005E9F3B /* Oswald-Bold.otf */,
 				58BA6E331A3D3D83005E9F3B /* bgTxtAmount@2x.png */,
 				58BA6E341A3D3D83005E9F3B /* bgTxtPaypalAcc@2x.png */,
+				58EBA3161A6589320019DAB1 /* bgTxt@2x.png */,
 				58BA6E351A3D3D83005E9F3B /* bg@2x.png */,
 				58BA6E361A3D3D83005E9F3B /* bgRequest@2x.png */,
 				58BA6E371A3D3D83005E9F3B /* bgBet@2x.png */,
@@ -434,6 +445,7 @@
 				58BA6E451A3D3D83005E9F3B /* btnFreeCoin@2x.png */,
 				58BA6E461A3D3D83005E9F3B /* btnShop@2x.png */,
 				58BA6E471A3D3D83005E9F3B /* btnSpin@2x.png */,
+				58EBA3181A6590030019DAB1 /* btnSubmit@2x.png */,
 				58BA6E481A3D3D83005E9F3B /* Default-568h@2x.png */,
 				58BA6E491A3D3D83005E9F3B /* jackPot0@2x.png */,
 				58BA6E4A1A3D3D83005E9F3B /* jackPot1@2x.png */,
@@ -445,6 +457,8 @@
 				58BA6E501A3D3D83005E9F3B /* btnBuyGold@2x.png */,
 				58BA6E511A3D3D83005E9F3B /* icGold@2x.png */,
 				58C358411A6428C20070A35A /* NO_DATA.jpg */,
+				58EBA3141A6585950019DAB1 /* avantgarde-bold.ttf */,
+				58EBA3121A6581420019DAB1 /* Oswald-Bold.ttf */,
 				58BA6DDF1A3D3A0B005E9F3B /* slotMachine-Info.plist */,
 				58BA6DE01A3D3A0B005E9F3B /* InfoPlist.strings */,
 				58BA6DE31A3D3A0B005E9F3B /* main.m */,
@@ -564,8 +578,8 @@
 				58BA6E691A3D3D83005E9F3B /* jackPot0@2x.png in Resources */,
 				58BA6E5E1A3D3D83005E9F3B /* bgRight@2x.png in Resources */,
 				58BA6DE21A3D3A0B005E9F3B /* InfoPlist.strings in Resources */,
+				58EBA3131A6581420019DAB1 /* Oswald-Bold.ttf in Resources */,
 				58BA6E541A3D3D83005E9F3B /* bgTxtPaypalAcc@2x.png in Resources */,
-				58BA6E521A3D3D83005E9F3B /* Oswald-Bold.otf in Resources */,
 				58BA6E631A3D3D83005E9F3B /* btnMaxBet@2x.png in Resources */,
 				58BA6E6D1A3D3D83005E9F3B /* btnClose@2x.png in Resources */,
 				58BA6E6B1A3D3D83005E9F3B /* jackPot2@2x.png in Resources */,
@@ -573,11 +587,14 @@
 				58BA6E5C1A3D3D83005E9F3B /* bgMaxBet@2x.png in Resources */,
 				58BA6E5F1A3D3D83005E9F3B /* bgWin@2x.png in Resources */,
 				58BA6E531A3D3D83005E9F3B /* bgTxtAmount@2x.png in Resources */,
+				58EBA3151A6585950019DAB1 /* avantgarde-bold.ttf in Resources */,
 				58BA6E641A3D3D83005E9F3B /* btnPayout@2x.png in Resources */,
 				58BA6E681A3D3D83005E9F3B /* Default-568h@2x.png in Resources */,
 				58BA6E591A3D3D83005E9F3B /* bgHeader@2x.png in Resources */,
+				58EBA3171A6589320019DAB1 /* bgTxt@2x.png in Resources */,
 				58BA6E6C1A3D3D83005E9F3B /* jackPot3@2x.png in Resources */,
 				58BA6E661A3D3D83005E9F3B /* btnShop@2x.png in Resources */,
+				58EBA3191A6590030019DAB1 /* btnSubmit@2x.png in Resources */,
 				58BA6DEB1A3D3A0B005E9F3B /* Main.storyboard in Resources */,
 				58BA6E711A3D3D83005E9F3B /* icGold@2x.png in Resources */,
 				580CF3A21A46D4B500685841 /* LCError.strings in Resources */,
@@ -684,6 +701,7 @@
 				587A71B01A433547008283CD /* LCSplashViewController.m in Sources */,
 				58A837121A4B2B8400D46F8F /* LCHistory.m in Sources */,
 				580CF39E1A46D0F400685841 /* LCError.m in Sources */,
+				58EBA3111A657C480019DAB1 /* LCShippingAddress.m in Sources */,
 				58BA6E2E1A3D3C6D005E9F3B /* UIHistoryView.m in Sources */,
 				6EAE183B1A4BF00800329A2F /* LCTablePurchase.m in Sources */,
 				6EE9C4B61A4AB87A001E18E7 /* LCCheckVersion.m in Sources */,

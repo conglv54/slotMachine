@@ -10,6 +10,7 @@
 
 #import "UIPayoutView.h"
 #import "UIHistoryView.h"
+#import "LCShippingAddress.h"
 
 #import "UIView+Frame.h"
 #import "LCFileManager.h"
@@ -260,8 +261,11 @@
 }
 
 - (void)showHistory {
-    historyView  = [[UIHistoryView alloc] init];
-    [historyView showinView:self.view];
+//    historyView  = [[UIHistoryView alloc] init];
+//    [historyView showinView:self.view];
+    
+    LCShippingAddress *ship = [[LCShippingAddress alloc] init];
+    [ship showinView:self.view];
 }
 
 - (void)increaseBet {

@@ -20,6 +20,8 @@
 }
 
 - (void)initCompoment {
+    _contentView = [[UIView alloc] initWithFrame:CGRectMake(54, 30, 460, 243)];
+    
     _backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 568, 320)];
     _backgroundView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
 

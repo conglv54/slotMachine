@@ -12,6 +12,8 @@
 
 @property (nonatomic, strong) UIView *foregroundView;
 @property (nonatomic, strong) UIView *backgroundView;
+@property (nonatomic, strong) UIView *contentView;
+
 @property (nonatomic, strong) UIButton *btnClose;
 
 - (void)showinView:(UIView *)view;
