@@ -10,6 +10,7 @@
 
 #import "UIPayoutView.h"
 #import "UIHistoryView.h"
+#import "LCShippingAddress.h"
 
 #import "UIView+Frame.h"
 #import "LCFileManager.h"
@@ -260,8 +261,11 @@
 }
 
 - (void)showHistory {
-    historyView  = [[UIHistoryView alloc] init];
-    [historyView showinView:self.view];
+//    historyView  = [[UIHistoryView alloc] init];
+//    [historyView showinView:self.view];
+    
+    LCShippingAddress *ship = [[LCShippingAddress alloc] init];
+    [ship showinView:self.view];
 }
 
 - (void)increaseBet {
@@ -331,8 +335,10 @@
     btnFreeCoin.enabled = NO;
     btnHistory.enabled = NO;
     btnPayout.enabled = NO;
+//    
+//    _user.myCoin = _user.myCoin - (int)coin;
+    _user.totalCoin = _user.totalCoin - (int)coin;
     
-    _user.myCoin = _user.myCoin - (int)coin;
     [[LCFileManager shareInstance] setUser:@{@"major_coins_total": [NSNumber numberWithInt:_user.myCoin], @"free_coins_total": [NSNumber numberWithInt:_user.freeCoin]}];
     lblTotalCoin.text = [Utils stringFromDouble:_user.totalCoin];
 }

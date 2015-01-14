@@ -64,9 +64,12 @@
     NSString *imagPath = [[LCFileManager shareInstance] documentDirectory];
     UIImage *image = [UIImage imageWithContentsOfFile:[imagPath stringByAppendingPathComponent:imageName]];
     
-    SKTexture *texture = [SKTexture textureWithImage:image];
+    if (image == nil)
+        image =[UIImage imageNamed:@"NO_DATA.jpg"];
     
+    SKTexture *texture = [SKTexture textureWithImage:image];
     SKSpriteNode *note = [[SKSpriteNode alloc] initWithTexture:texture];
+    
     note.position = position;
     note.anchorPoint = CGPointMake(0, 0);
     note.name = @"Cell";

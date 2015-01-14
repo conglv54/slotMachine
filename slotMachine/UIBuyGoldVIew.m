@@ -17,8 +17,6 @@
 }
 
 - (UIView *)viewForContentView {
-    UIView *contentView = [[UIView alloc] initWithFrame:CGRectMake(54, 30, 460, 243)];
-    
     UILabel *lbl = [[UILabel alloc] initWithFrame:CGRectMake(190, 19, 83, 30)];
     lbl.text = @"BUY GOLD";
     lbl.font = [UIFont boldSystemFontOfSize:18];
@@ -32,9 +30,9 @@
     tbl.delegate = self;
     tbl.dataSource = self;
     
-    [contentView addSubview:tbl];
-    [contentView addSubview:lbl];
-    return contentView;
+    [self.contentView addSubview:tbl];
+    [self.contentView addSubview:lbl];
+    return self.contentView;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
