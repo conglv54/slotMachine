@@ -176,7 +176,7 @@
 
 - (void)start {
     NSLog(@"Sent to server, bet: %ld", self.bet);
- 
+  
     int currentMyCoin = [[LCFileManager shareInstance]getUser].myCoin;
     if (currentMyCoin < self.bet) {
         NSLog(@"You must get more coin");

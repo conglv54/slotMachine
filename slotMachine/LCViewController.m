@@ -15,6 +15,7 @@
 #import "UIView+Frame.h"
 #import "LCFileManager.h"
 #import "LCGetFreeCoin.h"
+#import "LCFreeCoinView.h"
 
 @implementation LCViewController {
     LCMyScene *scene;
@@ -22,7 +23,7 @@
     UIBuyGoldVIew *buyGold;
     UIPayoutView *payOutView;
     UIHistoryView *historyView;
-
+    
     UIButton *btnHistory;
     UIButton *btnBuy;
     UIButton *btnFreeCoin;
@@ -268,6 +269,13 @@
     [ship showinView:self.view];
 }
 
+- (void)getFreeCoin {
+    NSLog(@"%f", self.view.frame.size.width);
+    UIImage *bgFreeCoin = [UIImage imageNamed:@"bgFreeCoin"];
+    LCFreeCoinView *freeCoinView = [[LCFreeCoinView alloc] initWithFrame:CGRectMake(110, 30, bgFreeCoin.size.width, bgFreeCoin.size.height) andBGImage:bgFreeCoin];
+    [self.view addSubview:freeCoinView];
+}
+
 - (void)increaseBet {
     
 //    if (isHold) {
@@ -316,16 +324,16 @@
     scene.bet = bet;
 }
 
-- (void)getFreeCoin {
-    LCGetFreeCoin *getFreeCoin = [[LCGetFreeCoin alloc] init];
-    [getFreeCoin requestWithBlockSucess:^(id sucess) {
-        NSNumber *freeCoint = (NSNumber *)sucess;
-        [_user setFreeCoin:[freeCoint intValue]];
-        lblTotalCoin.text = [Utils stringFromDouble:_user.totalCoin];
-    } andBlockFailure:^(id error) {
-        
-    }];
-}
+//- (void)getFreeCoin {
+//    LCGetFreeCoin *getFreeCoin = [[LCGetFreeCoin alloc] init];
+//    [getFreeCoin requestWithBlockSucess:^(id sucess) {
+//        NSNumber *freeCoint = (NSNumber *)sucess;
+//        [_user setFreeCoin:[freeCoint intValue]];
+//        lblTotalCoin.text = [Utils stringFromDouble:_user.totalCoin];
+//    } andBlockFailure:^(id error) {
+//        
+//    }];
+//}
 
 #pragma mark - Game Delegate 
 
