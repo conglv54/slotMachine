@@ -23,6 +23,7 @@
     UIBuyGoldVIew *buyGold;
     UIPayoutView *payOutView;
     UIHistoryView *historyView;
+    LCShippingAddress *shipView;
     
     UIButton *btnHistory;
     UIButton *btnBuy;
@@ -264,15 +265,13 @@
 - (void)showHistory {
 //    historyView  = [[UIHistoryView alloc] init];
 //    [historyView showinView:self.view];
-    
-    LCShippingAddress *ship = [[LCShippingAddress alloc] init];
-    [ship showinView:self.view];
+    shipView = [[LCShippingAddress alloc] init];
+    [shipView showinView:self.view];
 }
 
 - (void)getFreeCoin {
-    NSLog(@"%f", self.view.frame.size.width);
     UIImage *bgFreeCoin = [UIImage imageNamed:@"bgFreeCoin"];
-    LCFreeCoinView *freeCoinView = [[LCFreeCoinView alloc] initWithFrame:CGRectMake(110, 30, bgFreeCoin.size.width, bgFreeCoin.size.height) andBGImage:bgFreeCoin];
+    LCFreeCoinView *freeCoinView = [[LCFreeCoinView alloc] initWithFrame:self.view.frame andBGImage:bgFreeCoin];
     [self.view addSubview:freeCoinView];
 }
 
