@@ -70,9 +70,8 @@
 - (void)buyGoldWithID:(int)priceID {
     LCPurChaseTask *purchaseTask = [[LCPurChaseTask alloc] initWithPriceID:priceID];
     [purchaseTask requestWithBlockSucess:^(id sucess) {
-        if ([_delegate respondsToSelector:@selector(didBuyGold:)]) {
-            [_delegate didBuyGold:[sucess[@"major_coins_total"] intValue]];
-        }
+        int totalCoin = [sucess[@"major_coins_total"] intValue] + [sucess[@"free_coins_total"] intValue];
+        [[LCFileManager shareInstance] setUserWithFreeCoin:[sucess[@"free_coins_total"] intValue] andTotalCoin:totalCoin];
     } andBlockFailure:^(id error) {
         
     }];

@@ -26,7 +26,7 @@
 - (void)setSettingDefault:(NSDictionary *)setting;
 - (LCSetting *)getSettingDefault;
 
-- (void)setUser:(NSDictionary *)userDict;
+- (void)setUserWithFreeCoin:(int) freeCoin andTotalCoin:(int) totalCoin;
 - (HAUser *)getUser;
 
 

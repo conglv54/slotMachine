@@ -20,16 +20,19 @@ PODS:
   - AFNetworking/UIKit (2.5.0):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - MZTimerLabel (0.5.1)
   - SSKeychain (1.2.2)
   - SVProgressHUD (1.1.2)
 
 DEPENDENCIES:
   - AFNetworking
+  - MZTimerLabel
   - SSKeychain
   - SVProgressHUD
 
 SPEC CHECKSUMS:
   AFNetworking: 0f54cb5d16ce38c1b76948faffb8d5fb705021c7
+  MZTimerLabel: 599c3e89ae7fccc7bd6fc3b30fc737cf742345a9
   SSKeychain: cc48bd3ad24fcd9125adb9e0d23dd50b8bbd08b9
   SVProgressHUD: da7a49e789af645d9279ffbca62318945a832438
 

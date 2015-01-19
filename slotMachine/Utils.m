@@ -11,6 +11,13 @@
 
 @implementation Utils
 
++ (NSDate *)dateFromString:(NSString *)dateString {
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"HH:mm:ss"];
+    NSDate *date = [dateFormat dateFromString:dateString];
+    return date;
+}
+
 + (NSString *)stringFromDouble:(CGFloat)currency{
     
     NSString *numberAsString = [self stringFromDouble:currency andNumberFormatterStyle:NSNumberFormatterDecimalStyle];

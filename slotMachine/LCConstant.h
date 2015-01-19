@@ -28,6 +28,7 @@
 
 #define kFreeCoin @"freeCoin"
 #define kMyCoin @"myCoin"
+#define kTotalCoin @"totalCoin"
 
 #define kItems @"items"
 

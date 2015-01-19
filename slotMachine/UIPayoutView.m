@@ -191,22 +191,31 @@
     NSString *account = txtPaypalAccount.text;
     if ([account isEqualToString:@""]) {
         txtAmount.text = @"";
+        [self showAlertWithTitle:@"Account not blank"];
         return;
     }
     CGFloat amount = [txtAmount.text intValue];
     if (amount == 0 || amount > maxPayout) {
         txtAmount.text = @"";
+        [self showAlertWithTitle:@"Amount > Max Payout"];
         return;
     }
     
     LCPayoutTask *payoutTask = [[LCPayoutTask alloc] initWithPayoutAccount:account andAmount:amount];
     [payoutTask requestWithBlockSucess:^(id sucess) {
-//        [self setTotalCoin:<#(CGFloat)#> andFreeCoin:<#(CGFloat)#>]
-//        [LCFileManager shareInstance] setUser:<#(NSDictionary *)#>
+        int totalCoin = [sucess[@"major_coins_total"] intValue] + [sucess[@"free_coins_total"] intValue];
+        int freeCoin = [sucess[@"free_coins_total"] intValue];
+        [[LCFileManager shareInstance] setUserWithFreeCoin:freeCoin andTotalCoin:totalCoin];
+        
+        [self setTotalCoin:totalCoin andFreeCoin:freeCoin];
     } andBlockFailure:^(id error) {
         
     }];
 }
 
+- (void)showAlertWithTitle:(NSString *)title {
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    [alertView show];
+}
 
 @end

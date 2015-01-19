@@ -14,13 +14,10 @@
 @synthesize freeCoin;
 @synthesize myCoin;
 
-- (int)totalCoin {
-    return self.freeCoin + self.myCoin;
-}
-
 - (void)encodeWithCoder:(NSCoder *)aCoder {
     [aCoder encodeInt:freeCoin forKey:kFreeCoin];
     [aCoder encodeInt:myCoin forKey:kMyCoin];
+    [aCoder encodeInt:totalCoin forKey:kTotalCoin];
 }
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
@@ -28,6 +25,7 @@
     if (self) {
         freeCoin = [aDecoder decodeIntForKey:kFreeCoin];
         myCoin = [aDecoder decodeIntForKey:kMyCoin];
+        totalCoin = [aDecoder decodeIntForKey:kTotalCoin];
     }
     return self;
 }

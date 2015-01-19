@@ -5,7 +5,7 @@ target 'slotMachine' do
 pod 'AFNetworking'
 pod 'SSKeychain'
 pod 'SVProgressHUD'
-
+pod 'MZTimerLabel'
 end
 
 target 'slotMachineTests' do

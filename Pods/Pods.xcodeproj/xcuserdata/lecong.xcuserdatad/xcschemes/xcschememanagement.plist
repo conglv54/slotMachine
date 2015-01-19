@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-slotMachine-MZTimerLabel.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-slotMachine-SSKeychain.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -27,22 +32,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>13E665FBB431F2AE9E60A134</key>
+		<key>1C4133AB8304D2FF5B019E5D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3808730D024B37044A9932BD</key>
+		<key>58D21C2588F6204C1C0BD841</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9BE3697206CAD7F3AFF3CA05</key>
+		<key>A8B877DB4F63C8412DE9EE51</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B4D8F495708F3C4505F855C3</key>
+		<key>E678412DB3C68903BB818B8D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E9D475D01201ACECE2E9487B</key>
 		<dict>
 			<key>primary</key>
 			<true/>

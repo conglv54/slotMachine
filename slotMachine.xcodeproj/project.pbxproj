@@ -14,6 +14,7 @@
 		5812E9F21A4C550500B2598E /* HARegister.m in Sources */ = {isa = PBXBuildFile; fileRef = 5812E9F11A4C550500B2598E /* HARegister.m */; };
 		5812E9F51A4C5F4900B2598E /* HAUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 5812E9F41A4C5F4900B2598E /* HAUser.m */; };
 		5812E9FB1A4C7EF400B2598E /* LCPayoutTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 5812E9FA1A4C7EF400B2598E /* LCPayoutTask.m */; };
+		58339EE01A6B9DBE008B1602 /* bgImageWin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 58339EDF1A6B9DBE008B1602 /* bgImageWin@2x.png */; };
 		5842319C1A48828A002E5FD5 /* LCSpin.m in Sources */ = {isa = PBXBuildFile; fileRef = 5842319B1A48828A002E5FD5 /* LCSpin.m */; };
 		587A71AA1A432B09008283CD /* LCBaseTaskNetWork.m in Sources */ = {isa = PBXBuildFile; fileRef = 587A71A91A432B09008283CD /* LCBaseTaskNetWork.m */; };
 		587A71AD1A4334BD008283CD /* LCCheckVersionTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 587A71AC1A4334BD008283CD /* LCCheckVersionTask.m */; };
@@ -129,6 +130,7 @@
 		5812E9F41A4C5F4900B2598E /* HAUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAUser.m; sourceTree = "<group>"; };
 		5812E9F91A4C7EF400B2598E /* LCPayoutTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCPayoutTask.h; sourceTree = "<group>"; };
 		5812E9FA1A4C7EF400B2598E /* LCPayoutTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCPayoutTask.m; sourceTree = "<group>"; };
+		58339EDF1A6B9DBE008B1602 /* bgImageWin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bgImageWin@2x.png"; sourceTree = "<group>"; };
 		5842319A1A48828A002E5FD5 /* LCSpin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCSpin.h; sourceTree = "<group>"; };
 		5842319B1A48828A002E5FD5 /* LCSpin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCSpin.m; sourceTree = "<group>"; };
 		587A71A81A432B09008283CD /* LCBaseTaskNetWork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCBaseTaskNetWork.h; sourceTree = "<group>"; };
@@ -434,6 +436,7 @@
 		58BA6DDE1A3D3A0B005E9F3B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				58339EDF1A6B9DBE008B1602 /* bgImageWin@2x.png */,
 				588D8C691A66E80F00CBA31B /* btnCloseFreeCon@2x.png */,
 				588D8C671A66E80800CBA31B /* btnClaim@2x.png */,
 				588D8C651A66E3F800CBA31B /* bgFreeCoin@2x.png */,
@@ -630,6 +633,7 @@
 				58BA6E6F1A3D3D83005E9F3B /* bgBuyGoldCell@2x.png in Resources */,
 				58BA6E611A3D3D83005E9F3B /* btnBuy@2x.png in Resources */,
 				58BA6E621A3D3D83005E9F3B /* btnHistory@2x.png in Resources */,
+				58339EE01A6B9DBE008B1602 /* bgImageWin@2x.png in Resources */,
 				58BA6E571A3D3D83005E9F3B /* bgBet@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

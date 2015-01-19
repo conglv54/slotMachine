@@ -177,7 +177,8 @@
 - (void)start {
     NSLog(@"Sent to server, bet: %ld", self.bet);
   
-    int currentMyCoin = [[LCFileManager shareInstance]getUser].myCoin;
+    int currentMyCoin = [[LCFileManager shareInstance]getUser].totalCoin;
+    
     if (currentMyCoin < self.bet) {
         NSLog(@"You must get more coin");
         return;
@@ -227,5 +228,8 @@
     index = (location.x - 100.0)/75;
     return index;
 }
+
+#pragma mark - ()
+
 
 @end

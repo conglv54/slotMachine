@@ -32,4 +32,7 @@ static inline CGPoint CGPointMultiplyScalar(const CGPoint a, const CGFloat b)
 + (NSString *)stringFromDouble:(CGFloat)currency andNumberFormatterStyle:(NSNumberFormatterStyle) style;
 
 + (NSString *)getUniqueDeviceIdentifierAsString;
+
++ (NSDate *)dateFromString:(NSString *)dateString;
+
 @end

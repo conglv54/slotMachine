@@ -11,7 +11,6 @@
 
 @protocol BuyGoldDelegate <NSObject>
 
-- (void)didBuyGold:(int)gold;
 
 @end
 

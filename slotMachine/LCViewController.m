@@ -25,6 +25,8 @@
     UIHistoryView *historyView;
     LCShippingAddress *shipView;
     
+    UIView *winView;
+    
     UIButton *btnHistory;
     UIButton *btnBuy;
     UIButton *btnFreeCoin;
@@ -172,8 +174,6 @@
     [lblTitleWin sizeToFit];
     [self.view addSubview:lblTitleWin];
     
-    _user = [[LCFileManager shareInstance]getUser];
-    
     lblBet = [[UILabel alloc] init];
     [lblBet setNewFrame:CGRectMake(242, 268, 0, 0)];
     lblBet.text = [NSString stringWithFormat:@"%0.2f", minBet];
@@ -186,7 +186,6 @@
     [lblTotalCoin setNewFrame:CGRectMake(272, 22, 80, 20)];
     lblTotalCoin.font = [UIFont fontWithName:@"ArialRoundedMTBold" size:10];
     lblTotalCoin.textColor = [UIColor whiteColor];
-    lblTotalCoin.text = [Utils stringFromDouble:_user.totalCoin];
     [self.view addSubview:lblTotalCoin];
     
     lblMaxBet = [[UILabel alloc] init];
@@ -206,10 +205,29 @@
     [self.view addSubview:lblWin];
     
     timer = [NSTimer scheduledTimerWithTimeInterval:1   target:self selector:@selector(increaseBet) userInfo:nil repeats:YES];
+    
+    UIImage *imgSlotBgWin = [UIImage imageNamed:@"bgImageWin"];
+    
+    winView = [[UIView alloc] initWithFrame:CGRectMake(568, 10, imgSlotBgWin.size.width, imgSlotBgWin.size.height)];
+    
+    UILabel *lblAnimationWin = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
+    lblAnimationWin.text = [NSString stringWithFormat:@"%d", 100];
+    lblAnimationWin.textColor = [UIColor whiteColor];
+    [lblAnimationWin sizeToFit];
+    [winView addSubview:lblAnimationWin];
+    
+    UIImageView *imvSlotBgWin = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, imgSlotBgWin.size.width, imgSlotBgWin.size.height)];
+    imvSlotBgWin.image = imgSlotBgWin;
+    
+    [winView addSubview:imvSlotBgWin];
+    [self.view addSubview:winView];
 }
 
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
+    
+    _user = [[LCFileManager shareInstance]getUser];
+    lblTotalCoin.text = [Utils stringFromDouble:_user.totalCoin];
     
     [self initScene];
 }
@@ -240,6 +258,7 @@
     
     scene.isAuto = !scene.isAuto;
     if (scene.isAuto) {
+        
         scene.bet = bet;
         [scene start];
     }
@@ -323,17 +342,6 @@
     scene.bet = bet;
 }
 
-//- (void)getFreeCoin {
-//    LCGetFreeCoin *getFreeCoin = [[LCGetFreeCoin alloc] init];
-//    [getFreeCoin requestWithBlockSucess:^(id sucess) {
-//        NSNumber *freeCoint = (NSNumber *)sucess;
-//        [_user setFreeCoin:[freeCoint intValue]];
-//        lblTotalCoin.text = [Utils stringFromDouble:_user.totalCoin];
-//    } andBlockFailure:^(id error) {
-//        
-//    }];
-//}
-
 #pragma mark - Game Delegate 
 
 - (void)didStart:(NSInteger)coin {
@@ -346,7 +354,7 @@
 //    _user.myCoin = _user.myCoin - (int)coin;
     _user.totalCoin = _user.totalCoin - (int)coin;
     
-    [[LCFileManager shareInstance] setUser:@{@"major_coins_total": [NSNumber numberWithInt:_user.myCoin], @"free_coins_total": [NSNumber numberWithInt:_user.freeCoin]}];
+    [[LCFileManager shareInstance] setUserWithFreeCoin:_user.freeCoin andTotalCoin:_user.totalCoin];
     lblTotalCoin.text = [Utils stringFromDouble:_user.totalCoin];
 }
 
@@ -357,20 +365,30 @@
     btnHistory.enabled = YES;
     btnPayout.enabled = YES;
     
+    [self showWin];
+    
     if (coin > 0) {
         lblWin.text = [NSString stringWithFormat:@"%ld", coin];
-        _user.myCoin = _user.myCoin + (int)coin;
-        [[LCFileManager shareInstance] setUser:@{@"major_coins_total": [NSNumber numberWithInt:_user.myCoin], @"free_coins_total": [NSNumber numberWithInt:_user.freeCoin]}];
+        _user.totalCoin = _user.totalCoin + (int)coin;
+        [[LCFileManager shareInstance] setUserWithFreeCoin:_user.freeCoin andTotalCoin:_user.totalCoin];
         lblTotalCoin.text = [Utils stringFromDouble:_user.totalCoin];
     }
 }
 
-#pragma mark - Buy Gold Delegate 
-
-- (void)didBuyGold:(int)coin {
-    _user.myCoin = coin;
-    [[LCFileManager shareInstance] setUser:@{@"major_coins_total": [NSNumber numberWithInt:_user.myCoin], @"free_coins_total": [NSNumber numberWithInt:_user.freeCoin]}];
-    lblTotalCoin.text = [Utils stringFromDouble:_user.totalCoin];
+- (void)showWin{
+    [UIView animateWithDuration:1.0 animations:^{
+        CGRect frame = winView.frame;
+        frame.origin.x = self.view.frame.size.width - 10 - frame.size.width;
+        winView.frame = frame;
+    } completion:^(BOOL finished) {
+        [UIView animateWithDuration:1.0 animations:^{
+            [UIView animateWithDuration:1.0 delay:0.5 options:UIViewAnimationOptionCurveEaseOut animations:^{
+                CGRect frame = winView.frame;
+                frame.origin.x = self.view.frame.size.width;
+                winView.frame = frame;
+            } completion:nil];
+        }];
+    }];
 }
 
 - (void)didReceiveMemoryWarning

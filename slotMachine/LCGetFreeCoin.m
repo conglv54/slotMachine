@@ -12,8 +12,10 @@
 @implementation LCGetFreeCoin
 
 - (id)parseDataWithResponse:(id)response {
-    NSNumber *freeCoin = response[@"free_coins_total"];
-    return freeCoin;
+    NSMutableDictionary *dict = [NSMutableDictionary new];
+    [dict setObject:response[@"free_coins_total"] forKey:@"free_coins_total"];
+    [dict setObject:response[@"next_time"] forKey:@"next_time"];
+    return dict;
 }
 
 - (id)genResponse {

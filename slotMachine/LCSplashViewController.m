@@ -39,12 +39,15 @@
             
             [fileManager setIsFirstLaunch:isFirstLaunch];
             [fileManager saveSessionID:sucess[@"session_id"]];
-            [fileManager setUser:sucess];
+            
+            int totalCoin = [sucess[@"major_coins_total"] intValue] + [sucess[@"free_coins_total"] intValue];
+            
+            [fileManager setUserWithFreeCoin:[sucess[@"free_coins_total"] intValue] andTotalCoin:totalCoin];
             [self checkVersion];
         } andBlockFailure:^(id error) {
             // if is first launch and register error
             // app will die
-            [self showAlertWithTitle:@"Regiser error"];
+            [self showAlertWithTitle:@"Regiser error, Exits app"];
         }];
         
     } else {
@@ -85,7 +88,7 @@
         // if not load version
         // Using current version
         NSLog(@"Check version error");
-        [self presentMainViewController];
+        [self showAlertWithTitle:@"Check version error, Exits app"];
     }];    
 }
 

@@ -32,6 +32,10 @@
     return kCheckVersion;
 }
 
+- (BOOL)isShowLoading {
+    return NO;
+}
+
 - (id)parseDataWithResponse:(id)response {
     LCCheckVersion *checkVersion = [[LCCheckVersion alloc] init];
     NSDictionary *dictSetting = response[@"settings"];

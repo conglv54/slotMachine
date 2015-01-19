@@ -35,7 +35,7 @@
 }
 
 - (id)parseDataWithResponse:(id)response {
-    return nil;
+    return response;
 }
 
 @end

@@ -107,10 +107,10 @@
 }
 // User
 
-- (void)setUser:(NSDictionary *)userDict {
+- (void)setUserWithFreeCoin:(int)freeCoin andTotalCoin:(int)totalCoin {
     HAUser *user = [HAUser new];
-    user.freeCoin = [userDict[@"free_coins_total"] intValue];
-    user.myCoin = [userDict[@"major_coins_total"] intValue];
+    user.freeCoin = freeCoin;
+    user.totalCoin = totalCoin;
     [NSKeyedArchiver archiveRootObject:user toFile:[self userArchivePath]];
 }
 
