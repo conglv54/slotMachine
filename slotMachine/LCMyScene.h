@@ -11,7 +11,7 @@
 @protocol LCMygameDelegate <NSObject>
 
 - (void)didStart:(NSInteger)coin;
-- (void)didStop:(NSInteger)coin;
+- (void)didStop:(NSInteger)coin andBigWin:(BOOL)isBigWin;
 
 @end
 

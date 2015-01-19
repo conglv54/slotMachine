@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		05267D99D1C383FD5F80E314 /* libPods-slotMachine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A4A3BB5C60432F0DD3C6DCE /* libPods-slotMachine.a */; };
+		5809A49D1A6D88F4002FD60A /* LCBigWinView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5809A49C1A6D88F4002FD60A /* LCBigWinView.m */; };
 		580CF39E1A46D0F400685841 /* LCError.m in Sources */ = {isa = PBXBuildFile; fileRef = 580CF39D1A46D0F400685841 /* LCError.m */; };
 		580CF3A21A46D4B500685841 /* LCError.strings in Resources */ = {isa = PBXBuildFile; fileRef = 580CF3A11A46D4B500685841 /* LCError.strings */; };
 		58116EF01A4721420099CE96 /* LCConstant.m in Sources */ = {isa = PBXBuildFile; fileRef = 58116EEF1A4721420099CE96 /* LCConstant.m */; };
@@ -119,6 +120,8 @@
 /* Begin PBXFileReference section */
 		07477775B03E16551E79F41B /* Pods-slotMachine.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-slotMachine.debug.xcconfig"; path = "Pods/Target Support Files/Pods-slotMachine/Pods-slotMachine.debug.xcconfig"; sourceTree = "<group>"; };
 		4A4A3BB5C60432F0DD3C6DCE /* libPods-slotMachine.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-slotMachine.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5809A49B1A6D88F4002FD60A /* LCBigWinView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCBigWinView.h; sourceTree = "<group>"; };
+		5809A49C1A6D88F4002FD60A /* LCBigWinView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCBigWinView.m; sourceTree = "<group>"; };
 		580CF39C1A46D0F400685841 /* LCError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCError.h; sourceTree = "<group>"; };
 		580CF39D1A46D0F400685841 /* LCError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCError.m; sourceTree = "<group>"; };
 		580CF3A11A46D4B500685841 /* LCError.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = LCError.strings; sourceTree = "<group>"; };
@@ -420,6 +423,8 @@
 				58EBA3101A657C480019DAB1 /* LCShippingAddress.m */,
 				588D8C621A66E0BF00CBA31B /* LCFreeCoinView.h */,
 				588D8C631A66E0BF00CBA31B /* LCFreeCoinView.m */,
+				5809A49B1A6D88F4002FD60A /* LCBigWinView.h */,
+				5809A49C1A6D88F4002FD60A /* LCBigWinView.m */,
 				58116EEE1A4721420099CE96 /* LCConstant.h */,
 				58116EEF1A4721420099CE96 /* LCConstant.m */,
 				58BA6E1A1A3D3C40005E9F3B /* Utils.h */,
@@ -701,6 +706,7 @@
 				588D8C641A66E0BF00CBA31B /* LCFreeCoinView.m in Sources */,
 				58BA6DE81A3D3A0B005E9F3B /* LCAppDelegate.m in Sources */,
 				5812E9F51A4C5F4900B2598E /* HAUser.m in Sources */,
+				5809A49D1A6D88F4002FD60A /* LCBigWinView.m in Sources */,
 				58BA6E2A1A3D3C6D005E9F3B /* UIBuyGoldVIew.m in Sources */,
 				58116EF01A4721420099CE96 /* LCConstant.m in Sources */,
 				587A71AA1A432B09008283CD /* LCBaseTaskNetWork.m in Sources */,

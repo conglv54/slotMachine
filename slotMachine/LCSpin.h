@@ -13,4 +13,8 @@
 @property (nonatomic) NSInteger coin;
 @property (nonatomic, strong) NSArray *arrResult;
 
+@property (nonatomic) BOOL isBigWin;
+
+@property (nonatomic) int winType;
+
 @end

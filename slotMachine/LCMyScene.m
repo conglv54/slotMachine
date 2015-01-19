@@ -24,6 +24,8 @@
     int index;
     NSInteger coinWin;
     
+    BOOL isBigWin;
+    
     NSTimer *timer;
     
     LCDoSpin *spinTask;
@@ -64,6 +66,10 @@
 //            return;
 //        }
 //    }
+    int currentMyCoin = [[LCFileManager shareInstance]getUser].totalCoin;
+    if (currentMyCoin < self.bet) {
+        return;
+    }
     
     for (UITouch *touch in touches) {
         locationBegin  = [touch locationInNode:self];
@@ -79,6 +85,11 @@
 //        }
 //    }
 
+    int currentMyCoin = [[LCFileManager shareInstance]getUser].totalCoin;
+    if (currentMyCoin < self.bet) {
+        return;
+    }
+    
     if (_isAuto) {
         return;
     }
@@ -181,6 +192,7 @@
     
     if (currentMyCoin < self.bet) {
         NSLog(@"You must get more coin");
+        _isAuto = false;
         return;
     }
     
@@ -194,10 +206,12 @@
         LCSpin *spin = (LCSpin *)sucess;
         NSArray *results = spin.arrResult;
         coinWin = spin.coin;
+        isBigWin = spin.isBigWin;
         
         for (int i = 0 ; i < arrVerticalCell.count; i ++) {
             LCVeticalCell *verticalCell = arrVerticalCell[i];
             verticalCell.isReciveResult = true;
+            verticalCell.isBigWin = spin.isBigWin;
             verticalCell.result = [results[i] intValue];
         }
     } andBlockFailure:^(id error) {
@@ -219,8 +233,8 @@
 }
 
 - (void)stop {
-    if ([_gameDelegate respondsToSelector:@selector(didStop:)]) {
-        [_gameDelegate didStop:coinWin];
+    if ([_gameDelegate respondsToSelector:@selector(didStop:andBigWin:)]) {
+        [_gameDelegate didStop:coinWin andBigWin:isBigWin];
     }
 }
 

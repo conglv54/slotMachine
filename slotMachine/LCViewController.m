@@ -282,10 +282,10 @@
 }
 
 - (void)showHistory {
-//    historyView  = [[UIHistoryView alloc] init];
-//    [historyView showinView:self.view];
-    shipView = [[LCShippingAddress alloc] init];
-    [shipView showinView:self.view];
+    historyView  = [[UIHistoryView alloc] init];
+    [historyView showinView:self.view];
+//    shipView = [[LCShippingAddress alloc] init];
+//    [shipView showinView:self.view];
 }
 
 - (void)getFreeCoin {
@@ -358,20 +358,24 @@
     lblTotalCoin.text = [Utils stringFromDouble:_user.totalCoin];
 }
 
-- (void)didStop:(NSInteger)coin {
+- (void)didStop:(NSInteger)coin andBigWin:(BOOL)isBigWin{
     
     btnBuy.enabled = YES;
     btnFreeCoin.enabled = YES;
     btnHistory.enabled = YES;
     btnPayout.enabled = YES;
     
-    [self showWin];
-    
-    if (coin > 0) {
-        lblWin.text = [NSString stringWithFormat:@"%ld", coin];
-        _user.totalCoin = _user.totalCoin + (int)coin;
-        [[LCFileManager shareInstance] setUserWithFreeCoin:_user.freeCoin andTotalCoin:_user.totalCoin];
-        lblTotalCoin.text = [Utils stringFromDouble:_user.totalCoin];
+    if (isBigWin) {
+        
+    } else {
+        [self showWin];
+        
+        if (coin > 0) {
+            lblWin.text = [NSString stringWithFormat:@"%ld", coin];
+            _user.totalCoin = _user.totalCoin + (int)coin;
+            [[LCFileManager shareInstance] setUserWithFreeCoin:_user.freeCoin andTotalCoin:_user.totalCoin];
+            lblTotalCoin.text = [Utils stringFromDouble:_user.totalCoin];
+        }        
     }
 }
 

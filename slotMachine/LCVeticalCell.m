@@ -227,8 +227,12 @@
     
     if (currentIndex == 4) {
         [_gameScene stop];
-        if (_gameScene.isAuto) {
-            [_gameScene start];            
+        if (!_isBigWin) {
+            if (_gameScene.isAuto) {
+                [_gameScene start];
+            }
+        } else {
+            _gameScene.isAuto = false;
         }
     }
 }

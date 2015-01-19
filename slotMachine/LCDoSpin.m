@@ -23,8 +23,19 @@
     LCSpin *spin = [LCSpin new];
     NSInteger coin = [response[@"coins"] integerValue];
     spin.coin = coin;
+    
     NSArray *result = response[@"range"];
     spin.arrResult = result;
+    
+    NSSet *set = [NSSet setWithArray:result];
+    if (set.count == 1) {
+        spin.isBigWin = true;
+    } else {
+        spin.isBigWin = false;
+    }
+    
+    spin.winType = [response[@"item_type"] intValue];
+    
     return spin;
 }
 
