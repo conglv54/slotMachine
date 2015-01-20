@@ -51,29 +51,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "slotMachine/LCDoSpin.m"
-            timestampString = "443384758.232673"
+            filePath = "slotMachine/LCBigWinView.m"
+            timestampString = "443462377.697909"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "23"
-            endingLineNumber = "23"
-            landmarkName = "-parseDataWithResponse:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "slotMachine/LCViewController.m"
-            timestampString = "443384932.063587"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "255"
-            endingLineNumber = "255"
-            landmarkName = "-spin:"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "-imageNameWittItemID:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -10,4 +10,6 @@
 
 @interface LCBigWinView : UIView
 
+- (id)initWithWineType:(int)winType andFrame:(CGRect) frame;
+
 @end

@@ -16,6 +16,7 @@
 #import "LCFileManager.h"
 #import "LCGetFreeCoin.h"
 #import "LCFreeCoinView.h"
+#import "LCBigWinView.h"
 
 @implementation LCViewController {
     LCMyScene *scene;
@@ -24,6 +25,7 @@
     UIPayoutView *payOutView;
     UIHistoryView *historyView;
     LCShippingAddress *shipView;
+    LCBigWinView *bigWinView;
     
     UIView *winView;
     
@@ -366,7 +368,8 @@
     btnPayout.enabled = YES;
     
     if (isBigWin) {
-        
+        bigWinView = [[LCBigWinView alloc] initWithWineType:1 andFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+        [self.view addSubview:bigWinView];
     } else {
         [self showWin];
         
