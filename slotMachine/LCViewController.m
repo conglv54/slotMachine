@@ -38,6 +38,7 @@
     UILabel *lblBet;
     UILabel *lblMaxBet;
     UILabel *lblWin;
+    UILabel *lblAnimationWin;
     
     CGFloat bet;
     CGFloat maxBet;
@@ -212,16 +213,18 @@
     
     winView = [[UIView alloc] initWithFrame:CGRectMake(568, 10, imgSlotBgWin.size.width, imgSlotBgWin.size.height)];
     
-    UILabel *lblAnimationWin = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
-    lblAnimationWin.text = [NSString stringWithFormat:@"%d", 100];
-    lblAnimationWin.textColor = [UIColor whiteColor];
-    [lblAnimationWin sizeToFit];
-    [winView addSubview:lblAnimationWin];
-    
     UIImageView *imvSlotBgWin = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, imgSlotBgWin.size.width, imgSlotBgWin.size.height)];
     imvSlotBgWin.image = imgSlotBgWin;
     
+    
+    lblAnimationWin = [[UILabel alloc] initWithFrame:CGRectMake(70, 12, 100, 20)];
+    lblAnimationWin.text = [NSString stringWithFormat:@"%d", 0];
+    lblAnimationWin.textColor = [UIColor whiteColor];
+    lblAnimationWin.font = [UIFont fontWithName:@"ArialRoundedMTBold" size:17];
+    [lblAnimationWin sizeToFit];
+    
     [winView addSubview:imvSlotBgWin];
+    [winView addSubview:lblAnimationWin];
     [self.view addSubview:winView];
 }
 
@@ -286,8 +289,6 @@
 - (void)showHistory {
     historyView  = [[UIHistoryView alloc] init];
     [historyView showinView:self.view];
-//    shipView = [[LCShippingAddress alloc] init];
-//    [shipView showinView:self.view];
 }
 
 - (void)getFreeCoin {
@@ -352,8 +353,7 @@
     btnFreeCoin.enabled = NO;
     btnHistory.enabled = NO;
     btnPayout.enabled = NO;
-//    
-//    _user.myCoin = _user.myCoin - (int)coin;
+
     _user.totalCoin = _user.totalCoin - (int)coin;
     
     [[LCFileManager shareInstance] setUserWithFreeCoin:_user.freeCoin andTotalCoin:_user.totalCoin];
@@ -370,10 +370,15 @@
     if (isBigWin) {
         bigWinView = [[LCBigWinView alloc] initWithWineType:1 andFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
         [self.view addSubview:bigWinView];
-    } else {
-        [self showWin];
         
+        __weak typeof(self) weakSelf = self;
+        bigWinView.touchCallBack = ^(){
+            [weakSelf performSelector:@selector(showShippingView) withObject:nil afterDelay:0.5];
+        };
+    } else {
         if (coin > 0) {
+            [self showWinWithCoin:coin];
+            
             lblWin.text = [NSString stringWithFormat:@"%ld", coin];
             _user.totalCoin = _user.totalCoin + (int)coin;
             [[LCFileManager shareInstance] setUserWithFreeCoin:_user.freeCoin andTotalCoin:_user.totalCoin];
@@ -382,7 +387,9 @@
     }
 }
 
-- (void)showWin{
+- (void)showWinWithCoin:(NSInteger )coin{
+    lblAnimationWin.text = [NSString stringWithFormat:@"%ld", coin];
+    
     [UIView animateWithDuration:1.0 animations:^{
         CGRect frame = winView.frame;
         frame.origin.x = self.view.frame.size.width - 10 - frame.size.width;
@@ -396,6 +403,11 @@
             } completion:nil];
         }];
     }];
+}
+
+- (void)showShippingView  {
+    shipView = [[LCShippingAddress alloc] init];
+    [shipView showinView:self.view];
 }
 
 - (void)didReceiveMemoryWarning

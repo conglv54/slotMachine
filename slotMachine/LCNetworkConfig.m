@@ -24,5 +24,7 @@ NSString *const kReceipt = @"receipt";
 NSString *const kPaypal_account = @"paypal_account";
 NSString *const kAmount = @"amount";
 
+NSString *const kShipping = @"shipping";
+
 @implementation LCNetworkConfig
 @end

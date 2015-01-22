@@ -24,5 +24,7 @@ extern NSString *const kReceipt;
 extern NSString *const kPaypal_account;
 extern NSString *const kAmount;
 
+extern NSString *const kShipping;
+
 @interface LCNetworkConfig : NSObject
 @end

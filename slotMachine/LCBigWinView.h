@@ -10,6 +10,8 @@
 
 @interface LCBigWinView : UIView
 
+@property (nonatomic, strong) void (^touchCallBack) ();
+
 - (id)initWithWineType:(int)winType andFrame:(CGRect) frame;
 
 @end

@@ -20,9 +20,16 @@
         UIView *backgroundView = [[UIView alloc] initWithFrame:frame];
         backgroundView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
         
-        UIImage *img = [UIImage imageNamed:[self imageNameWittItemID:winType]];
-        UIImageView *forgroundView = [[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetMidX(frame) - 366/2, CGRectGetMidY(frame) - 204/2, 366, 204)];
-        forgroundView.image = img;
+        NSString *imageName = [self imageNameWittItemID:winType];
+        NSString *imagPath = [[LCFileManager shareInstance] documentDirectory];
+        UIImage *image = [UIImage imageWithContentsOfFile:[imagPath stringByAppendingPathComponent:imageName]];
+        
+        UIImageView *forgroundView = [[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetMidX(frame) - 366/2, CGRectGetMidY(frame) - 208/2, 366, 208)];
+        forgroundView.image = image;
+        forgroundView.userInteractionEnabled = YES;
+        
+        UIGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap)];
+        [forgroundView addGestureRecognizer:tapGesture];
         
         [self addSubview:backgroundView];
         [self addSubview:forgroundView];        
@@ -40,6 +47,12 @@
     }
     
     NSLog(@"No image with id: %d", item_id);
-    return @"noImage";
+    return @"NO_DATA.jpg";
 }
+
+- (void)tap {
+    _touchCallBack();
+    [self removeFromSuperview];
+}
+
 @end

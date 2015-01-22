@@ -20,4 +20,6 @@
 - (UIView *)viewForContentView;
 - (void)sentRequest;
 
+- (void)closeView;
+
 @end

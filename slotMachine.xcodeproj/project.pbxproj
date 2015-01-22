@@ -15,6 +15,7 @@
 		5812E9F21A4C550500B2598E /* HARegister.m in Sources */ = {isa = PBXBuildFile; fileRef = 5812E9F11A4C550500B2598E /* HARegister.m */; };
 		5812E9F51A4C5F4900B2598E /* HAUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 5812E9F41A4C5F4900B2598E /* HAUser.m */; };
 		5812E9FB1A4C7EF400B2598E /* LCPayoutTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 5812E9FA1A4C7EF400B2598E /* LCPayoutTask.m */; };
+		581B853B1A7141B000030D2C /* LCShippingTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 581B853A1A7141B000030D2C /* LCShippingTask.m */; };
 		58339EE01A6B9DBE008B1602 /* bgImageWin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 58339EDF1A6B9DBE008B1602 /* bgImageWin@2x.png */; };
 		5842319C1A48828A002E5FD5 /* LCSpin.m in Sources */ = {isa = PBXBuildFile; fileRef = 5842319B1A48828A002E5FD5 /* LCSpin.m */; };
 		587A71AA1A432B09008283CD /* LCBaseTaskNetWork.m in Sources */ = {isa = PBXBuildFile; fileRef = 587A71A91A432B09008283CD /* LCBaseTaskNetWork.m */; };
@@ -133,6 +134,8 @@
 		5812E9F41A4C5F4900B2598E /* HAUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HAUser.m; sourceTree = "<group>"; };
 		5812E9F91A4C7EF400B2598E /* LCPayoutTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCPayoutTask.h; sourceTree = "<group>"; };
 		5812E9FA1A4C7EF400B2598E /* LCPayoutTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCPayoutTask.m; sourceTree = "<group>"; };
+		581B85391A7141B000030D2C /* LCShippingTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCShippingTask.h; sourceTree = "<group>"; };
+		581B853A1A7141B000030D2C /* LCShippingTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCShippingTask.m; sourceTree = "<group>"; };
 		58339EDF1A6B9DBE008B1602 /* bgImageWin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bgImageWin@2x.png"; sourceTree = "<group>"; };
 		5842319A1A48828A002E5FD5 /* LCSpin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCSpin.h; sourceTree = "<group>"; };
 		5842319B1A48828A002E5FD5 /* LCSpin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCSpin.m; sourceTree = "<group>"; };
@@ -323,6 +326,8 @@
 				587A71C71A4349C8008283CD /* LCDownloadTask.m */,
 				5812E9F91A4C7EF400B2598E /* LCPayoutTask.h */,
 				5812E9FA1A4C7EF400B2598E /* LCPayoutTask.m */,
+				581B85391A7141B000030D2C /* LCShippingTask.h */,
+				581B853A1A7141B000030D2C /* LCShippingTask.m */,
 			);
 			name = NetWork;
 			sourceTree = "<group>";
@@ -710,6 +715,7 @@
 				58BA6E2A1A3D3C6D005E9F3B /* UIBuyGoldVIew.m in Sources */,
 				58116EF01A4721420099CE96 /* LCConstant.m in Sources */,
 				587A71AA1A432B09008283CD /* LCBaseTaskNetWork.m in Sources */,
+				581B853B1A7141B000030D2C /* LCShippingTask.m in Sources */,
 				587A71AD1A4334BD008283CD /* LCCheckVersionTask.m in Sources */,
 				58BA6E1C1A3D3C40005E9F3B /* Utils.m in Sources */,
 				58BA6E2B1A3D3C6D005E9F3B /* UIPayoutView.m in Sources */,
