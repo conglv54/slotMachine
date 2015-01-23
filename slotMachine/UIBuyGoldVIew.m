@@ -10,10 +10,13 @@
 #import "LCPurChaseTask.h"
 #import "LCGetTablePurchaseTask.h"
 #import "LCFileManager.h"
+#import "RageIAPHelper.h"
 
 @implementation UIBuyGoldVIew {
     NSArray *tablePurchase;
     UITableView *tbl;
+    
+    NSArray *_products;
 }
 
 - (UIView *)viewForContentView {
@@ -32,6 +35,20 @@
     
     [self.contentView addSubview:tbl];
     [self.contentView addSubview:lbl];
+    
+    [[RageIAPHelper sharedInstance] requestProductsWithCompletionHandler:^(BOOL success, NSArray *products) {
+        if (success) {
+            _products = products;
+        }
+    }];
+    
+    RageIAPHelper *iaHelper = [RageIAPHelper sharedInstance];
+    iaHelper.transitioncompletionHandler = ^(SKPaymentTransaction *transition) {
+        // did complete buy icon
+            
+        
+    };
+    
     return self.contentView;
 }
 
@@ -48,6 +65,7 @@
     if (cell == nil) {
         cell = [[BuyGoldTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
         cell.delegate = self;
+        cell.index = (int)indexPath.row;
     }
     
     LCTablePurchase *purchase = tablePurchase[indexPath.row];
@@ -67,13 +85,19 @@
 
 #pragma mark - Buy gold Delegate
 
-- (void)buyGoldWithID:(int)priceID {
-    LCPurChaseTask *purchaseTask = [[LCPurChaseTask alloc] initWithPriceID:priceID];
-    [purchaseTask requestWithBlockSucess:^(id sucess) {
-        int totalCoin = [sucess[@"major_coins_total"] intValue] + [sucess[@"free_coins_total"] intValue];
-        [[LCFileManager shareInstance] setUserWithFreeCoin:[sucess[@"free_coins_total"] intValue] andTotalCoin:totalCoin];
-    } andBlockFailure:^(id error) {
-        
-    }];
+- (void)buyGoldWithID:(int)priceID andProductIndex:(int)index{
+    
+    if (_products) {
+        SKProduct *product = _products[index];
+        [[RageIAPHelper sharedInstance] buyProduct:product];
+    }
+    
+//    LCPurChaseTask *purchaseTask = [[LCPurChaseTask alloc] initWithPriceID:priceID];
+//    [purchaseTask requestWithBlockSucess:^(id sucess) {
+//        int totalCoin = [sucess[@"major_coins_total"] intValue] + [sucess[@"free_coins_total"] intValue];
+//        [[LCFileManager shareInstance] setUserWithFreeCoin:[sucess[@"free_coins_total"] intValue] andTotalCoin:totalCoin];
+//    } andBlockFailure:^(id error) {
+//        
+//    }];
 }
 @end

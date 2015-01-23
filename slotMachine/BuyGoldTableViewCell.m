@@ -65,8 +65,8 @@
 }
 
 - (void)buyGold {
-    if ([_delegate respondsToSelector:@selector(buyGoldWithID:)]) {
-        [_delegate buyGoldWithID:_tablePurchase.priceID];
+    if ([_delegate respondsToSelector:@selector(buyGoldWithID:andProductIndex:)]) {
+        [_delegate buyGoldWithID:_tablePurchase.priceID andProductIndex:_index];
     }
 }
 

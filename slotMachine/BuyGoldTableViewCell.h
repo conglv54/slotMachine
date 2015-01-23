@@ -11,13 +11,15 @@
 
 @protocol BuyGoldCellDelegate <NSObject>
 
-- (void)buyGoldWithID:(int)priceID;
+- (void)buyGoldWithID:(int)priceID andProductIndex:(int) index;
 
 @end
 
 @interface BuyGoldTableViewCell : UITableViewCell
 
 @property (nonatomic, assign) id<BuyGoldCellDelegate> delegate;
+
+@property (nonatomic) int index;
 
 - (void)setTablePurchase:(LCTablePurchase *)tablePurchase;
 
