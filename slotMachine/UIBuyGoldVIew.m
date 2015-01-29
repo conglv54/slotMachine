@@ -92,12 +92,17 @@
         [[RageIAPHelper sharedInstance] buyProduct:product];
     }
     
-//    LCPurChaseTask *purchaseTask = [[LCPurChaseTask alloc] initWithPriceID:priceID];
-//    [purchaseTask requestWithBlockSucess:^(id sucess) {
-//        int totalCoin = [sucess[@"major_coins_total"] intValue] + [sucess[@"free_coins_total"] intValue];
-//        [[LCFileManager shareInstance] setUserWithFreeCoin:[sucess[@"free_coins_total"] intValue] andTotalCoin:totalCoin];
-//    } andBlockFailure:^(id error) {
-//        
-//    }];
+    LCPurChaseTask *purchaseTask = [[LCPurChaseTask alloc] initWithPriceID:priceID];
+    NSURL *receiptURL = [[NSBundle mainBundle] appStoreReceiptURL];
+    NSData *receipt = [NSData dataWithContentsOfURL:receiptURL];
+    if (receipt) {
+        [purchaseTask uploadReceipt:receipt];
+    }
+    [purchaseTask requestWithBlockSucess:^(id sucess) {
+        int totalCoin = [sucess[@"major_coins_total"] intValue] + [sucess[@"free_coins_total"] intValue];
+        [[LCFileManager shareInstance] setUserWithFreeCoin:[sucess[@"free_coins_total"] intValue] andTotalCoin:totalCoin];
+    } andBlockFailure:^(id error) {
+        
+    }];
 }
 @end

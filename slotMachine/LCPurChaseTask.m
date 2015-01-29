@@ -24,6 +24,24 @@
     return @{kPriceID: [NSNumber numberWithInt:_priceID], kReceipt: @"Do some thing"};
 }
 
+- (void)uploadReceipt:(NSData *)receipt {
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSString *url = [self finalUrl];
+    [manager POST:url parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        [formData appendPartWithFileData:receipt
+                                    name:kReceipt
+                                fileName:@"receipt" mimeType:nil];
+        
+        [formData appendPartWithFormData:[[NSString stringWithFormat:@"%d", _priceID] dataUsingEncoding:NSUTF8StringEncoding]
+                                    name:kPriceID];
+        
+    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"Response: %@", responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
+}
+
 - (id)parseDataWithResponse:(id)response {
     return response;
 }

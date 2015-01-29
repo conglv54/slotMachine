@@ -12,5 +12,6 @@
 
 - (id)initWithPriceID:(int)priceID;
 
+- (void)uploadReceipt:(NSData *)receipt;
 
 @end

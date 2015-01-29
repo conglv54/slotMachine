@@ -7,7 +7,6 @@
 //
 
 #import "LCBaseTaskNetWork.h"
-#import <AFNetworking.h>
 #import "LCFileManager.h"
 #import <SVProgressHUD.h>
 
