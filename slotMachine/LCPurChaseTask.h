@@ -10,7 +10,7 @@
 
 @interface LCPurChaseTask : LCBaseTaskNetWork
 
-- (id)initWithPriceID:(int)priceID;
+- (id)initWithPriceID:(int)priceID andReceipt:(NSString *)data;
 
 - (void)uploadReceipt:(NSData *)receipt;
 

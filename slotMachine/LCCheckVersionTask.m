@@ -56,6 +56,8 @@
     checkVersion.version = response[kVersion][@"value"];
     checkVersion.isUpdate = [response[@"is_update"] boolValue];
     checkVersion.setting = dictSetting;
+    checkVersion.pathFile = response[@"path"];
+    
     return checkVersion;
 }
 

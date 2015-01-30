@@ -7,21 +7,24 @@
 //
 
 #import "LCPurChaseTask.h"
+#import <AFNetworking.h>
 
 @implementation LCPurChaseTask {
     int _priceID;
+    NSString *_receipt;
 }
 
-- (id)initWithPriceID:(int)priceID {
+- (id)initWithPriceID:(int)priceID andReceipt:(NSString *)data{
     self = [super init];
     if (self) {
         _priceID = priceID;
+        _receipt = data;
     }
     return self;
 }
 
 - (NSDictionary *)parameters {
-    return @{kPriceID: [NSNumber numberWithInt:_priceID], kReceipt: @"Do some thing"};
+    return @{kPriceID: [NSNumber numberWithInt:_priceID], kReceipt: _receipt};
 }
 
 - (void)uploadReceipt:(NSData *)receipt {
@@ -30,7 +33,7 @@
     [manager POST:url parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         [formData appendPartWithFileData:receipt
                                     name:kReceipt
-                                fileName:@"receipt" mimeType:nil];
+                                fileName:@"receipt" mimeType:@"file"];
         
         [formData appendPartWithFormData:[[NSString stringWithFormat:@"%d", _priceID] dataUsingEncoding:NSUTF8StringEncoding]
                                     name:kPriceID];

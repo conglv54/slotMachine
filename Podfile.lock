@@ -22,18 +22,21 @@ PODS:
     - AFNetworking/NSURLSession
   - MZTimerLabel (0.5.1)
   - SSKeychain (1.2.2)
+  - SSZipArchive (0.3.2)
   - SVProgressHUD (1.1.2)
 
 DEPENDENCIES:
   - AFNetworking
   - MZTimerLabel
   - SSKeychain
+  - SSZipArchive
   - SVProgressHUD
 
 SPEC CHECKSUMS:
   AFNetworking: 0f54cb5d16ce38c1b76948faffb8d5fb705021c7
   MZTimerLabel: 599c3e89ae7fccc7bd6fc3b30fc737cf742345a9
   SSKeychain: cc48bd3ad24fcd9125adb9e0d23dd50b8bbd08b9
+  SSZipArchive: 11299a4e89821bd4085b12f25edaa85853e0051c
   SVProgressHUD: da7a49e789af645d9279ffbca62318945a832438
 
 COCOAPODS: 0.34.2

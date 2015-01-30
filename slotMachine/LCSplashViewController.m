@@ -14,6 +14,7 @@
 #import "HARegister.h"
 #import "LCRegister.h"
 #import "LCItem.h"
+#import <SSZipArchive.h>
 
 @interface LCSplashViewController () <UIAlertViewDelegate>
 
@@ -80,7 +81,7 @@
             [fileManager setSettingDefault:checkVersion.setting];
             [fileManager setItems:checkVersion.items];
             
-            [self loadItemImage:checkVersion.items];
+            [self loadItemImage:checkVersion.pathFile];
         } else {
             [self presentMainViewController];            
         }
@@ -92,19 +93,28 @@
     }];    
 }
 
-- (void)loadItemImage:(NSArray *)items {
-    dispatch_queue_t myQueue = dispatch_queue_create("My Queue",NULL);
-    dispatch_async(myQueue, ^{
-        for (LCItem *item in items) {
-            NSString *stringName = [NSString stringWithFormat:@"%@/%@",HOST_URL, item.pathUrl];
-            NSURL *imageUrl = [NSURL URLWithString:stringName];
-            UIImage *img = [UIImage imageWithData:[NSData dataWithContentsOfURL:imageUrl]];
-            [self saveImage:img withFileName:item.name];
-        }
-        dispatch_async(dispatch_get_main_queue(), ^{
+- (void)loadItemImage:(NSString *)url {
+//    dispatch_queue_t myQueue = dispatch_queue_create("My Queue",NULL);
+//    dispatch_async(myQueue, ^{
+//        for (LCItem *item in items) {
+//            NSString *stringName = [NSString stringWithFormat:@"%@/%@",HOST_URL, item.pathUrl];
+//            NSURL *imageUrl = [NSURL URLWithString:stringName];
+//            UIImage *img = [UIImage imageWithData:[NSData dataWithContentsOfURL:imageUrl]];
+//            [self saveImage:img withFileName:item.name];
+//        }
+//        dispatch_async(dispatch_get_main_queue(), ^{
             [self presentMainViewController];
-        });
-    });
+//        });
+//    });
+    LCDownloadTask *downloadTask = [[LCDownloadTask alloc] init];
+    downloadTask.URL = url;
+    [downloadTask requestWithBlockSucess:^(id sucess) {
+        [self presentMainViewController];
+        NSLog(@"%@", sucess);
+        [SSZipArchive unzipFileAtPath:sucess toDestination:[[LCFileManager shareInstance]documentDirectory]];
+    } andBlockFailure:^(id error) {
+        
+    }];
 }
 
 -(void)saveImage:(UIImage *)image withFileName:(NSString *)imageName{

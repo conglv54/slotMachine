@@ -6,6 +6,7 @@ pod 'AFNetworking'
 pod 'SSKeychain'
 pod 'SVProgressHUD'
 pod 'MZTimerLabel'
+pod 'SSZipArchive'
 end
 
 target 'slotMachineTests' do

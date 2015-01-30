@@ -7,14 +7,16 @@
 //
 
 #import "LCDownloadTask.h"
+#import <AFNetworking.h>
 
 @implementation LCDownloadTask
+
+- (BOOL)isShowLoading {
+    return NO;
+}
 
 - (NSString *)method {
     return DOWNLOAD;
 }
 
-- (NSString *)URL {
-    return kDoSpin;
-}
 @end

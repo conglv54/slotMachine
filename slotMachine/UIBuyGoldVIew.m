@@ -17,6 +17,7 @@
     UITableView *tbl;
     
     NSArray *_products;
+    int _productID;
 }
 
 - (UIView *)viewForContentView {
@@ -45,8 +46,21 @@
     RageIAPHelper *iaHelper = [RageIAPHelper sharedInstance];
     iaHelper.transitioncompletionHandler = ^(SKPaymentTransaction *transition) {
         // did complete buy icon
+        NSURL *receiptURL = [[NSBundle mainBundle] appStoreReceiptURL];
+        NSData *receipt = [NSData dataWithContentsOfURL:receiptURL];
+        if (receipt) {
+            NSString *requestData = [receipt base64EncodedStringWithOptions:0];
             
-        
+            LCPurChaseTask *purchaseTask = [[LCPurChaseTask alloc] initWithPriceID:_productID andReceipt:requestData];
+            [purchaseTask requestWithBlockSucess:^(id sucess) {
+                int totalCoin = [sucess[@"major_coins_total"] intValue] + [sucess[@"free_coins_total"] intValue];
+                [[LCFileManager shareInstance] setUserWithFreeCoin:[sucess[@"free_coins_total"] intValue] andTotalCoin:totalCoin];
+            } andBlockFailure:^(id error) {
+                
+            }];
+
+//            [purchaseTask uploadReceipt:receipt];
+        }
     };
     
     return self.contentView;
@@ -86,23 +100,11 @@
 #pragma mark - Buy gold Delegate
 
 - (void)buyGoldWithID:(int)priceID andProductIndex:(int)index{
-    
     if (_products) {
         SKProduct *product = _products[index];
         [[RageIAPHelper sharedInstance] buyProduct:product];
-    }
-    
-    LCPurChaseTask *purchaseTask = [[LCPurChaseTask alloc] initWithPriceID:priceID];
-    NSURL *receiptURL = [[NSBundle mainBundle] appStoreReceiptURL];
-    NSData *receipt = [NSData dataWithContentsOfURL:receiptURL];
-    if (receipt) {
-        [purchaseTask uploadReceipt:receipt];
-    }
-    [purchaseTask requestWithBlockSucess:^(id sucess) {
-        int totalCoin = [sucess[@"major_coins_total"] intValue] + [sucess[@"free_coins_total"] intValue];
-        [[LCFileManager shareInstance] setUserWithFreeCoin:[sucess[@"free_coins_total"] intValue] andTotalCoin:totalCoin];
-    } andBlockFailure:^(id error) {
         
-    }];
+        _productID = index;
+    }
 }
 @end

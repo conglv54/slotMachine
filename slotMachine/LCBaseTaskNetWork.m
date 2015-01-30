@@ -9,6 +9,7 @@
 #import "LCBaseTaskNetWork.h"
 #import "LCFileManager.h"
 #import <SVProgressHUD.h>
+#import <AFNetworking.h>
 
 NSString *const METHOD_GET = @"GET";
 NSString *const METHOD_PUSH = @"PUSH";
@@ -16,10 +17,10 @@ NSString *const METHOD_PUSH = @"PUSH";
 NSString *const METHOD_POST = @"POST";
 NSString *const METHOD_DELETE = @"DELETE";
 
-NSString *const DOWNLOAD = @"DELETE";
+NSString *const DOWNLOAD = @"DOWNLOAD";
 
-NSString *const HOST_URL_API = @"http://navademo.com/jackpot-vn/public/api/jackpot";
-NSString *const HOST_URL = @"http://navademo.com/jackpot-vn/public";
+NSString *const HOST_URL_API = @"http://10.0.0.13:8002/api/jackpot";
+NSString *const HOST_URL = @"http://10.0.0.13:8002";
 
 NSString *const kSession = @"app-session-id";
 
@@ -110,12 +111,14 @@ int const kSucess = 0;
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
     
-    NSURL *URL = [NSURL URLWithString:@"http://fuckmu.esy.es/Default.plist"];
+    NSURL *URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/%@", HOST_URL, [self URL]]];
     NSURLRequest *request = [NSURLRequest requestWithURL:URL];
     
     NSURLSessionDownloadTask *downloadTask = [manager downloadTaskWithRequest:request progress:nil destination:^NSURL *(NSURL *targetPath, NSURLResponse *response) {
         NSURL *documentsDirectoryURL = [[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:NO error:nil];
+//        _blockSucess([documentsDirectoryURL URLByAppendingPathComponent:[response suggestedFilename]]);
         return [documentsDirectoryURL URLByAppendingPathComponent:[response suggestedFilename]];
+        
     } completionHandler:^(NSURLResponse *response, NSURL *filePath, NSError *error) {
         
         _blockSucess(filePath);

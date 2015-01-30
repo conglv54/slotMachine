@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <AFNetworking.h>
 #import "LCNetworkConfig.h"
 
 extern NSString *const METHOD_GET;
