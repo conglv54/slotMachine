@@ -26,7 +26,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         [self initView];
-        [self getFreeCoin];
+        [self setCountDownTimeView:[[LCFileManager shareInstance] getFreeTime]];
     }
     return self;
 }
@@ -87,6 +87,12 @@
 
 - (void)closeView {
     [self removeFromSuperview];
+}
+
+- (void)setCountDownTimeView:(CGFloat)time {
+    [_lblCountDownTime setCountDownTime:time];
+    [_lblCountDownTime sizeToFit];
+    [_lblCountDownTime start];
 }
 
 - (void)setCountDownTime:(NSDate *)date {

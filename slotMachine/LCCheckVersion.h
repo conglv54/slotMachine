@@ -14,7 +14,8 @@
 @property (nonatomic, strong) NSDictionary *setting;
 @property (nonatomic, strong) NSString *version;
 @property (nonatomic, strong) NSArray *items;
+@property (nonatomic, strong) NSArray *itemsBigwin;
 @property (nonatomic) BOOL isUpdate;
-@property (nonatomic) NSString *pathFile;
-
+@property (nonatomic, strong) NSString *pathFile;
+@property (nonatomic) CGFloat time;
 @end

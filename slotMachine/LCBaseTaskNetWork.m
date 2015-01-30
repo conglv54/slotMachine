@@ -19,8 +19,8 @@ NSString *const METHOD_DELETE = @"DELETE";
 
 NSString *const DOWNLOAD = @"DOWNLOAD";
 
-NSString *const HOST_URL_API = @"http://localhost:8000/api/jackpot";
-NSString *const HOST_URL = @"http://localhost:8000";
+NSString *const HOST_URL_API = @"http://navademo.com/jackpot-vn/public/api/jackpot";
+NSString *const HOST_URL = @"http://navademo.com/jackpot-vn";
 
 NSString *const kSession = @"app-session-id";
 

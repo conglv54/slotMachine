@@ -36,11 +36,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "slotMachine/LCFreeCoinView.m"
-            timestampString = "443381592.124376"
+            timestampString = "444331901.896056"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "102"
-            endingLineNumber = "102"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
             landmarkName = "-setCountDownTime:"
             landmarkType = "5">
          </BreakpointContent>

@@ -105,6 +105,22 @@
         NSLog(@"Not Save");
     }
 }
+
+// Item Bigwin
+
+- (NSArray *)getItemsBigwin {
+    NSString *path = [self itemArchivePath];
+    return [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+}
+
+- (void)setItemsBigwin:(NSArray *)items {
+    NSString *path = [self itemBigwinArchivePath];
+    BOOL isSucess = [NSKeyedArchiver archiveRootObject:items toFile:path];
+    if (!isSucess) {
+        NSLog(@"Not Save");
+    }
+}
+
 // User
 
 - (void)setUserWithFreeCoin:(int)freeCoin andTotalCoin:(int)totalCoin {
@@ -119,6 +135,13 @@
     return user;
 }
 
+- (void)setFreeTime:(CGFloat)time {
+    [[NSUserDefaults standardUserDefaults] setFloat:time forKey:@"time"];
+}
+
+- (CGFloat)getFreeTime {
+    return [[NSUserDefaults standardUserDefaults]floatForKey:@"time"];
+}
 #pragma mark - Private Method
 
 - (NSMutableDictionary *)readDict{
@@ -134,6 +157,11 @@
 - (NSString *)itemArchivePath {
     NSString *documentDirectory = [self documentDirectory];
     return [documentDirectory stringByAppendingPathComponent:@"items.archive"];
+}
+
+- (NSString *)itemBigwinArchivePath {
+    NSString *documentDirectory = [self documentDirectory];
+    return [documentDirectory stringByAppendingPathComponent:@"itemsBigwin.archive"];
 }
 
 - (NSString *)userArchivePath {

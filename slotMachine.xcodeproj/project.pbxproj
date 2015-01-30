@@ -92,6 +92,7 @@
 		58BA6E701A3D3D83005E9F3B /* btnBuyGold@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 58BA6E501A3D3D83005E9F3B /* btnBuyGold@2x.png */; };
 		58BA6E711A3D3D83005E9F3B /* icGold@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 58BA6E511A3D3D83005E9F3B /* icGold@2x.png */; };
 		58C358421A6428C20070A35A /* NO_DATA.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 58C358411A6428C20070A35A /* NO_DATA.jpg */; };
+		58D8C6021A7BFB73000A790F /* LCItemBigwin.m in Sources */ = {isa = PBXBuildFile; fileRef = 58D8C6011A7BFB73000A790F /* LCItemBigwin.m */; };
 		58E3B3231A46F7C1007C8EB5 /* Default.plist in Resources */ = {isa = PBXBuildFile; fileRef = 58E3B3221A46F7C1007C8EB5 /* Default.plist */; };
 		58EBA3111A657C480019DAB1 /* LCShippingAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 58EBA3101A657C480019DAB1 /* LCShippingAddress.m */; };
 		58EBA3131A6581420019DAB1 /* Oswald-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 58EBA3121A6581420019DAB1 /* Oswald-Bold.ttf */; };
@@ -244,6 +245,8 @@
 		58BA6E501A3D3D83005E9F3B /* btnBuyGold@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btnBuyGold@2x.png"; sourceTree = "<group>"; };
 		58BA6E511A3D3D83005E9F3B /* icGold@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icGold@2x.png"; sourceTree = "<group>"; };
 		58C358411A6428C20070A35A /* NO_DATA.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = NO_DATA.jpg; sourceTree = "<group>"; };
+		58D8C6001A7BFB73000A790F /* LCItemBigwin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCItemBigwin.h; sourceTree = "<group>"; };
+		58D8C6011A7BFB73000A790F /* LCItemBigwin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCItemBigwin.m; sourceTree = "<group>"; };
 		58E3B31F1A46E140007C8EB5 /* LCNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCNetwork.h; sourceTree = "<group>"; };
 		58E3B3221A46F7C1007C8EB5 /* Default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Default.plist; sourceTree = "<group>"; };
 		58EBA30F1A657C480019DAB1 /* LCShippingAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCShippingAddress.h; sourceTree = "<group>"; };
@@ -361,6 +364,8 @@
 				6E30250F1A4D01A3000A9A1C /* LCUser.m */,
 				6E8B877A1A5E32AF002B960D /* LCItem.h */,
 				6E8B877B1A5E32AF002B960D /* LCItem.m */,
+				58D8C6001A7BFB73000A790F /* LCItemBigwin.h */,
+				58D8C6011A7BFB73000A790F /* LCItemBigwin.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -759,6 +764,7 @@
 				6EAE183B1A4BF00800329A2F /* LCTablePurchase.m in Sources */,
 				6EE9C4B61A4AB87A001E18E7 /* LCCheckVersion.m in Sources */,
 				6E5BD1361A71F9D8004DA371 /* IAPHelper.m in Sources */,
+				58D8C6021A7BFB73000A790F /* LCItemBigwin.m in Sources */,
 				6EE9C4B01A4AAB0C001E18E7 /* LCSetting.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A8B877DB4F63C8412DE9EE51"
+               BlueprintIdentifier = "AD7FDC991B411F7A5218B549"
                BuildableName = "libPods-slotMachine-SSKeychain.a"
                BlueprintName = "Pods-slotMachine-SSKeychain"
                ReferencedContainer = "container:Pods.xcodeproj">

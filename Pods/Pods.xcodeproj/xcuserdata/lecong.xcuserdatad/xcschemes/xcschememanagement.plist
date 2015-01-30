@@ -19,6 +19,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-slotMachine-SSZipArchive.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-slotMachine-SVProgressHUD.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -32,27 +37,32 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>1C4133AB8304D2FF5B019E5D</key>
+		<key>478DE3C5EBC3660C2818227F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>58D21C2588F6204C1C0BD841</key>
+		<key>58B81102B9DFC1AF1AF25F64</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A8B877DB4F63C8412DE9EE51</key>
+		<key>802B06618C53AD4531B2320D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E678412DB3C68903BB818B8D</key>
+		<key>AD7FDC991B411F7A5218B549</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E9D475D01201ACECE2E9487B</key>
+		<key>B5FF7998B69BE05F36435770</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CF8EC8AA3BDA5C7D5DEFC54A</key>
 		<dict>
 			<key>primary</key>
 			<true/>

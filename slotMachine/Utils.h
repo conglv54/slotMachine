@@ -13,7 +13,7 @@
 #define WIDTH_SCRENE UIScreen mainScreen].applicationFrame.size.width
 
 static const float OBJECT_VELOCITY = 500;
-static const float MAX_VELOCITY = 1000;
+static const float MAX_VELOCITY = 800;
 
 static inline CGPoint CGPointAdd(const CGPoint a, const CGPoint b)
 {

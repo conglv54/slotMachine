@@ -35,7 +35,7 @@
         items = [[LCFileManager shareInstance]getItems];
         
         for (int i = 0; i < 6; i ++) {
-            CGPoint position = CGPointMake(102.5+75*index, 62 + (65*i));
+            CGPoint position = CGPointMake(102.5+75*index, 62 + (67*i));
             SKSpriteNode *node = [self generateObjectWithPosition:position andImageName:[self imageNameRandom]];
             [_arrCell addObject:node];
         }
@@ -73,7 +73,7 @@
     note.position = position;
     note.anchorPoint = CGPointMake(0, 0);
     note.name = @"Cell";
-    note.size = CGSizeMake(72, 65);
+    note.size = CGSizeMake(72, 67);
     
     return note;
 }
@@ -152,9 +152,9 @@
     if (isGenResult) {
         for (SKSpriteNode *node in _arrCell) {
             if ([node.name isEqualToString:@"Result"]) {
-                if (node.position.y <= 132) {
-                    CGFloat distance = 132 - node.position.y;
-                    [node setPosition:CGPointMake(node.position.x, 132)];
+                if (node.position.y <= 133) {
+                    CGFloat distance = 133 - node.position.y;
+                    [node setPosition:CGPointMake(node.position.x, 133)];
                     
                     for (SKSpriteNode *node in _arrCell) {
                         if ([node.name isEqualToString:@"Cell"]) {

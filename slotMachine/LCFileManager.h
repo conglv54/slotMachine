@@ -29,11 +29,18 @@
 - (void)setUserWithFreeCoin:(int) freeCoin andTotalCoin:(int) totalCoin;
 - (HAUser *)getUser;
 
+- (void)setFreeTime:(CGFloat)time;
+- (CGFloat)getFreeTime;
 
 // Item
 
 - (void)setItems:(NSArray *)items;
 - (NSArray *)getItems;
+
+/// Item Path
+
+- (void)setItemsBigwin:(NSArray *)items;
+- (NSArray *)getItemsBigwin;
 
 // document file path
 

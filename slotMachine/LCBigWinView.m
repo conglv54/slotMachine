@@ -7,7 +7,7 @@
 //
 
 #import "LCBigWinView.h"
-#import "LCItem.h"
+#import "LCItemBigwin.h"
 #import "LCFileManager.h"
 
 @implementation LCBigWinView {
@@ -38,9 +38,9 @@
 }
 
 - (NSString *)imageNameWittItemID:(int)item_id {
-    items = [[LCFileManager shareInstance]getItems];
+    items = [[LCFileManager shareInstance]getItemsBigwin];
     
-    for (LCItem *item in items) {
+    for (LCItemBigwin *item in items) {
         if (item.item_id == item_id) {
             return item.name;
         }
