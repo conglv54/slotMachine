@@ -19,8 +19,8 @@ NSString *const METHOD_DELETE = @"DELETE";
 
 NSString *const DOWNLOAD = @"DOWNLOAD";
 
-NSString *const HOST_URL_API = @"http://10.0.0.13:8002/api/jackpot";
-NSString *const HOST_URL = @"http://10.0.0.13:8002";
+NSString *const HOST_URL_API = @"http://localhost:8000/api/jackpot";
+NSString *const HOST_URL = @"http://localhost:8000";
 
 NSString *const kSession = @"app-session-id";
 
@@ -116,11 +116,9 @@ int const kSucess = 0;
     
     NSURLSessionDownloadTask *downloadTask = [manager downloadTaskWithRequest:request progress:nil destination:^NSURL *(NSURL *targetPath, NSURLResponse *response) {
         NSURL *documentsDirectoryURL = [[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:NO error:nil];
-//        _blockSucess([documentsDirectoryURL URLByAppendingPathComponent:[response suggestedFilename]]);
         return [documentsDirectoryURL URLByAppendingPathComponent:[response suggestedFilename]];
         
-    } completionHandler:^(NSURLResponse *response, NSURL *filePath, NSError *error) {
-        
+    } completionHandler:^(NSURLResponse *response, NSURL *filePath, NSError *error) {        
         _blockSucess(filePath);
         NSLog(@"File downloaded to: %@", filePath);
         

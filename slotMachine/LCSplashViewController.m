@@ -103,15 +103,17 @@
 //            [self saveImage:img withFileName:item.name];
 //        }
 //        dispatch_async(dispatch_get_main_queue(), ^{
-            [self presentMainViewController];
+//            [self presentMainViewController];
 //        });
 //    });
     LCDownloadTask *downloadTask = [[LCDownloadTask alloc] init];
     downloadTask.URL = url;
     [downloadTask requestWithBlockSucess:^(id sucess) {
-        [self presentMainViewController];
-        NSLog(@"%@", sucess);
-        [SSZipArchive unzipFileAtPath:sucess toDestination:[[LCFileManager shareInstance]documentDirectory]];
+        if(sucess) {
+            [self presentMainViewController];
+            NSLog(@"%@", sucess);
+            [SSZipArchive unzipFileAtPath:sucess toDestination:[[LCFileManager shareInstance]documentDirectory]];            
+        }
     } andBlockFailure:^(id error) {
         
     }];
