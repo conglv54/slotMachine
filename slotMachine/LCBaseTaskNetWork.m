@@ -19,8 +19,8 @@ NSString *const METHOD_DELETE = @"DELETE";
 
 NSString *const DOWNLOAD = @"DOWNLOAD";
 
-NSString *const HOST_URL_API = @"http://navademo.com/jackpot-vn/public/api/jackpot";
-NSString *const HOST_URL = @"http://navademo.com/jackpot-vn";
+NSString *const HOST_URL_API = @"http://localhost:8000/api/jackpot";
+NSString *const HOST_URL = @"http://localhost:8000";
 
 NSString *const kSession = @"app-session-id";
 
@@ -111,7 +111,7 @@ int const kSucess = 0;
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
     
-    NSURL *URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/%@", HOST_URL, [self URL]]];
+    NSURL *URL = [NSURL URLWithString:[self URL]];
     NSURLRequest *request = [NSURLRequest requestWithURL:URL];
     
     NSURLSessionDownloadTask *downloadTask = [manager downloadTaskWithRequest:request progress:nil destination:^NSURL *(NSURL *targetPath, NSURLResponse *response) {

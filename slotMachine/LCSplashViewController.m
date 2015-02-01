@@ -82,7 +82,7 @@
             [fileManager setItems:checkVersion.items];
             [fileManager setItemsBigwin:checkVersion.itemsBigwin];
             [fileManager setFreeTime:checkVersion.time];
-            [self loadItemImage:checkVersion.items];
+            [self loadItemImage:checkVersion.pathFile];
         } else {
             [self presentMainViewController];            
         }
@@ -94,30 +94,32 @@
     }];    
 }
 
-- (void)loadItemImage:(NSArray *)items {
-    dispatch_queue_t myQueue = dispatch_queue_create("My Queue",NULL);
-    dispatch_async(myQueue, ^{
-        for (LCItem *item in items) {
-            NSString *stringName = [NSString stringWithFormat:@"%@/%@",HOST_URL, item.pathUrl];
-            NSURL *imageUrl = [NSURL URLWithString:stringName];
-            UIImage *img = [UIImage imageWithData:[NSData dataWithContentsOfURL:imageUrl]];
-            [self saveImage:img withFileName:item.name];
-        }
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self presentMainViewController];
-        });
-    });
-//    LCDownloadTask *downloadTask = [[LCDownloadTask alloc] init];
-//    downloadTask.URL = url;
-//    [downloadTask requestWithBlockSucess:^(id sucess) {
-//        if(sucess) {
-//            [self presentMainViewController];
-//            NSLog(@"%@", sucess);
-//            [SSZipArchive unzipFileAtPath:sucess toDestination:[[LCFileManager shareInstance]documentDirectory]];            
+- (void)loadItemImage:(NSString *)items {
+//    dispatch_queue_t myQueue = dispatch_queue_create("My Queue",NULL);
+//    dispatch_async(myQueue, ^{
+//        for (LCItem *item in items) {
+//            NSString *stringName = [NSString stringWithFormat:@"%@/%@",HOST_URL, item.pathUrl];
+//            NSURL *imageUrl = [NSURL URLWithString:stringName];
+//            UIImage *img = [UIImage imageWithData:[NSData dataWithContentsOfURL:imageUrl]];
+//            [self saveImage:img withFileName:item.name];
 //        }
-//    } andBlockFailure:^(id error) {
-//        
-//    }];
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            [self presentMainViewController];
+//        });
+//    });
+    LCDownloadTask *downloadTask = [[LCDownloadTask alloc] init];
+    downloadTask.URL = items;
+    [downloadTask requestWithBlockSucess:^(id sucess) {
+        if(sucess) {
+            NSURL *url = sucess;
+            [self presentMainViewController];
+            NSLog(@"%@", sucess);
+            [SSZipArchive unzipFileAtPath:[url path] toDestination:[[LCFileManager shareInstance]documentDirectory]];
+            [[NSFileManager defaultManager] removeItemAtPath:[url path] error:nil];
+        }
+    } andBlockFailure:^(id error) {
+        
+    }];
 }
 
 -(void)saveImage:(UIImage *)image withFileName:(NSString *)imageName{
