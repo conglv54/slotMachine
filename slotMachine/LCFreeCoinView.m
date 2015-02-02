@@ -41,6 +41,7 @@
     
     UIImage *bgImage = [UIImage imageNamed:@"btnClaim"];
     UIButton *btnClaim = [self buttonWithFrame:CGRectMake(CGRectGetMidX(_frame) - bgImage.size.width/2, 125, bgImage.size.width, bgImage.size.height) andBGImage:bgImage];
+    [btnClaim addTarget:self action:@selector(getFreeCoin) forControlEvents:UIControlEventTouchUpInside];
     
     UIImage *bgImgeClose = [UIImage imageNamed:@"btnCloseFreeCon"];
     UIButton *btnClose = [self buttonWithFrame:CGRectMake(CGRectGetMidX(_frame) - bgImgeClose.size.width/2, 215, bgImage.size.width, bgImage.size.height)

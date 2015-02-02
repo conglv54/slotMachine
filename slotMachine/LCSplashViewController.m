@@ -41,7 +41,7 @@
             [fileManager setIsFirstLaunch:isFirstLaunch];
             [fileManager saveSessionID:sucess[@"session_id"]];
             
-            int totalCoin = [sucess[@"major_coins_total"] intValue] + [sucess[@"free_coins_total"] intValue];
+            int totalCoin = [sucess[@"major_coins_total"] intValue];
             
             [fileManager setUserWithFreeCoin:[sucess[@"free_coins_total"] intValue] andTotalCoin:totalCoin];
             [self checkVersion];

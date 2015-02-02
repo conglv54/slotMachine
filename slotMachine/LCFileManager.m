@@ -109,7 +109,7 @@
 // Item Bigwin
 
 - (NSArray *)getItemsBigwin {
-    NSString *path = [self itemArchivePath];
+    NSString *path = [self itemBigwinArchivePath];
     return [NSKeyedUnarchiver unarchiveObjectWithFile:path];
 }
 

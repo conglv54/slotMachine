@@ -360,7 +360,7 @@
     lblTotalCoin.text = [Utils stringFromDouble:_user.totalCoin];
 }
 
-- (void)didStop:(NSInteger)coin andBigWin:(BOOL)isBigWin{
+- (void)didStop:(NSInteger)coin andBigWin:(BOOL)isBigWin winType:(int)wineType{
     
     btnBuy.enabled = YES;
     btnFreeCoin.enabled = YES;
@@ -368,7 +368,7 @@
     btnPayout.enabled = YES;
     
     if (isBigWin) {
-        bigWinView = [[LCBigWinView alloc] initWithWineType:1 andFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+        bigWinView = [[LCBigWinView alloc] initWithWineType:wineType andFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
         [self.view addSubview:bigWinView];
         
         __weak typeof(self) weakSelf = self;

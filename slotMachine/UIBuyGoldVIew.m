@@ -53,7 +53,7 @@
             
             LCPurChaseTask *purchaseTask = [[LCPurChaseTask alloc] initWithPriceID:_productID andReceipt:requestData];
             [purchaseTask requestWithBlockSucess:^(id sucess) {
-                int totalCoin = [sucess[@"major_coins_total"] intValue] + [sucess[@"free_coins_total"] intValue];
+                int totalCoin = [sucess[@"major_coins_total"] intValue];
                 [[LCFileManager shareInstance] setUserWithFreeCoin:[sucess[@"free_coins_total"] intValue] andTotalCoin:totalCoin];
             } andBlockFailure:^(id error) {
                 

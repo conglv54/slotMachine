@@ -22,6 +22,7 @@
     
     CGPoint locationBegin;
     int index;
+    int winType;
     NSInteger coinWin;
     
     BOOL isBigWin;
@@ -207,6 +208,7 @@
         NSArray *results = spin.arrResult;
         coinWin = spin.coin;
         isBigWin = spin.isBigWin;
+        winType = spin.winType;
         
         for (int i = 0 ; i < arrVerticalCell.count; i ++) {
             LCVeticalCell *verticalCell = arrVerticalCell[i];
@@ -233,8 +235,8 @@
 }
 
 - (void)stop {
-    if ([_gameDelegate respondsToSelector:@selector(didStop:andBigWin:)]) {
-        [_gameDelegate didStop:coinWin andBigWin:isBigWin];
+    if ([_gameDelegate respondsToSelector:@selector(didStop:andBigWin:winType:)]) {
+        [_gameDelegate didStop:coinWin andBigWin:isBigWin winType:winType];
     }
 }
 

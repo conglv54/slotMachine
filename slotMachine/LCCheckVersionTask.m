@@ -9,6 +9,7 @@
 #import "LCCheckVersionTask.h"
 #import "LCCheckVersion.h"
 #import "LCItem.h"
+#import "LCItemBigwin.h"
 
 @implementation LCCheckVersionTask
 
@@ -52,7 +53,19 @@
         }
     }
     
+    NSDictionary *dictItemsBigwin = response[@"items_set"];
+    NSMutableArray *itemsBigwin = [NSMutableArray new];
+    if (![dictItemsBigwin isEqual:[NSNull null]]) {
+        for (NSString *itemId in dictItemsBigwin.allKeys) {
+            LCItemBigwin *item = [LCItemBigwin new];
+            item.item_id = [itemId intValue];
+            item.name = [dictItems[itemId] lastPathComponent];
+            [itemsBigwin addObject:item];
+        }
+    }
+    
     checkVersion.items = items;
+    checkVersion.itemsBigwin = itemsBigwin;
     checkVersion.version = response[kVersion][@"value"];
     checkVersion.isUpdate = [response[@"is_update"] boolValue];
     checkVersion.setting = dictSetting;
