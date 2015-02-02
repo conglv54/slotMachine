@@ -106,6 +106,8 @@
     
     CGFloat time = hour *60 * 60 + minute * 60 + second;
     
+    [[LCFileManager shareInstance] setFreeTime:time];
+
     [_lblCountDownTime setCountDownTime:time];
     [_lblCountDownTime sizeToFit];
     [_lblCountDownTime start];

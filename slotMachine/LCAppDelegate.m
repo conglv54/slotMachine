@@ -15,6 +15,7 @@
 {
     
     [self CopyFile];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
     return YES;
 }

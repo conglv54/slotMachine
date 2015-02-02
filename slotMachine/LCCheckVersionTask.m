@@ -64,6 +64,14 @@
         }
     }
     
+    CGFloat time;
+    NSDictionary *dictTime = response[@"time"][@"next_time"];
+    CGFloat hour = [dictTime[@"hour"] floatValue];
+    CGFloat minute = [dictTime[@"minute"] floatValue];
+    CGFloat second = [dictTime[@"second"] floatValue];
+    time = hour  * 3600 + minute * 60 + second;
+    
+    checkVersion.time = time;
     checkVersion.items = items;
     checkVersion.itemsBigwin = itemsBigwin;
     checkVersion.version = response[kVersion][@"value"];
